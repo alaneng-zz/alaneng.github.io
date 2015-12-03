@@ -8,28 +8,38 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
   <body>
-    <div class='container'>
-      <div class='col-sm-3'></div>
-      <div class='col-sm-6'></div>
-        <div class='jumbotron'>
-          <h1><span class='jumbo'>hey alan!</span></h1>
-          <p>new sandbox for learning js :)</p>
+    <div class='container fluid'>
+      <!-- <div class='row'> -->
+        <div class='col-sm-3'></div>
+        <div class='col-sm-6'></div>
+
+          <div class='jumbotron'>
+            <h1><span class='jumbo'>hey alan!!</span></h1>
+            <p>new sandbox for learning js :)</p>
+          </div>
+
+          <div class='col-sm-6'>
+            <ul class='list-group'>
+              <li class='list-group-item'>
+                <h4>Here's the link for jquery:</h4>
+                <a id='getHtml' href="http://jquery.com/">jQuery - click me!</a>
+              </li>
+              <li class='list-group-item'>
+                This is another item
+              </li>
+              <li id='btn' class='list-group-item'>
+                Hover to remove that text below!
+              </li>
+            </ul>
+          </div>
+    
+          <div class='col-sm-6'>
+            <div id='get'></div>
+          </div>
+
         </div>
-        <ul class='list-group'>
-          <li class='list-group-item'>
-            <h4>Here's the link for jquery:</h4>
-            <a id='getHtml' href="http://jquery.com/">jQuery - click me!</a>
-          </li>
-          <li class='list-group-item'>
-            This is another item
-          </li>
-          <li id='btn' class='list-group-item'>
-            Hover to remove that text below!
-          </li>
-        </ul>
-        <div id='get'></div>
-      </div>
-      <div class='col-sm-3'></div>
+        <div class='col-sm-3'></div>
+      <!-- </div> -->
     </div>
     <script src='learn_jquery.js'></script>
   </body>

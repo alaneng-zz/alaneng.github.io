@@ -1,12 +1,15 @@
 p {
-  color: skyblue;
-  -webkit-text-stroke-width: .5px;
-  -webkit-text-stroke-color: black;
   font-size: 20px;
 }
 
 a.bolden {
   font-weight: bold;
+}
+
+.jumbo {
+  color: black;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
 }
 
 .jumbo:hover {
