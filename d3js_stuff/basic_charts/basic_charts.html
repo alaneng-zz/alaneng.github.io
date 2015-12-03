@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+  <style>
+    h2, text {
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    .axis {
+      font-family: arial;
+      font-size: 0.6em;
+    }
+
+    path {
+      fill: none;
+      stroke: black;
+      stroke-width: 2px;
+    }
+
+    .tick {
+      fill: none;
+      stroke: black;
+    }
+
+    circle {
+      opacity: 0.4;
+      stroke: none;
+    }
+    
+    .line_plot {
+      fill: none;
+      stroke: #4eb0bb;
+      stroke-width: 1px;
+    }
+  </style>
+  <script type="text/javascript">
+    function home(d){
+      if (d['home'] === d['team1'] || d['home'] === d['team2']) {
+        return true
+      } else {
+        return false
+      }
+    };
+
+    function draw(data) {
+    
+    /*
+      D3.js setup code
+    */
+
+        "use strict";
+        var margin = 75,
+            multiplier = 2,
+            width = 1400 - margin,
+            height = 600 - margin;
+
+        var radius = 3;
+        var color = "orange";
+
+        d3.select("body")
+          .append('h2')
+          .text('World Cup Attendance');
+
+        var svg = d3.select("body")
+                    .append("svg")
+                      .attr("width", width + margin)
+                      .attr("height", height + margin)
+                    .append('g')
+                        .attr('class','chart');
+
+    /*
+      Dimple.js Chart construction code
+    */
+
+        d3.select('svg')         // produce the svg element not bound to any data
+          .selectAll('circle')   // empty selection. instantiate a placeholder for the oncoming data
+          .data(data)            // bind the data to the DOM elements on the page (this case, circles). returns empty placeholders for each data that hasn't been bound already 
+          .enter()               // for the data that didn't end up binding to an existing DOM element, select the placeholders. returns an array of objects, whose __data__ property is one row for each row in data
+            .append('circle')    // append <circle /> to each row of data that hadn't already been bounded (in .data(data))
+
+        // extent keeps track of the min and max it sees as it passes d in data
+        // x-axis -- date column
+        var time_extent = d3.extent(data, function(d) {
+          return d['date'];
+        });
+
+        // y-axis -- attendance
+        var count_extent = d3.extent(data, function(d){
+          return d['attendance'];
+        });
+
+        // d3.time module then call scale method within, because this is a time var
+        var time_scale = d3.time.scale()
+          .range([margin, width]) // leftmost to rightmost
+          .domain(time_extent);
+
+        // d3.scale method directly because d3 deals with int
+        var count_scale = d3.scale.linear()
+          .range([height, margin]) // min is height (bottom), max is margin (top)
+          .domain(count_extent)
+
+        // create d3 axis object from time_scale for x-axis
+        var time_axis = d3.svg.axis()
+          .scale(time_scale) // tell d3 what the range of the axis represents
+          .ticks(d3.time.years, 2); // every 2 years
+
+        // create d3 axis object from count_scale for y-axis
+        var count_axis = d3.svg.axis()
+          .scale(count_scale)
+          .orient('left');
+
+        d3.select('svg')
+          .append('g')
+          .attr('class', 'x axis')
+          .attr('transform', 'translate(0,' + height + ')')
+          .call(time_axis);
+
+        d3.select('svg')
+          .append('g')
+          .attr('class', 'y axis')
+          .attr('transform', 'translate(' + margin + ',0)')
+          .call(count_axis);
+
+        // debugger
+
+        d3.selectAll('circle')
+          .attr('cx', function(d){ // cx is center x. cx = what function(d) returns
+            return time_scale(d['date']); // time_scale converts date to pixel position
+          })
+          .attr('cy', function(d){
+            return count_scale(d['attendance']);
+          })
+          .attr('r', function(d){
+            return home(d) ? radius * multiplier : radius
+          })
+          .attr('fill', function(d){
+            return home(d) ? 'green' : color
+          })
+
+        var legend = svg.append('g')
+                      .attr('class', 'legend')
+                      .attr('transform', 'translate(' + (width-100) + ',' + 20 + ')')
+                      .selectAll('g')
+                      .data(['Home team', 'Others'])
+                      .enter().append('g');
+
+        // creates the circle
+        legend.append('circle')
+          .attr('cy', function(d, i) { // i is index
+            return i * 30;
+          })
+          .attr('r', function(d) {
+            return d == 'Home team' ? radius * multiplier : radius
+          })
+          .attr('fill', function(d) {
+            return d == 'Home team' ? 'green' : color
+          });
+
+        // adds the text
+        legend.append('text')
+          .attr('y', function(d, i) {
+            return i * 30 + 5
+          })
+          .attr('x', radius * 5)
+          .text(function(d) {
+            return d;
+         });
+
+  };
+
+  </script>
+</head>
+<body>
+  <script type="text/javascript">
+
+  // example date: 27-05-1934 (16:00 h)
+  format = d3.time.format('%d-%m-%Y (%H:%M h)');
+
+  d3.tsv("world_cup_geo.tsv", function(d){
+    d['date'] = format.parse(d['date']);
+    d['attendance'] = +d['attendance'] // converts string to int (d['attendance'] is string)
+    return d;
+  }, draw);
+
+  </script>
+</body>
+</html>

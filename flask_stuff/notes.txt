@@ -1,0 +1,13 @@
+Learnings with Flask & Bootstrap:
+
+Bootstrap is simply a folder with css files
+In order to get Bootstrap to work, link it in your <head>:
+
+  <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.css" />
+
+You must have it in /static folder in order for Flask to recognize that filepath and serve it
+
+To run Bootstrap, simply indicate the class name in your html:
+  <div class="container">
+    yoyo
+  </div>

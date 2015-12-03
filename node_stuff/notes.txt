@@ -1,0 +1,15 @@
+Node is a library you're already using
+
+When you write your web app, you're using node.js because the very fact that you're composing javascript outside the browser is something that node.js provides. 
+
+You can start a web server by writing this:
+
+var http = require('http');
+
+var server = http.createServer(function(request, response){
+  console.log('got a request!');
+  response.write('heyyy');
+  response.end();
+});
+
+server.listen(3000)
