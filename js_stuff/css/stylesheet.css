@@ -8,8 +8,8 @@ a.bolden {
 
 .jumbo {
   color: black;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: white;
+/*  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;*/
 }
 
 .jumbo:hover {
