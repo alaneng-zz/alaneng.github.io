@@ -40,7 +40,20 @@ var Cities = React.createClass({
 
 var SFStats = React.createClass({
 
+  handleData: function() {
+    debugger
+  },
+
+  getData: function() {
+    $.ajax({
+      url: 'http://www.bayareabikeshare.com/stations/json'
+    }).then(this.handleData)
+  },
+
   render: function() {
+
+    this.getData();
+
     var stations = ['', 'Powell', 'Civic Center', 'Embarcadero', 'Caltrain'];
     var bikes_docks = ['Bike Docks', '25', '25', '30', '50'];
     var bikes_available = ['Bikes Available', '12', '8', '15', '4'];
