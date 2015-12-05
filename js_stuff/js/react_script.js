@@ -43,7 +43,7 @@ var SFStats = React.createClass({
   render: function() {
     var stations = ['', 'Powell', 'Civic Center', 'Embarcadero', 'Caltrain'];
     var bikes_docks = ['Bike Docks', '25', '25', '30', '50'];
-    var bikes_available = ['Bikes Available', '12', '8', '15', '3'];
+    var bikes_available = ['Bikes Available', '12', '8', '15', '4'];
 
     var header = stations.map(station => 
       <th className='placeCenter'>{station}</th>
