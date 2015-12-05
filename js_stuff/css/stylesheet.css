@@ -1,17 +1,26 @@
-p {
-  font-size: 20px;
-}
 
-a.bolden {
-  font-weight: bold;
-}
 
 .jumbo {
-  color: black;
-/*  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: white;*/
+  background: #000 center center;
+  background-image: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)), url("cover5.JPG");
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  overflow: hidden;
+  /*opacity: 0.6;*/
+  /*-webkit-text-stroke-width: 3px;*/
+  /*-webkit-text-stroke-color: black;*/
 }
 
-.jumbo:hover {
-  color: #3b5998;
-};
+.tablebg {
+  background-color: white;
+}
+
+.placeCenter {
+  text-align: center;
+}
+
+.main {
+  background-color: #eee;
+}
