@@ -41,12 +41,17 @@ var Cities = React.createClass({
 var SFStats = React.createClass({
 
   handleData: function() {
+    console.log('hello')
     debugger
   },
 
   getData: function() {
     $.ajax({
-      url: 'http://www.bayareabikeshare.com/stations/json'
+      url: 'http://www.bayareabikeshare.com/stations/json',
+      type: 'POST',
+      data: '',
+      crossDomain: true,
+      dataType: 'json'
     }).then(this.handleData)
   },
 
