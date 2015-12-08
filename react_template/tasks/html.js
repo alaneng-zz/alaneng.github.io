@@ -11,7 +11,7 @@ gulp.task('html', function(){
   delete require.cache[require.resolve('../components/application.js')];
 
   var Application = require("../components/application");
-  var application = React.renderToStaticMarkup(<Application/>);
+  var application = React.renderToStaticMarkup(<Application />);
   var html = 
   `
     <!DOCTYPE html>

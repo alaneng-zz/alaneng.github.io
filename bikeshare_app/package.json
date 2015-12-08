@@ -1,0 +1,44 @@
+{
+  "name": "react_template",
+  "version": "1.0.0",
+  "description": "Template for React apps with Flask backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "www.google.com"
+  },
+  "author": "alan",
+  "license": "alan!",
+  "bugs": {
+    "url": "google.com"
+  },
+  "homepage": "alaneng.github.io",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.25",
+    "babel-loader": "^5.3.2",
+    "bootstrap": "^3.3.5",
+    "css-loader": "^0.12.1",
+    "del": "^1.1.1",
+    "gulp": "^3.9.0",
+    "gulp-file": "^0.2.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-webpack": "^1.3.2",
+    "react-file-input": "^0.1.8",
+    "require-dir": "^0.3.0",
+    "style-loader": "^0.12.2",
+    "webpack": "^1.12.2"
+  },
+  "dependencies": {
+    "babel": "^5.8.23",
+    "moment": "^2.10.2",
+    "react": "^0.14.0",
+    "react-bootstrap": "^0.27.0",
+    "react-dom": "^0.14.0",
+    "scroll-into-view": "^1.5.0",
+    "underscore": "^1.8.3"
+  }
+}
