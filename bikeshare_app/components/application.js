@@ -24,7 +24,8 @@ var Application = React.createClass({
 
   getInitialState: function() {
     return {
-      json: [] // must be [] so [].map works
+      json: [], // must be [] so [].map works
+      city: 'San Francisco'
     }
   },
 
@@ -42,6 +43,10 @@ var Application = React.createClass({
     this.setState({json: data.data})
   },
 
+  handleCityClick: function(city) {
+    this.setState({city: city})
+  },
+
   render: function(){
     return (  
       <Grid fluid>
@@ -50,10 +55,10 @@ var Application = React.createClass({
           <p>statistics of bikes around the bay</p>
         </Jumbotron>
         <div className='text-center'>
-          <CityMenu json={this.state.json} />
+          <CityMenu json={this.state.json} handleCityClick={this.handleCityClick} />
         </div>
         <br></br>
-        <DataTable json={this.state.json} />
+        <DataTable json={this.state.json} city={this.state.city} />
       </Grid>        
     );
   }  
