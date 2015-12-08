@@ -7,6 +7,7 @@ var NavItem = require("react-bootstrap/lib/NavItem");
 var Row = require("react-bootstrap/lib/Row");
 var Col = require("react-bootstrap/lib/Col");
 var Grid = require("react-bootstrap/lib/Grid");
+var ButtonGroup = require("react-bootstrap/lib/ButtonGroup");
 var Button = require("react-bootstrap/lib/Button");
 var Input = require("react-bootstrap/lib/Input");
 var Tabs = require('react-bootstrap/lib/Tabs');
@@ -17,6 +18,7 @@ var Jumbotron = require('react-bootstrap/lib/Jumbotron');
 var _ = require('underscore');
 
 var DataTable = require('./data-table');
+var CityMenu = require('./city-menu');
 
 var Application = React.createClass({
 
@@ -26,7 +28,7 @@ var Application = React.createClass({
     }
   },
 
-  componentWillMount: function() {
+  componentDidMount: function() { // always use Did for data fetching
     $.ajax({
       url: 'getData',
       dataType: 'json',
@@ -37,7 +39,6 @@ var Application = React.createClass({
   },
 
   handleGetData: function(data) {
-    console.log('2')
     this.setState({json: data.data})
   },
 
@@ -48,6 +49,10 @@ var Application = React.createClass({
           <h1>bay area bike share</h1>
           <p>statistics of bikes around the bay</p>
         </Jumbotron>
+        <div className='text-center'>
+          <CityMenu json={this.state.json} />
+        </div>
+        <br></br>
         <DataTable json={this.state.json} />
       </Grid>        
     );

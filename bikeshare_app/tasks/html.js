@@ -2,6 +2,7 @@ var plugins = require("gulp-load-plugins")();
 var gulp = require("gulp");
 var React = require("react");
 var del = require("del");
+var ReactDOMServer = require('react-dom/server')
 
 gulp.task('css', function() {
   return gulp.src('stylesheets/bootstrap.min').pipe(gulp.dest('static'));
@@ -11,7 +12,7 @@ gulp.task('html', function(){
   delete require.cache[require.resolve('../components/application.js')];
 
   var Application = require("../components/application");
-  var application = React.renderToStaticMarkup(<Application/>);
+  var application = ReactDOMServer.renderToStaticMarkup(<Application/>);
   var html = 
   `
     <!DOCTYPE html>
@@ -31,7 +32,7 @@ gulp.task('html', function(){
       </body>
     </html>
   `;
-
+  console.log('in html5')
   return plugins.file('index.html', html, {src: true}).pipe(gulp.dest('static'));
 });
 
