@@ -55,7 +55,7 @@ var Application = React.createClass({
 
   render: function(){
     return (  
-      <Grid fluid className='marginstuff'>
+      <Grid fluid>
         <Jumbotron>
           <h1>bay area bike share</h1>
           <p>statistics of bikes around the bay</p>
