@@ -9,19 +9,20 @@ module.exports = React.createClass({
     );
 
     var stationsList = stations.map(item =>
-      <ListGroupItem key={item.id}>
+      <li key={item.id}>
         <h4>{item.stationName}</h4>
-
         Available bikes: {item.availableBikes}
         <br></br>
         Available docks: {item.availableDocks}
         <br></br>
         Total docks: {item.totalDocks}
-      </ListGroupItem>
+      </li>
     )
 
     return (
-      <ListGroup>{stationsList}</ListGroup>
+      <ul className='stations'>
+        {stationsList}
+      </ul>
     )
     
   }
