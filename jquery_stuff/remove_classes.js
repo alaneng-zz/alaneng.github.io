@@ -1,5 +1,9 @@
 // start up jQuery
-(function(){var jQueryVersion="1";var a=document.createElement("script");a.src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.js";a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);})()
+(function(){var jQueryVersion="1";var a=document.createElement("script");a.src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.js";a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);})();
+// all functions at once
+$('div.correct').removeClass('correct'); $('img.questioncorrectnessicon').remove(); $('input[type=radio]').removeAttr('checked'); $('div.outcome').remove() ; $('div.incorrect').removeClass('incorrect')
+
+
 
 // remove green background for correct answers
 $('div.correct').removeClass('correct')
