@@ -1,5 +1,6 @@
 ul.stations li {
   width: 200px;
+  height: 180px;
   display: inline-block;
   vertical-align: top;
 }
