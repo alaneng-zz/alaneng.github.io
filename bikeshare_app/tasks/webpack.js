@@ -20,12 +20,14 @@ var webpackConfig = {
 };
 
 gulp.task('javascript', function() {
+  console.log('gulp/javascript')
   return gulp.src('./components/**/*.js')
     .pipe(plugins.webpack(webpackConfig))
     .pipe(gulp.dest('static'));
 });
 
 gulp.task('watch-javascript', function() {
+  console.log('gulp/watch-javascript')
   return gulp.src('./components/**/*.js')
     .pipe(plugins.webpack(Object.assign({}, webpackConfig, {watch: true})))
     .pipe(gulp.dest('static'));

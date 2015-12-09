@@ -9,7 +9,7 @@ module.exports = React.createClass({
     );
 
     var stationsList = stations.map(item =>
-      <ListGroupItem key={item.id}>
+      <ListGroupItem key={item.id} href={'station/'+item.id.toString()}>
         <h4>{item.stationName}</h4>
         Available bikes: {item.availableBikes}
         <br></br>

@@ -10,7 +10,7 @@ gulp.task('css', function() {
 
 gulp.task('html', function(){
   delete require.cache[require.resolve('../components/application.js')];
-
+  console.log('gulp/html')
   var Application = require("../components/application");
   var application = ReactDOMServer.renderToStaticMarkup(<Application/>);
   var html = 
@@ -21,7 +21,7 @@ gulp.task('html', function(){
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="bootstrap.min.css">
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-        <title>New Application</title>
+        <title>BABS Stats</title>
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
       </head>
       <body>

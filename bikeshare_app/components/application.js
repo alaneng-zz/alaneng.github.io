@@ -1,6 +1,11 @@
 // Component declarations
 var React = require("react");
 var ReactDOM = require("react-dom");
+var ReactRouter = require('react-router');
+var HashHistory = require('react-router/lib/History');
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+
 var Navbar = require("react-bootstrap/lib/Navbar");
 var Nav = require("react-bootstrap/lib/Nav");
 var NavItem = require("react-bootstrap/lib/NavItem");
@@ -19,6 +24,7 @@ var _ = require('underscore');
 
 var DataTable = require('./data-table');
 var CityMenu = require('./city-menu');
+var View = require('./view');
 
 var Application = React.createClass({
 
@@ -56,6 +62,8 @@ var Application = React.createClass({
         </Jumbotron>
         <div className='text-center'>
           <CityMenu json={this.state.json} handleCityClick={this.handleCityClick} />
+          <h2 className='text-center'>{this.state.city}</h2>
+          <View />
         </div>
         <br></br>
         <DataTable json={this.state.json} city={this.state.city} />
@@ -64,7 +72,10 @@ var Application = React.createClass({
   }  
 });
 
-if (typeof document !== 'undefined') {
+
+
+
+if(typeof document !== 'undefined') {
   require('style!css!../stylesheets/application.css');  
   ReactDOM.render(<Application />, document.getElementById('root'));
 }
