@@ -2,9 +2,9 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 var ReactRouter = require('react-router');
-var HashHistory = require('react-router/lib/History');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
+
 
 var Navbar = require("react-bootstrap/lib/Navbar");
 var Nav = require("react-bootstrap/lib/Nav");
@@ -55,7 +55,7 @@ var Application = React.createClass({
 
   render: function(){
     return (  
-      <Grid fluid>
+      <Grid fluid className='marginstuff'>
         <Jumbotron>
           <h1>bay area bike share</h1>
           <p>statistics of bikes around the bay</p>
