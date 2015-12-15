@@ -1,0 +1,12 @@
+# begin a project, creates package.json
+npm init
+
+# creates node_modules folder with react in it
+npm install --save react@0.14.3
+npm install --save react-dom@0.14.3
+
+use webpack to transpile JSX into normal JS and spit all out
+into one file called bundle.js inside public folder
+
+
+

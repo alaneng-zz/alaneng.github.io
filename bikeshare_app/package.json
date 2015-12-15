@@ -34,10 +34,12 @@
   },
   "dependencies": {
     "babel": "^5.8.23",
+    "history": "^1.13.1",
     "moment": "^2.10.2",
     "react": "^0.14.0",
     "react-bootstrap": "^0.27.0",
     "react-dom": "^0.14.0",
+    "react-router": "^1.0.2",
     "scroll-into-view": "^1.5.0",
     "underscore": "^1.8.3"
   }
