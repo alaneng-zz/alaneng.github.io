@@ -7,12 +7,11 @@ module.exports = React.createClass({
     return (
       <Grid>
         <Jumbotron>
-          <h1>hey!</h1>
-          <Button bsStyle='primary'>click me</Button>
+          <h1>bay area bike share</h1>
+          <p>statistics of bikes around the bay</p>
         </Jumbotron>
         <h1>Hello, Alan!!</h1>
         <Button>hiya</Button><br></br>
-        <Button>heya</Button>
       </Grid>
     )
   }
