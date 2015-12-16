@@ -1,6 +1,0 @@
-eggheaad video:
-https://egghead.io/lessons/react-set-up-a-killer-react-dev-environment-quickly-with-hjs-webpack#/tab-discuss
-
-version of the egghead video:
-npm init -y
-npm i --save hjs-webpack@2.12.4
