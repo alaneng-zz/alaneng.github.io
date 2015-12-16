@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Router, { Route } from 'react-router';
-var App = require('../components/app.jsx');
+import App from '../components/app.jsx'
 
 module.exports = (
   <Route path='/' component={App}>
