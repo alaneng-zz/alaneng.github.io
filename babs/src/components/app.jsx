@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import $ from 'jquery'
 import { Button, Grid, Jumbotron } from 'react-bootstrap'
+import $ from 'jquery'
 
-module.exports = React.createClass({
+class App extends React.Component {
   render() {
     return (
       <Grid>
@@ -15,4 +15,6 @@ module.exports = React.createClass({
       </Grid>
     )
   }
-})
+}
+
+export default App;

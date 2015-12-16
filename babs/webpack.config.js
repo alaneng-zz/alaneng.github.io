@@ -14,13 +14,13 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        include: path.join(__dirname, 'src'),
+        test: /\.jsx$/,
+        include: path.join(__dirname, 'src/config'),
         loaders: ['react-hot', 'babel?stage=0'],
       },
       {
         test: /\.jsx$/,
-        include: path.join(__dirname, 'src'),
+        include: path.join(__dirname, 'src/components'),
         loaders: ['react-hot', 'babel?stage=0'],
       },
       {
