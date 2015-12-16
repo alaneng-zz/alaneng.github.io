@@ -7,7 +7,7 @@ module.exports = React.createClass({
     return (
       <Grid>
         <Jumbotron>
-          <h1>hey!!</h1>
+          <h1>hey</h1>
           <Button bsStyle='primary'>click me</Button>
         </Jumbotron>
         <h1>Hello, Alan!!</h1>
