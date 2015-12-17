@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Button, Grid, Jumbotron, Nav, NavItem,
           Navbar, Input } from 'react-bootstrap'
-import $ from 'jquery'
+import $ from 'jquery';
 
-import Home from './home.jsx'
+import Home from './home.jsx';
+import SearchGithub from './search-github.jsx';
 
 var Main = React.createClass({
   render() {
@@ -21,7 +22,7 @@ var Main = React.createClass({
         </Navbar>
         <Jumbotron>
           <h1>Github Profiler</h1>
-          <Input type='text' placeholder='Search Github username' />
+          <SearchGithub />
         </Jumbotron>
         <Grid fluid>
           {this.props.children}

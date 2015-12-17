@@ -1,21 +1,27 @@
 import React from 'react';
-import Router from 'react-router';
+import Router, { History } from 'react-router';
 
 var SearchGithub = React.createClass({
-  mixins: [Router.History],
+  mixins: [History],
+
+  handleSubmit() {
+    var username = this.usernameRef.value;
+    this.usernameRef.value = '';
+    this.history.pushState(null, 'profile/' + username) 
+  },
 
   render() {
     return (
-      <Col sm={12}>
-        <form onSubmit={this.handleSubmit}>
+      <div className="input-group">
           <input 
-            type='text' 
-            className='form-control'
-            
-            />
-        </form>
-
-      </Col>
+            type="text" 
+            className="form-control" 
+            placeholder="Search Github user..." 
+            ref={(ref) => this.usernameRef = ref} />
+          <span className='input-group-btn'>
+            <button className="btn btn-default" type="button" onClick={this.handleSubmit}>Submit</button>
+          </span>
+       </div>
     )
   }
 });

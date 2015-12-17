@@ -10,7 +10,7 @@ var UserProfile = React.createClass({
   render() {
     return (
       <Grid fluid>
-        <p>User profile</p>
+        <h3>User profile</h3>
         <p>Username: {this.props.username}</p>
         <p>Bio: {this.props.bio}</p>
       </Grid>

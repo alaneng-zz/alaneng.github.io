@@ -11,7 +11,7 @@ var Repos = React.createClass({
   render() {
     return (
       <Grid fluid>
-        <p>Repos</p>
+        <h3>Repos</h3>
         Repos: {this.props.repos}
       </Grid>
     )

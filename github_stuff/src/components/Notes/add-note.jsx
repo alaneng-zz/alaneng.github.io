@@ -7,7 +7,7 @@ var AddNote = React.createClass({
     addNote: PropTypes.func.isRequired
   },
 
-  handleSubmit: function(){
+  handleSubmit() {
     var newNote = this.note.value;
     this.note.value = '';
     this.props.addNote(newNote)
