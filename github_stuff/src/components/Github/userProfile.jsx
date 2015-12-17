@@ -4,8 +4,7 @@ import { Grid } from 'react-bootstrap';
 var UserProfile = React.createClass({
   
   propTypes: {
-    username: PropTypes.string.isRequired,
-    bio: PropTypes.object.isRequired
+    username: PropTypes.string.isRequired
   },
 
   render() {
