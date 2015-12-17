@@ -12,7 +12,7 @@ var Profile = React.createClass({
 
   getInitialState() {
     return {
-      notes: [1,2,3,4],
+      notes: [],
       bio: {},
       repos: ['a','b','c','d']
     }
