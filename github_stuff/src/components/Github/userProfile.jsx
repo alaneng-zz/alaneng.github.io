@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Grid } from 'react-bootstrap';
 
 var UserProfile = React.createClass({
+  
+  propTypes: {
+    username: PropTypes.string.isRequired,
+    bio: PropTypes.object.isRequired
+  },
+
   render() {
     return (
       <Grid fluid>

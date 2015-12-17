@@ -13,7 +13,7 @@ var Profile = React.createClass({
   getInitialState() {
     return {
       notes: [1,2,3,4],
-      bio: {name: 'Alan'},
+      bio: {},
       repos: ['a','b','c','d']
     }
   },
@@ -28,20 +28,29 @@ var Profile = React.createClass({
     this.unbind('notes');
   },
 
+  handleAddNote(newNote) {
+    // update Firebase with new note. determins how many notes, append newNote
+    this.ref.child(this.props.params.username).child(this.state.notes.length).set(newNote)
+  },
+
   render() {
     return (
       <Row>
         <Col xs={4}>
-          <UserProfile username={this.props.params.username} 
-                       bio={this.state.bio.name} />
+          <UserProfile 
+            username={this.props.params.username} 
+            bio={this.state.bio.name} />
         </Col>
-        <Col xs={4}>
-          <Repos username={this.props.params.username}
-                 repos={this.state.repos} />
+        <Col xs={3}>
+          <Repos 
+            username={this.props.params.username}
+            repos={this.state.repos} />
         </Col>
-        <Col xs={4}>
-          <Notes username={this.props.params.username}
-                 notes={this.state.notes} />
+        <Col xs={5}>
+          <Notes 
+            username={this.props.params.username}
+            notes={this.state.notes}
+            addNote={this.handleAddNote} />
         </Col>
       </Row>
 
