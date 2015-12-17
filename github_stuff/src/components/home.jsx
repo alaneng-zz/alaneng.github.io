@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import { Grid } from 'react-bootstrap';
 
-class Home extends React.Component {
+var Home = React.createClass({
   render() {
     return (
-      <h2 className='text-center'>
-        Search by Github username above!
-      </h2>
+      <Grid fluid>
+        <h2 className='text-center'>
+          Search by Github username above!
+        </h2>
+      </Grid>
     )
   }
-};
+});
 
 export default Home;

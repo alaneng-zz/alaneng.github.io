@@ -5,7 +5,7 @@ import $ from 'jquery'
 
 import Home from './home.jsx'
 
-var Main = React.createClass({
+class Main extends React.Component {
   render() {
     return (
       <Grid>
@@ -29,6 +29,6 @@ var Main = React.createClass({
       </Grid>
     )
   }
-})
+}
 
 export default Main;
