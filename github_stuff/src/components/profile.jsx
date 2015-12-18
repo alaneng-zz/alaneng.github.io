@@ -6,6 +6,7 @@ import UserProfile from './Github/userProfile.jsx';
 import Notes from './Notes/notes.jsx';
 import ReactFireMixin from 'reactfire';
 import Firebase from 'firebase';
+import helpers from '../utils/helpers.jsx';
 
 var Profile = React.createClass({
   mixins: [ReactFireMixin],
@@ -14,22 +15,39 @@ var Profile = React.createClass({
     return {
       notes: [],
       bio: {},
-      repos: ['a','b','c','d']
+      repos: []
     }
   },
 
   componentDidMount() {
     this.ref = new Firebase('https://github-userlookup.firebaseio.com/');
-    var childRef = this.ref.child(this.props.params.username)
-    this.bindAsArray(childRef, 'notes'); // bind notes to username endpoint
+    this.init(this.props.params.username);
   },
 
-  componentWillUnmount() {
+  componentWillReceiveProps(nextProps) {
     this.unbind('notes');
+    this.init(nextProps.params.username);
+  },
+
+  // componentWillUnmount() {
+  //   this.unbind('notes');
+  // },
+
+  init(username) {
+    var childRef = this.ref.child(username)
+    this.bindAsArray(childRef, 'notes'); // bind notes to username endpoint
+
+    helpers.getGithubInfo(username)
+      .then(data => {
+        this.setState({
+          repos: data.repos,
+          bio: data.bio
+        })
+      }.bind(this))
   },
 
   handleAddNote(newNote) {
-    // update Firebase with new note. determins how many notes, append newNote
+    // update Firebase with new note. determines how many notes, append newNote
     this.ref.child(this.props.params.username).child(this.state.notes.length).set(newNote)
   },
 
@@ -39,7 +57,7 @@ var Profile = React.createClass({
         <Col xs={4}>
           <UserProfile 
             username={this.props.params.username} 
-            bio={this.state.bio.name} />
+            bio={this.state.bio} />
         </Col>
         <Col xs={3}>
           <Repos 

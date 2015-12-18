@@ -1,5 +1,6 @@
 import React from 'react';
 import Router, { History } from 'react-router';
+import { Button, ButtonGroup } from 'react-bootstrap';
 
 var SearchGithub = React.createClass({
   mixins: [History],
@@ -10,6 +11,14 @@ var SearchGithub = React.createClass({
     this.history.pushState(null, 'profile/' + username) 
   },
 
+  handleEnter(e) {
+    if(e.keyCode == 13){
+      var username = this.usernameRef.value;
+      this.usernameRef.value = '';
+      this.history.pushState(null, 'profile/' + username)       
+    }
+  },
+
   render() {
     return (
       <div className="input-group">
@@ -17,9 +26,10 @@ var SearchGithub = React.createClass({
             type="text" 
             className="form-control" 
             placeholder="Search Github user..." 
+            onKeyDown={this.handleEnter}
             ref={(ref) => this.usernameRef = ref} />
           <span className='input-group-btn'>
-            <button className="btn btn-default" type="button" onClick={this.handleSubmit}>Submit</button>
+            <Button bsStyle='primary' onClick={this.handleSubmit}>Submit</Button>
           </span>
        </div>
     )

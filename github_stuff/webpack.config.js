@@ -25,6 +25,11 @@ module.exports = {
       },
       {
         test: /\.jsx$/,
+        include: path.join(__dirname, 'src/utils'),
+        loaders: ['react-hot', 'babel?stage=0'],
+      },
+      {
+        test: /\.jsx$/,
         include: path.join(__dirname, 'public'),
         loaders: ['react-hot', 'babel?stage=0'],
       },

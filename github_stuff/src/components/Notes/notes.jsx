@@ -16,6 +16,7 @@ var Notes = React.createClass({
       <Grid fluid>
         <h3>Notes for {this.props.username}</h3>
         <AddNote username={this.props.username} addNote={this.props.addNote} />
+        <br/>
         <NotesList notes={this.props.notes} />
       </Grid>
     )

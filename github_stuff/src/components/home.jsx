@@ -5,9 +5,9 @@ var Home = React.createClass({
   render() {
     return (
       <Grid fluid>
-        <h2 className='text-center'>
-          Search by Github username above!
-        </h2>
+        <h3 className='text-center'>
+          <em>Search by Github username above!</em>
+        </h3>
       </Grid>
     )
   }
