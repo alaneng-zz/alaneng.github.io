@@ -8,7 +8,7 @@ module.exports = {
     "./public/index.jsx",
   ],
   output: {
-    path: path.join(__dirname),
+    publicPath: '/github_userlookup/dist/',
     filename: 'bundle.js'
   },
   module: {

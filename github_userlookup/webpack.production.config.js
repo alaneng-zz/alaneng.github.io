@@ -4,7 +4,7 @@ var webpack = require("webpack");
 module.exports = {
   entry: "./public/index.jsx",
   output: {
-    path: path.join(__dirname),
+    publicPath: '/github_userlookup/dist/',
     filename: 'bundle.js'
   },
   module: {
