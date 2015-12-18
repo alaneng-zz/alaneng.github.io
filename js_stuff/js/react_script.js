@@ -12,7 +12,7 @@ var Header = React.createClass({
     return (
       <Jumbotron className='jumbo'>
         <h1>bay area bike share</h1>
-        <p>current statistics of bikes around the bay</p>
+        <p>current statistics of bikes around the bay!</p>
       </Jumbotron>
     )
   }
