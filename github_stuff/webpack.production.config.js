@@ -12,30 +12,25 @@ module.exports = {
       {
         test: /\.jsx$/,
         include: path.join(__dirname, 'src/config'),
-        exclude: /node_modules/,
-        loaders: ['babel?stage=0'],
+        loaders: ['babel-loader'],
       },
       {
         test: /\.jsx$/,
         include: path.join(__dirname, 'src/components'),
-        exclude: /node_modules/,
-        loaders: ['babel?stage=0'],
+        loaders: ['babel-loader'],
       },
       {
         test: /\.jsx$/,
         include: path.join(__dirname, 'src/utils'),
-        exclude: /node_modules/,
-        loaders: ['babel?stage=0'],
+        loaders: ['babel-loader'],
       },
       {
         test: /\.jsx$/,
         include: path.join(__dirname, 'public'),
-        exclude: /node_modules/,
-        loaders: ['babel?stage=0'],
+        loaders: ['babel-loader'],
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
         loaders: ['style', 'css', 'sass']
       }
     ]
