@@ -1,1 +1,0 @@
-Basic boilerplate for React apps
