@@ -11,22 +11,10 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx$/,
-        include: path.join(__dirname, 'src/config'),
-        loaders: ['babel?stage=0'],
-      },
-      {
-        test: /\.jsx$/,
-        include: path.join(__dirname, 'src/components'),
-        loaders: ['babel?stage=0'],
-      },
-      {
-        test: /\.jsx$/,
-        include: path.join(__dirname, 'src/utils'),
-        loaders: ['babel?stage=0'],
-      },
-      {
-        test: /\.jsx$/,
-        include: path.join(__dirname, 'public'),
+        include: [path.join(__dirname, 'src/config'),
+                  path.join(__dirname, 'src/components'),
+                  path.join(__dirname, 'src/utils'),
+                  path.join(__dirname, 'public')],
         loaders: ['babel?stage=0'],
       },
       {
