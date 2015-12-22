@@ -12,22 +12,22 @@ module.exports = {
       {
         test: /\.jsx$/,
         include: path.join(__dirname, 'src/config'),
-        loaders: ['babel-loader'],
+        loaders: ['babel?stage=0'],
       },
       {
         test: /\.jsx$/,
         include: path.join(__dirname, 'src/components'),
-        loaders: ['babel-loader'],
+        loaders: ['babel?stage=0'],
       },
       {
         test: /\.jsx$/,
         include: path.join(__dirname, 'src/utils'),
-        loaders: ['babel-loader'],
+        loaders: ['babel?stage=0'],
       },
       {
         test: /\.jsx$/,
         include: path.join(__dirname, 'public'),
-        loaders: ['babel-loader'],
+        loaders: ['babel?stage=0'],
       },
       {
         test: /\.scss$/,
