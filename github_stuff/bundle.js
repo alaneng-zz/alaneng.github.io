@@ -68,7 +68,7 @@
 	  _reactRouter2['default'],
 	  null,
 	  _srcConfigRoutesJsx2['default']
-	), document.getElementById('root'));
+	), document.getElementById('ghroot'));
 
 /***/ },
 /* 1 */
