@@ -49,9 +49,9 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 
-	var Grid = __webpack_require__(191);
-	var Jumbotron = __webpack_require__(159);
-	var Button = __webpack_require__(180);
+	var Grid = __webpack_require__(159);
+	var Jumbotron = __webpack_require__(180);
+	var Button = __webpack_require__(181);
 
 	var Main = React.createClass({
 	  displayName: 'Main',
@@ -65,12 +65,12 @@
 	        React.createElement(
 	          'h1',
 	          null,
-	          'Literacy & Language Center'
+	          'Sad title'
 	        ),
 	        React.createElement(
 	          'p',
 	          null,
-	          'Where Mitchellbear and kids gather in the Inner Sunset'
+	          'laughable description'
 	        ),
 	        React.createElement(
 	          Button,
@@ -19697,10 +19697,16 @@
 
 	var _reactPropTypesLibElementType2 = _interopRequireDefault(_reactPropTypesLibElementType);
 
-	var Jumbotron = _react2['default'].createClass({
-	  displayName: 'Jumbotron',
+	var Grid = _react2['default'].createClass({
+	  displayName: 'Grid',
 
 	  propTypes: {
+	    /**
+	     * Turn any fixed-width grid layout into a full-width layout by this property.
+	     *
+	     * Adds `container-fluid` class.
+	     */
+	    fluid: _react2['default'].PropTypes.bool,
 	    /**
 	     * You can use a custom element for this component
 	     */
@@ -19708,21 +19714,26 @@
 	  },
 
 	  getDefaultProps: function getDefaultProps() {
-	    return { componentClass: 'div' };
+	    return {
+	      componentClass: 'div',
+	      fluid: false
+	    };
 	  },
 
 	  render: function render() {
 	    var ComponentClass = this.props.componentClass;
+	    var className = this.props.fluid ? 'container-fluid' : 'container';
 
 	    return _react2['default'].createElement(
 	      ComponentClass,
-	      _extends({}, this.props, { className: _classnames2['default'](this.props.className, 'jumbotron') }),
+	      _extends({}, this.props, {
+	        className: _classnames2['default'](this.props.className, className) }),
 	      this.props.children
 	    );
 	  }
 	});
 
-	exports['default'] = Jumbotron;
+	exports['default'] = Grid;
 	module.exports = exports['default'];
 
 /***/ },
@@ -20157,11 +20168,63 @@
 
 	var _reactPropTypesLibElementType2 = _interopRequireDefault(_reactPropTypesLibElementType);
 
-	var _utilsBootstrapUtils = __webpack_require__(181);
+	var Jumbotron = _react2['default'].createClass({
+	  displayName: 'Jumbotron',
+
+	  propTypes: {
+	    /**
+	     * You can use a custom element for this component
+	     */
+	    componentClass: _reactPropTypesLibElementType2['default']
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return { componentClass: 'div' };
+	  },
+
+	  render: function render() {
+	    var ComponentClass = this.props.componentClass;
+
+	    return _react2['default'].createElement(
+	      ComponentClass,
+	      _extends({}, this.props, { className: _classnames2['default'](this.props.className, 'jumbotron') }),
+	      this.props.children
+	    );
+	  }
+	});
+
+	exports['default'] = Jumbotron;
+	module.exports = exports['default'];
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = __webpack_require__(160)['default'];
+
+	var _interopRequireDefault = __webpack_require__(176)['default'];
+
+	exports.__esModule = true;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(177);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _reactPropTypesLibElementType = __webpack_require__(178);
+
+	var _reactPropTypesLibElementType2 = _interopRequireDefault(_reactPropTypesLibElementType);
+
+	var _utilsBootstrapUtils = __webpack_require__(182);
 
 	var _utilsBootstrapUtils2 = _interopRequireDefault(_utilsBootstrapUtils);
 
-	var _styleMaps = __webpack_require__(182);
+	var _styleMaps = __webpack_require__(183);
 
 	var types = ['button', 'reset', 'submit'];
 
@@ -20267,7 +20330,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 181 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -20280,15 +20343,15 @@
 
 	var _react = __webpack_require__(1);
 
-	var _styleMaps = __webpack_require__(182);
+	var _styleMaps = __webpack_require__(183);
 
 	var _styleMaps2 = _interopRequireDefault(_styleMaps);
 
-	var _invariant = __webpack_require__(189);
+	var _invariant = __webpack_require__(190);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _warning = __webpack_require__(190);
+	var _warning = __webpack_require__(191);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -20449,16 +20512,16 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 182 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _Object$assign = __webpack_require__(161)['default'];
 
-	var _Object$create = __webpack_require__(183)['default'];
+	var _Object$create = __webpack_require__(184)['default'];
 
-	var _Object$keys = __webpack_require__(185)['default'];
+	var _Object$keys = __webpack_require__(186)['default'];
 
 	exports.__esModule = true;
 
@@ -20517,13 +20580,13 @@
 	exports['default'] = styleMaps;
 
 /***/ },
-/* 183 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(184), __esModule: true };
+	module.exports = { "default": __webpack_require__(185), __esModule: true };
 
 /***/ },
-/* 184 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(170);
@@ -20532,33 +20595,33 @@
 	};
 
 /***/ },
-/* 185 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(186), __esModule: true };
-
-/***/ },
 /* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(187);
-	module.exports = __webpack_require__(166).Object.keys;
+	module.exports = { "default": __webpack_require__(187), __esModule: true };
 
 /***/ },
 /* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
+	__webpack_require__(188);
+	module.exports = __webpack_require__(166).Object.keys;
+
+/***/ },
+/* 188 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// 19.1.2.14 Object.keys(O)
 	var toObject = __webpack_require__(171);
 
-	__webpack_require__(188)('keys', function($keys){
+	__webpack_require__(189)('keys', function($keys){
 	  return function keys(it){
 	    return $keys(toObject(it));
 	  };
 	});
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// most Object methods by ES6 should accept primitives
@@ -20573,7 +20636,7 @@
 	};
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20631,7 +20694,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20696,69 +20759,6 @@
 	module.exports = warning;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 191 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _extends = __webpack_require__(160)['default'];
-
-	var _interopRequireDefault = __webpack_require__(176)['default'];
-
-	exports.__esModule = true;
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(177);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _reactPropTypesLibElementType = __webpack_require__(178);
-
-	var _reactPropTypesLibElementType2 = _interopRequireDefault(_reactPropTypesLibElementType);
-
-	var Grid = _react2['default'].createClass({
-	  displayName: 'Grid',
-
-	  propTypes: {
-	    /**
-	     * Turn any fixed-width grid layout into a full-width layout by this property.
-	     *
-	     * Adds `container-fluid` class.
-	     */
-	    fluid: _react2['default'].PropTypes.bool,
-	    /**
-	     * You can use a custom element for this component
-	     */
-	    componentClass: _reactPropTypesLibElementType2['default']
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      componentClass: 'div',
-	      fluid: false
-	    };
-	  },
-
-	  render: function render() {
-	    var ComponentClass = this.props.componentClass;
-	    var className = this.props.fluid ? 'container-fluid' : 'container';
-
-	    return _react2['default'].createElement(
-	      ComponentClass,
-	      _extends({}, this.props, {
-	        className: _classnames2['default'](this.props.className, className) }),
-	      this.props.children
-	    );
-	  }
-	});
-
-	exports['default'] = Grid;
-	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);
