@@ -5,13 +5,13 @@ var Grid = require('react-bootstrap/lib/Grid');
 var Jumbotron = require('react-bootstrap/lib/Jumbotron');
 var Button = require("react-bootstrap/lib/Button");
 
-var Main = React.createClass({
+var Main = React.createClass({  
   render() {
     return (
       <Grid>
         <Jumbotron>
-          <h1>Literacy & Language Center</h1>
-          <p>Where Mitchellbear and kids gather in the Inner Sunset</p>
+          <h1>Sad title</h1>
+          <p>laughable description</p>
           <Button bsStyle='primary'>Learn more</Button>
         </Jumbotron>
       </Grid>
