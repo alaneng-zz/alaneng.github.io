@@ -65,12 +65,12 @@
 	        React.createElement(
 	          'h1',
 	          null,
-	          'Sad title'
+	          'Literacy & Language Center'
 	        ),
 	        React.createElement(
 	          'p',
 	          null,
-	          'laughable description'
+	          'Where Mitchellbear and kids gather in the Inner Sunset'
 	        ),
 	        React.createElement(
 	          Button,

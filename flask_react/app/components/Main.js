@@ -10,8 +10,8 @@ var Main = React.createClass({
     return (
       <Grid>
         <Jumbotron>
-          <h1>Sad title</h1>
-          <p>laughable description</p>
+          <h1>Literacy & Language Center</h1>
+          <p>Where Mitchellbear and kids gather in the Inner Sunset</p>
           <Button bsStyle='primary'>Learn more</Button>
         </Jumbotron>
       </Grid>
