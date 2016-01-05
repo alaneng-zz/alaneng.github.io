@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 
-const PORT = 3000
+const PORT = 4000
 
 new WebpackDevServer(webpack(config), {
   hot: true,
