@@ -9,6 +9,7 @@ def main():
 
 @app.route('/bundle.js')
 @app.route('/bootstrap.min.css')
+@app.route('/application.css')
 def index():
   return app.send_static_file(request.path[1:])
 

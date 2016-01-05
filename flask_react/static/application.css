@@ -1,8 +1,8 @@
-div.stations a {
+div.menuItem a {
   width: 200px;
   height: 180px;
   display: inline-block;
-  vertical-align: bottom;
+  margin: 10px;
 }
 
 .marginstuff {

@@ -53,8 +53,15 @@
 	var Jumbotron = __webpack_require__(180);
 	var Button = __webpack_require__(181);
 
+	var Menu = __webpack_require__(192);
+
 	var Main = React.createClass({
 	  displayName: 'Main',
+	  getInitialState: function getInitialState() {
+	    return {
+	      menu: ['Activities', 'Achievements', 'Staff', 'Contact']
+	    };
+	  },
 	  render: function render() {
 	    return React.createElement(
 	      Grid,
@@ -77,7 +84,8 @@
 	          { bsStyle: 'primary' },
 	          'Learn more'
 	        )
-	      )
+	      ),
+	      React.createElement(Menu, { menu: this.state.menu })
 	    );
 	  }
 	});
@@ -20759,6 +20767,572 @@
 	module.exports = warning;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 192 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var ListGroup = __webpack_require__(193);
+	var ListGroupItem = __webpack_require__(202);
+
+	module.exports = React.createClass({
+	  displayName: 'exports',
+	  render: function render() {
+	    var menuItems = this.props.menu.map(function (menuItem) {
+	      return React.createElement(
+	        ListGroupItem,
+	        { key: menuItem, href: '#' },
+	        React.createElement(
+	          'h5',
+	          null,
+	          menuItem
+	        )
+	      );
+	    });
+
+	    return React.createElement(
+	      ListGroup,
+	      { className: 'menuItem text-center' },
+	      menuItems
+	    );
+	  }
+	});
+
+/***/ },
+/* 193 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _inherits = __webpack_require__(194)['default'];
+
+	var _classCallCheck = __webpack_require__(201)['default'];
+
+	var _extends = __webpack_require__(160)['default'];
+
+	var _interopRequireDefault = __webpack_require__(176)['default'];
+
+	exports.__esModule = true;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ListGroupItem = __webpack_require__(202);
+
+	var _ListGroupItem2 = _interopRequireDefault(_ListGroupItem);
+
+	var _classnames = __webpack_require__(177);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsValidComponentChildren = __webpack_require__(203);
+
+	var _utilsValidComponentChildren2 = _interopRequireDefault(_utilsValidComponentChildren);
+
+	var ListGroup = (function (_React$Component) {
+	  _inherits(ListGroup, _React$Component);
+
+	  function ListGroup() {
+	    _classCallCheck(this, ListGroup);
+
+	    _React$Component.apply(this, arguments);
+	  }
+
+	  ListGroup.prototype.render = function render() {
+	    var _this = this;
+
+	    var items = _utilsValidComponentChildren2['default'].map(this.props.children, function (item, index) {
+	      return _react.cloneElement(item, { key: item.key ? item.key : index });
+	    });
+
+	    if (this.areCustomChildren(items)) {
+	      var Component = this.props.componentClass;
+	      return _react2['default'].createElement(
+	        Component,
+	        _extends({}, this.props, {
+	          className: _classnames2['default'](this.props.className, 'list-group') }),
+	        items
+	      );
+	    }
+
+	    var shouldRenderDiv = false;
+
+	    if (!this.props.children) {
+	      shouldRenderDiv = true;
+	    } else {
+	      _utilsValidComponentChildren2['default'].forEach(this.props.children, function (child) {
+	        if (_this.isAnchorOrButton(child.props)) {
+	          shouldRenderDiv = true;
+	        }
+	      });
+	    }
+
+	    return shouldRenderDiv ? this.renderDiv(items) : this.renderUL(items);
+	  };
+
+	  ListGroup.prototype.isAnchorOrButton = function isAnchorOrButton(props) {
+	    return props.href || props.onClick;
+	  };
+
+	  ListGroup.prototype.areCustomChildren = function areCustomChildren(children) {
+	    var customChildren = false;
+
+	    _utilsValidComponentChildren2['default'].forEach(children, function (child) {
+	      if (child.type !== _ListGroupItem2['default']) {
+	        customChildren = true;
+	      }
+	    }, this);
+
+	    return customChildren;
+	  };
+
+	  ListGroup.prototype.renderUL = function renderUL(items) {
+	    var listItems = _utilsValidComponentChildren2['default'].map(items, function (item) {
+	      return _react.cloneElement(item, { listItem: true });
+	    });
+
+	    return _react2['default'].createElement(
+	      'ul',
+	      _extends({}, this.props, {
+	        className: _classnames2['default'](this.props.className, 'list-group') }),
+	      listItems
+	    );
+	  };
+
+	  ListGroup.prototype.renderDiv = function renderDiv(items) {
+	    return _react2['default'].createElement(
+	      'div',
+	      _extends({}, this.props, {
+	        className: _classnames2['default'](this.props.className, 'list-group') }),
+	      items
+	    );
+	  };
+
+	  return ListGroup;
+	})(_react2['default'].Component);
+
+	ListGroup.defaultProps = {
+	  componentClass: 'div'
+	};
+
+	ListGroup.propTypes = {
+	  className: _react2['default'].PropTypes.string,
+	  /**
+	   * The element for ListGroup if children are
+	   * user-defined custom components.
+	   * @type {("ul"|"div")}
+	   */
+	  componentClass: _react2['default'].PropTypes.oneOf(['ul', 'div']),
+	  id: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number])
+	};
+
+	exports['default'] = ListGroup;
+	module.exports = exports['default'];
+
+/***/ },
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _Object$create = __webpack_require__(184)["default"];
+
+	var _Object$setPrototypeOf = __webpack_require__(195)["default"];
+
+	exports["default"] = function (subClass, superClass) {
+	  if (typeof superClass !== "function" && superClass !== null) {
+	    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+	  }
+
+	  subClass.prototype = _Object$create(superClass && superClass.prototype, {
+	    constructor: {
+	      value: subClass,
+	      enumerable: false,
+	      writable: true,
+	      configurable: true
+	    }
+	  });
+	  if (superClass) _Object$setPrototypeOf ? _Object$setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	};
+
+	exports.__esModule = true;
+
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(196), __esModule: true };
+
+/***/ },
+/* 196 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(197);
+	module.exports = __webpack_require__(166).Object.setPrototypeOf;
+
+/***/ },
+/* 197 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.3.19 Object.setPrototypeOf(O, proto)
+	var $export = __webpack_require__(164);
+	$export($export.S, 'Object', {setPrototypeOf: __webpack_require__(198).set});
+
+/***/ },
+/* 198 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Works with __proto__ only. Old v8 can't work with null proto objects.
+	/* eslint-disable no-proto */
+	var getDesc  = __webpack_require__(170).getDesc
+	  , isObject = __webpack_require__(199)
+	  , anObject = __webpack_require__(200);
+	var check = function(O, proto){
+	  anObject(O);
+	  if(!isObject(proto) && proto !== null)throw TypeError(proto + ": can't set as prototype!");
+	};
+	module.exports = {
+	  set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
+	    function(test, buggy, set){
+	      try {
+	        set = __webpack_require__(167)(Function.call, getDesc(Object.prototype, '__proto__').set, 2);
+	        set(test, []);
+	        buggy = !(test instanceof Array);
+	      } catch(e){ buggy = true; }
+	      return function setPrototypeOf(O, proto){
+	        check(O, proto);
+	        if(buggy)O.__proto__ = proto;
+	        else set(O, proto);
+	        return O;
+	      };
+	    }({}, false) : undefined),
+	  check: check
+	};
+
+/***/ },
+/* 199 */
+/***/ function(module, exports) {
+
+	module.exports = function(it){
+	  return typeof it === 'object' ? it !== null : typeof it === 'function';
+	};
+
+/***/ },
+/* 200 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(199);
+	module.exports = function(it){
+	  if(!isObject(it))throw TypeError(it + ' is not an object!');
+	  return it;
+	};
+
+/***/ },
+/* 201 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	exports["default"] = function (instance, Constructor) {
+	  if (!(instance instanceof Constructor)) {
+	    throw new TypeError("Cannot call a class as a function");
+	  }
+	};
+
+	exports.__esModule = true;
+
+/***/ },
+/* 202 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _inherits = __webpack_require__(194)['default'];
+
+	var _classCallCheck = __webpack_require__(201)['default'];
+
+	var _extends = __webpack_require__(160)['default'];
+
+	var _interopRequireDefault = __webpack_require__(176)['default'];
+
+	exports.__esModule = true;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsBootstrapUtils = __webpack_require__(182);
+
+	var _utilsBootstrapUtils2 = _interopRequireDefault(_utilsBootstrapUtils);
+
+	var _styleMaps = __webpack_require__(183);
+
+	var _classnames = __webpack_require__(177);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var ListGroupItem = (function (_React$Component) {
+	  _inherits(ListGroupItem, _React$Component);
+
+	  function ListGroupItem() {
+	    _classCallCheck(this, ListGroupItem);
+
+	    _React$Component.apply(this, arguments);
+	  }
+
+	  ListGroupItem.prototype.render = function render() {
+	    var classes = _utilsBootstrapUtils2['default'].getClassSet(this.props);
+
+	    classes.active = this.props.active;
+	    classes.disabled = this.props.disabled;
+
+	    if (this.props.href) {
+	      return this.renderAnchor(classes);
+	    } else if (this.props.onClick) {
+	      return this.renderButton(classes);
+	    } else if (this.props.listItem) {
+	      return this.renderLi(classes);
+	    }
+
+	    return this.renderSpan(classes);
+	  };
+
+	  ListGroupItem.prototype.renderLi = function renderLi(classes) {
+	    return _react2['default'].createElement(
+	      'li',
+	      _extends({}, this.props, { className: _classnames2['default'](this.props.className, classes) }),
+	      this.props.header ? this.renderStructuredContent() : this.props.children
+	    );
+	  };
+
+	  ListGroupItem.prototype.renderAnchor = function renderAnchor(classes) {
+	    return _react2['default'].createElement(
+	      'a',
+	      _extends({}, this.props, {
+	        className: _classnames2['default'](this.props.className, classes)
+	      }),
+	      this.props.header ? this.renderStructuredContent() : this.props.children
+	    );
+	  };
+
+	  ListGroupItem.prototype.renderButton = function renderButton(classes) {
+	    return _react2['default'].createElement(
+	      'button',
+	      _extends({
+	        type: 'button'
+	      }, this.props, {
+	        className: _classnames2['default'](this.props.className, classes) }),
+	      this.props.header ? this.renderStructuredContent() : this.props.children
+	    );
+	  };
+
+	  ListGroupItem.prototype.renderSpan = function renderSpan(classes) {
+	    return _react2['default'].createElement(
+	      'span',
+	      _extends({}, this.props, { className: _classnames2['default'](this.props.className, classes) }),
+	      this.props.header ? this.renderStructuredContent() : this.props.children
+	    );
+	  };
+
+	  ListGroupItem.prototype.renderStructuredContent = function renderStructuredContent() {
+	    var header = undefined;
+	    var headingClass = _utilsBootstrapUtils2['default'].prefix(this.props, 'heading');
+
+	    if (_react2['default'].isValidElement(this.props.header)) {
+	      header = _react.cloneElement(this.props.header, {
+	        key: 'header',
+	        className: _classnames2['default'](this.props.header.props.className, headingClass)
+	      });
+	    } else {
+	      header = _react2['default'].createElement(
+	        'h4',
+	        { key: 'header', className: headingClass },
+	        this.props.header
+	      );
+	    }
+
+	    var content = _react2['default'].createElement(
+	      'p',
+	      { key: 'content', className: _utilsBootstrapUtils2['default'].prefix(this.props, 'text') },
+	      this.props.children
+	    );
+
+	    return [header, content];
+	  };
+
+	  return ListGroupItem;
+	})(_react2['default'].Component);
+
+	ListGroupItem.propTypes = {
+	  className: _react2['default'].PropTypes.string,
+	  active: _react2['default'].PropTypes.any,
+	  disabled: _react2['default'].PropTypes.any,
+	  header: _react2['default'].PropTypes.node,
+	  listItem: _react2['default'].PropTypes.bool,
+	  onClick: _react2['default'].PropTypes.func,
+	  eventKey: _react2['default'].PropTypes.any,
+	  href: _react2['default'].PropTypes.string,
+	  target: _react2['default'].PropTypes.string
+	};
+
+	ListGroupItem.defaultTypes = {
+	  listItem: false
+	};
+
+	exports['default'] = _utilsBootstrapUtils.bsStyles(_styleMaps.State.values(), _utilsBootstrapUtils.bsClass('list-group-item', ListGroupItem));
+	module.exports = exports['default'];
+
+/***/ },
+/* 203 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _interopRequireDefault = __webpack_require__(176)['default'];
+
+	exports.__esModule = true;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	/**
+	 * Maps children that are typically specified as `props.children`,
+	 * but only iterates over children that are "valid components".
+	 *
+	 * The mapFunction provided index will be normalised to the components mapped,
+	 * so an invalid component would not increase the index.
+	 *
+	 * @param {?*} children Children tree container.
+	 * @param {function(*, int)} mapFunction.
+	 * @param {*} mapContext Context for mapFunction.
+	 * @return {object} Object containing the ordered map of results.
+	 */
+	function mapValidComponents(children, func, context) {
+	  var index = 0;
+
+	  return _react2['default'].Children.map(children, function (child) {
+	    if (_react2['default'].isValidElement(child)) {
+	      var lastIndex = index;
+	      index++;
+	      return func.call(context, child, lastIndex);
+	    }
+
+	    return child;
+	  });
+	}
+
+	/**
+	 * Iterates through children that are typically specified as `props.children`,
+	 * but only iterates over children that are "valid components".
+	 *
+	 * The provided forEachFunc(child, index) will be called for each
+	 * leaf child with the index reflecting the position relative to "valid components".
+	 *
+	 * @param {?*} children Children tree container.
+	 * @param {function(*, int)} forEachFunc.
+	 * @param {*} forEachContext Context for forEachContext.
+	 */
+	function forEachValidComponents(children, func, context) {
+	  var index = 0;
+
+	  return _react2['default'].Children.forEach(children, function (child) {
+	    if (_react2['default'].isValidElement(child)) {
+	      func.call(context, child, index);
+	      index++;
+	    }
+	  });
+	}
+
+	/**
+	 * Count the number of "valid components" in the Children container.
+	 *
+	 * @param {?*} children Children tree container.
+	 * @returns {number}
+	 */
+	function numberOfValidComponents(children) {
+	  var count = 0;
+
+	  _react2['default'].Children.forEach(children, function (child) {
+	    if (_react2['default'].isValidElement(child)) {
+	      count++;
+	    }
+	  });
+
+	  return count;
+	}
+
+	/**
+	 * Determine if the Child container has one or more "valid components".
+	 *
+	 * @param {?*} children Children tree container.
+	 * @returns {boolean}
+	 */
+	function hasValidComponent(children) {
+	  var hasValid = false;
+
+	  _react2['default'].Children.forEach(children, function (child) {
+	    if (!hasValid && _react2['default'].isValidElement(child)) {
+	      hasValid = true;
+	    }
+	  });
+
+	  return hasValid;
+	}
+
+	function find(children, finder) {
+	  var child = undefined;
+
+	  forEachValidComponents(children, function (c, idx) {
+	    if (!child && finder(c, idx, children)) {
+	      child = c;
+	    }
+	  });
+
+	  return child;
+	}
+
+	/**
+	 * Finds children that are typically specified as `props.children`,
+	 * but only iterates over children that are "valid components".
+	 *
+	 * The provided forEachFunc(child, index) will be called for each
+	 * leaf child with the index reflecting the position relative to "valid components".
+	 *
+	 * @param {?*} children Children tree container.
+	 * @param {function(*, int)} findFunc.
+	 * @param {*} findContext Context for findContext.
+	 * @returns {array} of children that meet the findFunc return statement
+	 */
+	function findValidComponents(children, func, context) {
+	  var index = 0;
+	  var returnChildren = [];
+
+	  _react2['default'].Children.forEach(children, function (child) {
+	    if (_react2['default'].isValidElement(child)) {
+	      if (func.call(context, child, index)) {
+	        returnChildren.push(child);
+	      }
+	      index++;
+	    }
+	  });
+
+	  return returnChildren;
+	}
+
+	exports['default'] = {
+	  map: mapValidComponents,
+	  forEach: forEachValidComponents,
+	  numberOf: numberOfValidComponents,
+	  find: find,
+	  findValidComponents: findValidComponents,
+	  hasValidComponent: hasValidComponent
+	};
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);
