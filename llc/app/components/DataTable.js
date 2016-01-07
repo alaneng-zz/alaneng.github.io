@@ -5,25 +5,22 @@ module.exports = React.createClass({
 
   render: function() {
     var {datatable} = this.props
-    debugger
-    if(datatable.length !== 0) {
-      var headers = Object.keys(datatable[0]).map(head =>
-        <th key={head}>{head}</th>  
+
+    if(Object.keys(datatable).length !== 0) {
+      var headers = datatable.columns.map(col => 
+        <th key={col.data}>{col.data}</th>  
       )
 
-      var body = datatable.map(row =>
-        <tr key={row.extn}>
-          <td>{row.name}</td>
-          <td>{row.position}</td>
-          <td>{row.salary}</td>
-          <td>{row.start_date}</td>
-          <td>{row.office}</td>
-          <td>{row.extn}</td>
+      var body = datatable.data.map(row =>
+        <tr key={row.location}>
+          <td>{row.location}</td>
+          <td>{row.city}</td>
+          <td>{row.address}</td>
+          <td>{row.state}</td>
+          <td>{row.phone_number}</td>
         </tr>
       )      
     }
-
-
 
     return (
       <Table responsive hover>

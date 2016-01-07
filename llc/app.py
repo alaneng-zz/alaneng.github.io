@@ -15,26 +15,32 @@ def index():
 
 @app.route('/datatable')
 def datatable():
-  datatable = [
-    {
-      "name": "Tiger Nixon",
-      "position": "System Architect",
-      "salary": "$320,800",
-      "start_date": "2011/04/25",
-      "office": "Edinburgh",
-      "extn": "5421"
-    },
-    {
-      "name": "Garrett Winters",
-      "position": "Accountant",
-      "salary": "$170,750",
-      "start_date": "2011/07/25",
-      "office": "Tokyo",
-      "extn": "8422"
-    }
-  ]
+  datatable = {
+    'columns': [
+      {"data": "Location"},
+      {"data": "Address"},
+      {"data": "City"},
+      {"data": "State"},
+      {"data": "Phone Number"}
+    ],
+    'data': [
+      {
+        "location": "Inner Sunset",
+        "address": " 1312 18th Ave",
+        "city": "San Francisco",
+        "state": "California",
+        "phone_number": "(415) 242-1205"
+      },
+      {
+        "location": "Disneyland",
+        "address": " 1313 Disneyland Dr",
+        "city": "Anaheim",
+        "state": "California",
+        "phone_number": "(714) 781-7277"
+      }
+    ]
+  }
 
-  # datatable = 'foobar'
   return jsonify(datatable=datatable)
 
 if __name__ == '__main__':
