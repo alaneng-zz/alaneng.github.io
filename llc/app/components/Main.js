@@ -16,7 +16,7 @@ export default class Main extends React.Component {
     this.state = {
       staffMenu: ['Mitchellbear', 'Kayla', 'Leigh', 'Jessica'],
       socialMenu: ['Facebook', 'Blog', 'Twitter'],
-      datatable: []
+      datatable: [] 
     }
   }
 
