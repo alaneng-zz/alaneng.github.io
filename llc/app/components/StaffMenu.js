@@ -47,7 +47,7 @@ export default class StaffMenu extends React.Component {
 
     return (
       <Grid fluid className='bodySection'>
-        <h2 className='text-center'>Meet the Staff</h2>
+        <h2 className='text-center'>Meet the Staff</h2> 
         <ListGroup className='menuItem text-center'>
           {menuItems}
         </ListGroup>
