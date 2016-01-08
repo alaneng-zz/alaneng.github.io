@@ -5,13 +5,14 @@ var Grid = require('react-bootstrap/lib/Grid');
 var Jumbotron = require('react-bootstrap/lib/Jumbotron');
 var Button = require("react-bootstrap/lib/Button");
 
-var Menu = require('./Menu');
-var DataTable = require('./DataTable');
+import StaffMenu from './StaffMenu';
+var ContactUs = require('./ContactUs');
+var WhoWeAre = require('./WhoWeAre');
 
 var Main = React.createClass({  
   getInitialState() {
     return {
-      menu: ['Activities', 'Achievements', 'Staff', 'Contact'],
+      staffMenu: ['Mitchellbear', 'Kayla', 'Leigh', 'Jessica'],
       datatable: []
     }
   },
@@ -30,14 +31,18 @@ var Main = React.createClass({
 
   render() {
     return (
-      <Grid>
-        <Jumbotron>
+      <Grid className='app'>
+        <Jumbotron className='section'>
           <h1>Literacy & Language Center</h1>
           <p>Where Mitchellbear and kids gather in the Inner Sunset</p>
-          <Button bsStyle='primary'>Learn more</Button>
+          <Button bsStyle='primary'>Sign up</Button>
         </Jumbotron>
-        <Menu menu={this.state.menu} />
-        <DataTable datatable={this.state.datatable} />
+        <WhoWeAre />
+        <br />
+        <StaffMenu staffMenu={this.state.staffMenu} />
+        <br />
+        <ContactUs datatable={this.state.datatable} />
+        <br />
       </Grid>
     )
   }

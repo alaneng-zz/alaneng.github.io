@@ -1,17 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 import pdb
 
 app = Flask(__name__)
-
-@app.route('/')
-def main():
-  return app.send_static_file('index.html')
-
-@app.route('/bundle.js')
-@app.route('/bootstrap.min.css')
-@app.route('/application.css')
-def index():
-  return app.send_static_file(request.path[1:])
 
 @app.route('/datatable')
 def datatable():
@@ -42,6 +32,21 @@ def datatable():
   }
 
   return jsonify(datatable=datatable)
+
+@app.route('/images/<staffName>')
+def image(staffName):
+  return send_from_directory('images/', request.path.split('/')[2])
+
+@app.route('/')
+def main():
+  return app.send_static_file('index.html')
+
+@app.route('/bundle.js')
+@app.route('/bootstrap.min.css')
+@app.route('/application.css')
+def index():
+  return app.send_static_file(request.path[1:])
+
 
 if __name__ == '__main__':
   app.run(debug=True, port=5000)

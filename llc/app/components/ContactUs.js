@@ -1,5 +1,5 @@
-var React = require('react');
-var Table = require('react-bootstrap/lib/Table');
+import React, { Component } from 'react';
+import { Grid, Table } from 'react-bootstrap';
 
 module.exports = React.createClass({
 
@@ -23,16 +23,19 @@ module.exports = React.createClass({
     }
 
     return (
-      <Table responsive hover>
-        <thead>
-          <tr>
-            {headers}
-          </tr>
-        </thead>
-        <tbody>
-          {body}
-        </tbody>
-      </Table>
+      <Grid fluid className='section'>
+        <h2 className='text-center'>Contact Us</h2>
+        <Table responsive hover>
+          <thead>
+            <tr>
+              {headers}
+            </tr>
+          </thead>
+          <tbody>
+            {body}
+          </tbody>
+        </Table>
+      </Grid>
     )
   }
 })
