@@ -33,8 +33,8 @@ def datatable():
 
   return jsonify(datatable=datatable)
 
-@app.route('/images/<staffName>')
-def image(staffName):
+@app.route('/images/<imageName>')
+def image(imageName):
   return send_from_directory('images/', request.path.split('/')[2])
 
 @app.route('/')

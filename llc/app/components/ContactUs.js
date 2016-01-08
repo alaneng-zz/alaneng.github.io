@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Table } from 'react-bootstrap';
 
-module.exports = React.createClass({
-
-  render: function() {
+export default class ContactUs extends React.Component {
+  render() {
     var {datatable} = this.props
 
     if(Object.keys(datatable).length !== 0) {
@@ -23,7 +22,7 @@ module.exports = React.createClass({
     }
 
     return (
-      <Grid fluid className='section'>
+      <Grid fluid className='bodySection'>
         <h2 className='text-center'>Contact Us</h2>
         <Table responsive hover>
           <thead>
@@ -38,4 +37,4 @@ module.exports = React.createClass({
       </Grid>
     )
   }
-})
+}

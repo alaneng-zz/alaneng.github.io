@@ -6,16 +6,19 @@ var Jumbotron = require('react-bootstrap/lib/Jumbotron');
 var Button = require("react-bootstrap/lib/Button");
 
 import StaffMenu from './StaffMenu';
-var ContactUs = require('./ContactUs');
-var WhoWeAre = require('./WhoWeAre');
+import ContactUs from  './ContactUs';
+import WhoWeAre from './WhoWeAre';
+import SocialMenu from './SocialMenu';
 
-var Main = React.createClass({  
-  getInitialState() {
-    return {
+export default class Main extends React.Component {  
+  constructor(props) {
+    super(props)
+    this.state = {
       staffMenu: ['Mitchellbear', 'Kayla', 'Leigh', 'Jessica'],
+      socialMenu: ['Facebook', 'Blog', 'Twitter'],
       datatable: []
     }
-  },
+  }
 
   componentDidMount() {
     fetch('datatable')
@@ -27,7 +30,7 @@ var Main = React.createClass({
           datatable: data.datatable
         })
       }.bind(this))
-  },
+  }
 
   render() {
     return (
@@ -37,6 +40,7 @@ var Main = React.createClass({
           <p>Where Mitchellbear and kids gather in the Inner Sunset</p>
           <Button bsStyle='primary'>Sign up</Button>
         </Jumbotron>
+        <SocialMenu socialMenu={this.state.socialMenu} />
         <WhoWeAre />
         <br />
         <StaffMenu staffMenu={this.state.staffMenu} />
@@ -46,6 +50,6 @@ var Main = React.createClass({
       </Grid>
     )
   }
-});
+};
 
 ReactDOM.render(<Main />, document.getElementById('root'))

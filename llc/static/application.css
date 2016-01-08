@@ -1,12 +1,30 @@
 div.menuItem a {
-  width: 200px;
-  height: 180px;
+  width: 220px;
+  height: 200px;
   display: inline-block;
   margin: 10px;
 }
 
-div.menuItem a h5 {
-  margin-top: 50px;
+div.menuItem a p {
+  margin-top: 45px;
+}
+
+div.socialMenuItem {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+div.socialMenuItem a {
+  width: 300px;
+  height: 100px;
+  display: inline-block;
+  margin: 20px;
+}
+
+div.socialMenuItem a p {
+  margin-top: 15px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .marginstuff {
@@ -15,23 +33,32 @@ div.menuItem a h5 {
 }
 
 .staffName {
-  color: black;
   font-weight: bold;
-
+  font-size: 27px;
+  -webkit-text-stroke: .5px white;
 }
 
 ul li {
-  font-size: 15px;
-
+  font-size: 17px;
 }
 
 body {
   background-color: #EFEFEF;
 }
 
-body .section {
+.section {
   border: 1px solid #E3E3E3;
   background-color: white;
+}
+
+div.jumbotron {
+  margin-bottom: 0px;
+}
+
+.bodySection {
+  border: 1px solid #E3E3E3;
+  background-color: white;
+  padding-bottom: 20px;
 }
 
 th {
