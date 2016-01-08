@@ -39,7 +39,7 @@ def image(imageName):
 
 @app.route('/')
 def main():
-  return app.send_static_file('index.html')
+  return send_from_directory('./', 'index.html')
 
 @app.route('/bundle.js')
 @app.route('/bootstrap.min.css')
