@@ -1,22 +1,16 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-var Grid = require('react-bootstrap/lib/Grid');
-var Jumbotron = require('react-bootstrap/lib/Jumbotron');
-var Button = require("react-bootstrap/lib/Button");
+import { Grid, Button } from 'react-bootstrap'
 
-var Main = React.createClass({  
+export default class Main extends React.Component {  
   render() {
     return (
       <Grid>
-        <Jumbotron>
-          <h1>Sad title</h1>
-          <p>laughable description</p>
-          <Button bsStyle='primary'>Learn more</Button>
-        </Jumbotron>
+        <h1>Awesome</h1>
       </Grid>
     )
   }
-});
+}
 
 ReactDOM.render(<Main />, document.getElementById('root'))
