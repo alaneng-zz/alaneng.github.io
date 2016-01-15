@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, ListGroup } from 'react-bootstrap';
+import { Grid, ListGroup, Col } from 'react-bootstrap';
 import VideoListItem from './video_list_item';
 
 export default class VideoList extends Component {
@@ -12,14 +12,15 @@ export default class VideoList extends Component {
           onVideoSelect={onVideoSelect}
           key={video.etag} 
           video={video} />
-
       )
     })
 
     return (
-      <ListGroup className='col-md-4'>
-        {videoItems}
-      </ListGroup>
+      <Col md={4}>
+        <ListGroup>
+          {videoItems}
+        </ListGroup>
+      </Col>
     )
   }
 }
