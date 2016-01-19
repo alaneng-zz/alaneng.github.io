@@ -10,7 +10,7 @@ export default class App extends Component {
     return (
       <Grid>
         <Jumbotron>
-          Weather Across US Cities
+          <h1>Weather Across US Cities</h1>
           <SearchBar />
         </Jumbotron>
         <WeatherList />
