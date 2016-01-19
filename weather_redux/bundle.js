@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2dadf9eb7ae8daf98a11"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "84b948dc6b8fba2b7c8b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -29982,6 +29982,11 @@
 	            'h1',
 	            null,
 	            'Weather Across US Cities'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Forecast every third hour within the next five days'
 	          ),
 	          _react2.default.createElement(_searchBar2.default, null)
 	        ),
