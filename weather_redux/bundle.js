@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "34fd305ef781ea71b239"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "da4f3632df6e670b5f71"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -29975,7 +29975,12 @@
 	      return _react2.default.createElement(
 	        _reactBootstrap.Grid,
 	        null,
-	        _react2.default.createElement(_searchBar2.default, null),
+	        _react2.default.createElement(
+	          _reactBootstrap.Jumbotron,
+	          null,
+	          'Weather Across US Cities',
+	          _react2.default.createElement(_searchBar2.default, null)
+	        ),
 	        _react2.default.createElement(_weatherList2.default, null)
 	      );
 	    }

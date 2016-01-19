@@ -9,7 +9,10 @@ export default class App extends Component {
   render() {
     return (
       <Grid>
-        <SearchBar />
+        <Jumbotron>
+          Weather Across US Cities
+          <SearchBar />
+        </Jumbotron>
         <WeatherList />
       </Grid>
     );
