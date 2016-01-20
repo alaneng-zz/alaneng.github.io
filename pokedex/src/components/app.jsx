@@ -2,23 +2,25 @@ import React, { Component } from 'react';
 import $ from 'jquery'
 import { Jumbotron, Grid, Row, Col, Button } from 'react-bootstrap';
 
+import PokeGrid from './pokegrid.jsx';
+
 export default class App extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      pokemon: ''
+      pokedex: []
     }
   }
 
   componentDidMount() {
-    fetch('http://pokeapi.co/api/v1/pokemon/1/')
+    fetch('http://pokeapi.co/api/v1/pokedex/1/')
       .then(function(response){
         return response.json()
       })
       .then(function(json){
         this.setState({
-          pokemon: json
+          pokedex: json.pokemon
         })
       }.bind(this))
   }
@@ -27,8 +29,9 @@ export default class App extends Component {
     return (
       <Grid>
         <Jumbotron>
-          <h1>Pokedex</h1>
+          <h1 style={{textAlign: 'center'}}>Pokedex</h1>
         </Jumbotron>
+        <PokeGrid pokedex={this.state.pokedex} />
       </Grid>
     )
   }
