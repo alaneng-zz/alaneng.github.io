@@ -3,4 +3,38 @@ button.list-group-item {
   height: 180px;
   display: inline-block;
   text-align: center; 
+  -webkit-transition: all .5s ease;
+}
+
+.pokemon:hover {
+  width: 200px;
+  height: 200px;
+}
+
+div.jumbotron {
+  -webkit-transition: all .5s ease;
+}
+
+div.jumbotron:hover {
+  font-size: 48px;
+  margin-top: 20px;
+}
+
+.menu {
+  background: #eceeef;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  text-align: left;
+  padding: 5px;
+  text-align: center;
+ /* display:flex;
+  justify-content:center;
+  align-items:center;*/
+  -webkit-transition: all 500ms ease;
+}
+
+.menu:hover {
+  width: 200px;
+  height: 300px;
 }

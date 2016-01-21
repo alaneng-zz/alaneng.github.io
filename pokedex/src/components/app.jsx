@@ -3,13 +3,15 @@ import $ from 'jquery'
 import { Jumbotron, Grid, Row, Col, Button } from 'react-bootstrap';
 
 import PokeGrid from './pokegrid.jsx';
+import PokeMenu from './pokemenu.jsx';
 
 export default class App extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      pokedex: []
+      pokedex: [],
+      menuItems: ['i','love','my','mitchellbear']
     }
   }
 
@@ -29,8 +31,9 @@ export default class App extends Component {
     return (
       <Grid>
         <Jumbotron>
-          <h1 style={{textAlign: 'center'}}>Pokedex</h1>
+          <h1 style={{textAlign: 'center'}}>Pokédex</h1>
         </Jumbotron>
+        <PokeMenu menuItems={this.state.menuItems} />
         <PokeGrid pokedex={this.state.pokedex} />
       </Grid>
     )

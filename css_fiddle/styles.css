@@ -18,6 +18,7 @@ p {
 #one p {
   background: #4e90c7;
   -webkit-transition: font-size 1s ease, background 1s ease-out;
+
 }
 
 #two p:hover {
@@ -26,7 +27,7 @@ p {
 
 #two p {
   background: #b4db9a;
-  -webkit-transition: width 100ms;
+  -webkit-transition: all 100ms ease;
 }
 
 p::first-letter {
