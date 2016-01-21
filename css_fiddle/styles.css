@@ -1,0 +1,39 @@
+p {
+  display: block;
+  width: 450px;
+  text-align: center;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  margin: auto;
+  font-family: arial;
+  font-weight: 600;
+  color: #fff;
+}
+
+#one p:hover {
+  background: #97b7d1;  
+  font-size: 80px;
+}
+
+#one p {
+  background: #4e90c7;
+  -webkit-transition: font-size 1s ease, background 1s ease-out;
+}
+
+#two p:hover {
+  width: 850px;
+}
+
+#two p {
+  background: #b4db9a;
+  -webkit-transition: width 100ms;
+}
+
+p::first-letter {
+   font-size: 2em;
+   font-weight: bold;
+   font-family: cursive;
+   padding-right: 2px;
+}
+
+
