@@ -11,10 +11,23 @@ export default class App extends Component {
 
     this.state = {
       pokedex: [],
-      menuItems: ['i','love','my','mitchellbear']
+      menuItems: ['foo', 'bar', 'wee'],
+      showMenu: true
     }
   }
 
+  onHideMenu() {
+    this.setState({showMenu: false})
+  }
+
+  onShowMenu() {
+    this.setState({showMenu: true})
+  }
+
+  onHeaderCopy() {
+    console.log('lolwut r u doin')
+  }
+  
   componentDidMount() {
     fetch('http://pokeapi.co/api/v1/pokedex/1/')
       .then(function(response){
@@ -30,10 +43,11 @@ export default class App extends Component {
   render() {
     return (
       <Grid>
-        <Jumbotron>
-          <h1 style={{textAlign: 'center'}}>Pokédex</h1>
+        <Jumbotron onMouseLeave={this.onShowMenu.bind(this)}
+                   onMouseEnter={this.onHideMenu.bind(this)}>
+          <h1 onCopy={this.onHeaderCopy.bind(this)} style={{textAlign: 'center'}}>Pokédex</h1>
         </Jumbotron>
-        <PokeMenu menuItems={this.state.menuItems} />
+        {this.state.showMenu && <PokeMenu menuItems={this.state.menuItems} />}
         <PokeGrid pokedex={this.state.pokedex} />
       </Grid>
     )

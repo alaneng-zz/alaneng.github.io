@@ -18,10 +18,21 @@ export default class PokeMenu extends Component {
     this.setState({showMenu: false})
   }
 
+  componentWillUnmount() {
+    console.log('UNMOUNTED!!')
+  }
+
+  componentDidMount() {
+    console.log('MOUNTED!!')
+  }
+
   render() {
     const {menuItems} = this.props;
     const menuList = menuItems.map(menuItem =>
-      <ListGroupItem href="#" key={menuItem}>
+      <ListGroupItem 
+        className='menuItem'
+        href="#" 
+        key={menuItem}>
         {menuItem}
       </ListGroupItem>
     )

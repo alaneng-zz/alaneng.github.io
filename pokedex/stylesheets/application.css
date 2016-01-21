@@ -15,26 +15,35 @@ div.jumbotron {
   -webkit-transition: all .5s ease;
 }
 
-div.jumbotron:hover {
+/*div.jumbotron:hover {
   font-size: 48px;
   margin-top: 20px;
-}
+}*/
 
 .menu {
   background: #eceeef;
   width: 100px;
   height: 100px;
   margin: 20px;
-  text-align: left;
   padding: 5px;
-  text-align: center;
- /* display:flex;
-  justify-content:center;
-  align-items:center;*/
   -webkit-transition: all 500ms ease;
+}
+
+a.menuItem {
+  text-align: center;
 }
 
 .menu:hover {
   width: 200px;
   height: 300px;
 }
+
+
+.menu p {
+/*  line-height:50px;
+  text-align:center;  */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
