@@ -16,12 +16,8 @@ export default class App extends Component {
     }
   }
 
-  onHideMenu() {
-    this.setState({showMenu: false})
-  }
-
-  onShowMenu() {
-    this.setState({showMenu: true})
+  handleMenu() {
+    this.setState({showMenu: !this.state.showMenu})
   }
 
   onHeaderCopy() {
@@ -43,10 +39,10 @@ export default class App extends Component {
   render() {
     return (
       <Grid>
-        <Jumbotron>
-        {/*onMouseLeave={this.onShowMenu.bind(this)}
-        //            onMouseEnter={this.onHideMenu.bind(this)}>*/}
-          <h1 onCopy={this.onHeaderCopy.bind(this)} style={{textAlign: 'center'}}>Pokédex</h1>
+        <Jumbotron
+          onMouseLeave={this.handleMenu.bind(this)}
+          onMouseEnter={this.handleMenu.bind(this)}>
+          <h1 onCopy={this.onHeaderCopy.bind(this)} style={{textAlign: 'center'}}>Pokédex!</h1>
         </Jumbotron>
         {this.state.showMenu && <PokeMenu menuItems={this.state.menuItems} />}
         <PokeGrid pokedex={this.state.pokedex} />
