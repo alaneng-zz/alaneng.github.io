@@ -27,7 +27,7 @@ export default class App extends Component {
   onHeaderCopy() {
     console.log('lolwut r u doin')
   }
-  
+
   componentDidMount() {
     fetch('http://pokeapi.co/api/v1/pokedex/1/')
       .then(function(response){
@@ -43,8 +43,9 @@ export default class App extends Component {
   render() {
     return (
       <Grid>
-        <Jumbotron onMouseLeave={this.onShowMenu.bind(this)}
-                   onMouseEnter={this.onHideMenu.bind(this)}>
+        <Jumbotron>
+        {/*onMouseLeave={this.onShowMenu.bind(this)}
+        //            onMouseEnter={this.onHideMenu.bind(this)}>*/}
           <h1 onCopy={this.onHeaderCopy.bind(this)} style={{textAlign: 'center'}}>Pokédex</h1>
         </Jumbotron>
         {this.state.showMenu && <PokeMenu menuItems={this.state.menuItems} />}
