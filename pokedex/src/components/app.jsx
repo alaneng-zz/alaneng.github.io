@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery'
-import { Jumbotron, Grid, Row, Col, Button } from 'react-bootstrap';
+import { Jumbotron, Grid, Row, Col, Button, Input } from 'react-bootstrap';
 
 import PokeGrid from './pokegrid.jsx';
 import PokeMenu from './pokemenu.jsx';
@@ -11,8 +11,9 @@ export default class App extends Component {
 
     this.state = {
       pokedex: [],
-      menuItems: ['foo', 'bar', 'wee'],
-      showMenu: true
+      menuItems: ['foo'],
+      showMenu: true,
+      addMenuitem: ''
     }
   }
 
@@ -22,6 +23,11 @@ export default class App extends Component {
 
   onHeaderCopy() {
     console.log('lolwut r u doin')
+  }
+
+  handleAddMenuItem(e) {
+    this.setState({addMenuItem: e.target.value})
+    this.setState({menuItems: this.state.menuItems.concat([e.target.value])})
   }
 
   componentDidMount() {
@@ -44,6 +50,7 @@ export default class App extends Component {
           onMouseEnter={this.handleMenu.bind(this)}>
           <h1 onCopy={this.onHeaderCopy.bind(this)} style={{textAlign: 'center'}}>Pokédex!</h1>
         </Jumbotron>
+        <Input value={this.state.addMenuItem} onChange={this.handleAddMenuItem.bind(this)} type='text' />
         {this.state.showMenu && <PokeMenu menuItems={this.state.menuItems} />}
         <PokeGrid pokedex={this.state.pokedex} />
       </Grid>

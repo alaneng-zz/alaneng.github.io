@@ -6,7 +6,7 @@ export default class PokeMenu extends Component {
     super(props)
 
     this.state = {
-      showMenu: false
+      showMenu: true
     }
   }
 
@@ -18,12 +18,20 @@ export default class PokeMenu extends Component {
     this.setState({showMenu: false})
   }
 
-  componentWillUnmount() {
-    console.log('UNMOUNTED!!')
+  // componentWillUnmount() {
+  //   console.log('UNMOUNTED!!')
+  // }
+
+  // componentDidMount() {
+  //   console.log('MOUNTED!!')
+  // }
+
+  componentDidUpdate() {
+    console.log('updated!')
   }
 
-  componentDidMount() {
-    console.log('MOUNTED!!')
+  componentWillReceiveProps(nextProps) {
+    console.log('received:', nextProps.menuItems)
   }
 
   render() {
@@ -40,11 +48,14 @@ export default class PokeMenu extends Component {
     return (
       <div 
         className='menu' 
-        onMouseEnter={this.onMenuEnter.bind(this)}
-        onMouseLeave={this.onMenuExit.bind(this)}>
+        
+        >
         <p>PokéMenu</p>
         {this.state.showMenu && menuList}
       </div>
     )
   }
 }
+
+//onMouseEnter={this.onMenuEnter.bind(this)}
+//        onMouseLeave={this.onMenuExit.bind(this)}
