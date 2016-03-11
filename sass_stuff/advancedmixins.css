@@ -1,0 +1,16 @@
+.sunset.monkey {
+  background: url("images/monkey.jpg"); }
+
+.sunset.bear {
+  background: url("images/bear.jpg"); }
+
+.sunset.taz {
+  background: url("images/taz.jpg"); }
+
+.sunset.boo {
+  background: url("images/boo.jpg"); }
+
+.box {
+  width: 10px;
+  height: 10px;
+  border: 1px solid red; }

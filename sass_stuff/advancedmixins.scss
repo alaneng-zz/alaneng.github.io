@@ -1,0 +1,20 @@
+@mixin band($name, $members...) {
+  @each $member in $members {
+    .#{$name}.#{$member} {
+      background: url("images/#{$member}.jpg");
+    }
+  }
+}
+
+@include band(sunset, monkey, bear, taz, boo);
+
+
+@mixin square($size, $color: black) {
+  width: $size;
+  height: $size;
+  border: 1px solid $color;
+}
+
+.box {
+  @include square($size: 10px, $color: red);
+}

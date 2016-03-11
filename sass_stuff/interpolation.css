@@ -1,0 +1,14 @@
+div {
+  padding: 10px; }
+
+.blue {
+  color: blue;
+  background-image: url("images/blue.jpg"); }
+
+.red {
+  color: red;
+  background-image: url("images/red.jpg"); }
+
+.green {
+  color: green;
+  background-image: url("images/green.jpg"); }

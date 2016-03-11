@@ -1,0 +1,6 @@
+$complement: complement(red);
+
+a {
+  background: desaturate($complement, 10%);
+  color: lighten(red, 5%);
+}

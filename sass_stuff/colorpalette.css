@@ -1,0 +1,10 @@
+body {
+  background: #3d668f;
+  font-family: sans-serif;
+  color: #334c66; }
+
+a {
+  color: #557faa; }
+
+body.about_us {
+  font-size: 20px; }

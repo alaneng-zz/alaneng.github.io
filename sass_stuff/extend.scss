@@ -1,0 +1,18 @@
+%super_link {
+  font-weight: bold;
+  color: red;
+}
+
+.animals {
+  background: #369;
+}
+
+.dogs {
+  @extend .animals
+}
+
+.message_box {
+  a {
+    @extend %super_link;
+  }
+}
