@@ -3,8 +3,24 @@ $font: Helvetica, sans-serif;
 $font-color: #fff;
 
 body {
-  background: $bg-color;
+  // background: $bg-color;
   font-family: $font;
   color: $font-color;
+  height: 100%;
+  margin: 0px;
 }
 
+.page {
+  height: 100%;
+}
+
+.sidebar {
+  text-align: center;
+  background: $bg-color;
+  position: absolute;
+  height: 100%;
+}
+
+.main {
+  position: relative;
+}
