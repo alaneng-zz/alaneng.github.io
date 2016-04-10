@@ -1,15 +1,23 @@
-a {
-  color: #963;
-  text-decoration: none;
+.site,
+.site-body {
+  display: flex;
+  flex-direction: column;
 }
 
-#hey {
-  font: {
-    family: fantasy;
-    weight: bold;    
-  }
+.site-nav {
+  order: -1;
+}
 
-  &:hover {
-    color: #369;
+@media (min-width: 768px) {
+  .site-body {
+    flex-direction: row;
+    flex: 1;
+  }
+  .site-content {
+    flex: 1;
+  }
+  .site-nav, .site-ads {
+    /* 12em is the width of the columns */
+    flex: 0 0 12em;
   }
 }
