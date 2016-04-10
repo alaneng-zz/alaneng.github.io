@@ -3,7 +3,11 @@ a {
 }
 
 #hey {
-  family: fantasy;
+  font: {
+    family: fantasy;
+    weight: bold;    
+  }
+
 
   &:hover {
     color: #369;
