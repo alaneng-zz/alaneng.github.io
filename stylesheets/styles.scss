@@ -1,0 +1,11 @@
+a {
+  color: #963;
+}
+
+#id {
+  family: fantasy;
+
+  &:hover {
+    color: #369;
+  }
+}
