@@ -15,7 +15,11 @@
   }
 
   .col {
-    flex: 1;
+    flex: 1 50%;
+  }
+
+  .row {
+    flex-wrap: wrap;
   }
 }
 
@@ -25,22 +29,21 @@
     justify-content: space-between;
   }
 
+  .col {
+    flex-basis: 0;
+  }
+
   .primary {
-    flex: 2;
+    flex-grow: 1.5;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.col {
+  background: #f4f4f4;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 15px;
+}
 
 
 
@@ -131,20 +134,24 @@ img {
   padding-top: .5em;
   padding-bottom: .5em;
 }
+
 .banner,
 .main-footer {
   text-align: center;
 }
+
 .banner {
   color: #fff;
   background: $banner-bg-color;
   padding: 3.2em 0;
   margin-bottom: 48px;
 }
+
 .col {
   padding-right: 1em;
   padding-left: 1em;
 }
+
 .main-footer {
   background: $banner-bg-color; //#d9e4ea;
   padding: 2em 0;
