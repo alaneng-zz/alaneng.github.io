@@ -4,9 +4,12 @@ $bg-color: #369;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .header {
   background: $bg-color;
   color: white;
+  flex: 1;
+  height: 500px;
 }
