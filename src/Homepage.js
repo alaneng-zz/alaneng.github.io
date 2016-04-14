@@ -7,7 +7,7 @@ class Homepage extends React.Component {
 
   render() {
     return <div className='homepage'>
-             <div className='header'>centered!</div>
+             <div className='homepage-child'>centered!</div>
            </div>
   }
 };
