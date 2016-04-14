@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "28a81ba557718acb29f8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c38d2640bca43efbaf70"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -27662,7 +27662,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".homepage {\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n\n.header {\n  background: #369;\n  color: white;\n  height: 500px; }\n", ""]);
+	exports.push([module.id, ".homepage {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 24em; }\n\n.header {\n  background: #369;\n  color: white;\n  flex: 1;\n  height: 500px; }\n", ""]);
 	
 	// exports
 
@@ -28011,11 +28011,7 @@
 	          React.createElement(
 	            "div",
 	            { className: "header" },
-	            React.createElement(
-	              "h1",
-	              null,
-	              "hello world!"
-	            )
+	            "centered"
 	          )
 	        );
 	      }
