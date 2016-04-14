@@ -25,17 +25,15 @@ $bg-color: #369;
 
 .Aligner-item {
   flex: 1;
+  background: #359;
 }
 
 .Aligner-item--top {
   align-self: flex-start;
+  background: #369;
 }
 
 .Aligner-item--bottom {
   align-self: flex-end;
-}
-
-.Aligner-item--fixed {
-  flex: none;
-  max-width: 50%;
+  background: #361
 }
