@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "12cdf07b563b371206bd"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f3d135011feb98a79715"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -27662,7 +27662,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".homepage {\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n\n.homepage-child {\n  background: #369;\n  color: white;\n  margin: auto;\n  height: 500px;\n  width: 100%; }\n", ""]);
+	exports.push([module.id, ".homepage {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column; }\n\n.homepage-child {\n  background: #369;\n  color: white;\n  margin: auto;\n  height: 500px;\n  width: 100%; }\n", ""]);
 	
 	// exports
 
