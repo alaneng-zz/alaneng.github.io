@@ -39,6 +39,14 @@
   box-sizing: border-box; }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; }
+
+.row {
+  flex: 1; }
+
+body {
   font-family: 'Varela Round', sans-serif;
   line-height: 1.6;
   color: #3a3a3a;

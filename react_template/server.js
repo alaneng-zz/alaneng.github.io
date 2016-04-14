@@ -5,8 +5,6 @@ var config = require('./webpack.config');
 const PORT = 3000
 
 new WebpackDevServer(webpack(config), {
-  // publicPath: config.output.publicPath,
-  // contentBase: config.devServer.contentBase,
   hot: true,
   historyApiFallback: true
 }).listen(PORT, 'localhost', function (err, result) {
@@ -14,3 +12,5 @@ new WebpackDevServer(webpack(config), {
     console.log(err);
   }
 });
+
+console.log('Running on localhost:', PORT)

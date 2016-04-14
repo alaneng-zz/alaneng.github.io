@@ -65,21 +65,37 @@ $green: #361;
 * {
   box-sizing: border-box;
 }
+
+// for sticky footer
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.row {
+  flex: 1;
+}
+
+// else
 body {
   font-family: 'Varela Round', sans-serif;
   line-height: 1.6;
   color: #3a3a3a;
   margin: 0;
 }
+
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
+
 p {
   font-size: .95em;
   margin-bottom: 1.8em;
 }
+
 h2,
 h3,
 a {
