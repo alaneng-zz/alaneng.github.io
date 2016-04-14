@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f6877a1fc85393f879cc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ff0fbc9997234e18c186"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -27662,7 +27662,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".homepage {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 24em; }\n\n.header {\n  background: #369;\n  color: white;\n  flex: 1;\n  height: 500px; }\n\n.Aligner {\n  display: flex;\n  align-items: center;\n  min-height: 24em;\n  justify-content: center; }\n\n.Aligner-item {\n  flex: 1;\n  background: #359; }\n\n.Aligner-item--top {\n  align-self: flex-start;\n  background: #369; }\n\n.Aligner-item--bottom {\n  align-self: flex-end;\n  background: #361; }\n", ""]);
+	exports.push([module.id, ".homepage {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 24em; }\n\n.header {\n  background: #369;\n  color: white;\n  flex: 1;\n  height: 500px; }\n\n.Aligner {\n  display: flex;\n  align-items: center;\n  min-height: 24em;\n  justify-content: center;\n  flex-direction: column; }\n\n.Aligner-item {\n  flex: 1;\n  background: #359; }\n\n.Aligner-item--top {\n  align-self: flex-start;\n  background: #369; }\n\n.Aligner-item--bottom {\n  align-self: flex-end;\n  background: #361; }\n", ""]);
 	
 	// exports
 
