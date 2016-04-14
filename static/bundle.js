@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "be587b90a19dbaf73bac"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "12cdf07b563b371206bd"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -28011,7 +28011,22 @@
 	          React.createElement(
 	            "div",
 	            { className: "homepage-child" },
-	            "centered!"
+	            "child1"
+	          ),
+	          React.createElement(
+	            "div",
+	            { className: "homepage-child" },
+	            "child2"
+	          ),
+	          React.createElement(
+	            "div",
+	            { className: "homepage-child" },
+	            "child3"
+	          ),
+	          React.createElement(
+	            "div",
+	            { className: "homepage-child" },
+	            "child4"
 	          )
 	        );
 	      }
