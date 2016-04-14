@@ -1,48 +1,14 @@
 $bg-color: #369;
 
-body {
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: 'Varela Round', sans-serif;
-  line-height: 1.6;
-  color: #ffffff;
-  margin: 0;
-}
-
-// .homepage {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   min-height: 24em;
-
-// }
-
-// .header {
-//   background: $bg-color;
-//   color: white;
-//   flex: 1;
-//   height: 500px;
-// }
-
-.Aligner {
+.homepage {
   display: flex;
   align-items: center;
-  min-height: 24em;
   justify-content: center;
-  flex-direction: column;
 }
 
-.Aligner-item {
+.header {
+  background: $bg-color;
+  color: white;
   flex: 1;
-  background: #359;
-}
-
-.Aligner-item--top {
-  align-self: flex-start;
-  background: #369;
-}
-
-.Aligner-item--bottom {
-  align-self: flex-end;
-  background: #361
+  height: 500px;
 }
