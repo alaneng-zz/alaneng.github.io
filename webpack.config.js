@@ -18,7 +18,6 @@ module.exports = {
         test: /\.jsx?$/,
         include: path.join(__dirname, 'src'),
         loader: 'babel'
-        // loaders: ['react-hot-loader', 'babel?presets[]=react,presets[]=es2015']
       },    
       {
         test: /\.scss?$/,
