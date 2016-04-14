@@ -1,5 +1,14 @@
 $bg-color: #369;
 
+body {
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Varela Round', sans-serif;
+  line-height: 1.6;
+  color: #3a3a3a;
+  margin: 0;
+}
+
 .homepage {
   display: flex;
   align-items: center;

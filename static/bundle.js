@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ff0fbc9997234e18c186"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d0aab570a3a6b0407869"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -27662,7 +27662,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".homepage {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 24em; }\n\n.header {\n  background: #369;\n  color: white;\n  flex: 1;\n  height: 500px; }\n\n.Aligner {\n  display: flex;\n  align-items: center;\n  min-height: 24em;\n  justify-content: center;\n  flex-direction: column; }\n\n.Aligner-item {\n  flex: 1;\n  background: #359; }\n\n.Aligner-item--top {\n  align-self: flex-start;\n  background: #369; }\n\n.Aligner-item--bottom {\n  align-self: flex-end;\n  background: #361; }\n", ""]);
+	exports.push([module.id, "body {\n  flex-direction: column;\n  min-height: 100vh;\n  font-family: 'Varela Round', sans-serif;\n  line-height: 1.6;\n  color: #3a3a3a;\n  margin: 0; }\n\n.homepage {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 24em; }\n\n.header {\n  background: #369;\n  color: white;\n  flex: 1;\n  height: 500px; }\n\n.Aligner {\n  display: flex;\n  align-items: center;\n  min-height: 24em;\n  justify-content: center;\n  flex-direction: column; }\n\n.Aligner-item {\n  flex: 1;\n  background: #359; }\n\n.Aligner-item--top {\n  align-self: flex-start;\n  background: #369; }\n\n.Aligner-item--bottom {\n  align-self: flex-end;\n  background: #361; }\n", ""]);
 	
 	// exports
 
