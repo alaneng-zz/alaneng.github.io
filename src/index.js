@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '../static/stylesheets.scss';
 
 class Homepage extends React.Component {
   constructor(props) {
