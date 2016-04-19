@@ -20081,7 +20081,7 @@
 	            React.createElement(
 	              "div",
 	              { className: "box" },
-	              "contact"
+	              "blog"
 	            )
 	          )
 	        );

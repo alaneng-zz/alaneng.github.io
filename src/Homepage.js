@@ -23,7 +23,7 @@ class Homepage extends React.Component {
                 projects
               </div>
               <div className='box'>
-                contact
+                blog
               </div>
             </section>
 
