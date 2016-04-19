@@ -1,16 +1,39 @@
 $bg-color: #369;
+$text-color: #36454f;
+body {
+  color: $text-color;
+}
 
 .homepage {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
 }
 
-.homepage-child {
-  background: $bg-color;
-  color: white;
-  margin: auto;
-  height: 200px;;
-  width: 100%;
+.header {
+  display: flex;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sections {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  flex-flow: row wrap;
+
+  .box {
+    flex: 1 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: $text-color;
+    height: 250px;
+    margin: 20px;
+    border-radius: 5px;
+  }
 }

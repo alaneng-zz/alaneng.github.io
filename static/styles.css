@@ -1,4 +1,4 @@
-/* ================================= 
+/* =================================
   Flexbox -- Media Queries
 ==================================== */
 @media (min-width: 769px) {
@@ -32,7 +32,7 @@
   border-radius: 10px;
   padding: 15px; }
 
-/* ================================= 
+/* =================================
   Base Element Styles
 ==================================== */
 * {
@@ -43,14 +43,11 @@ body {
   flex-direction: column;
   min-height: 100vh; }
 
-.row {
-  flex: 1; }
-
 body {
   font-family: 'Varela Round', sans-serif;
   line-height: 1.6;
   color: #3a3a3a;
-  margin: 0; }
+  margin: 0px; }
 
 ul {
   margin: 0;
@@ -76,14 +73,12 @@ a {
 img {
   max-width: 100%; }
 
-/* ================================= 
+/* =================================
   Base Layout Styles
 ==================================== */
 /* ---- Navigation ---- */
-.name {
-  font-size: 1.35em;
-  margin: 0;
-  color: orange; }
+.row {
+  flex: 1; }
 
 .main-nav {
   margin-top: 5px; }
@@ -117,15 +112,15 @@ img {
   padding: 3.2em 0;
   margin-bottom: 48px; }
 
-.col {
-  padding-right: 1em;
-  padding-left: 1em; }
-
 .main-footer {
   background: #336699;
   padding: 2em 0;
   margin-top: 30px;
   color: white; }
+
+.col {
+  padding-right: 1em;
+  padding-left: 1em; }
 
 /* ---- Page Elements ---- */
 .logo {
@@ -138,7 +133,7 @@ img {
 .feat-img {
   border-radius: 5px; }
 
-/* ================================= 
+/* =================================
   Media Queries
 ==================================== */
 @media (min-width: 769px) {
