@@ -19705,7 +19705,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html {\n  height: 100%; }\n\nbody {\n  color: #36454f; }\n\n.homepage {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  justify-content: space-around; }\n\n.header {\n  display: flex;\n  height: 400px;\n  align-items: center;\n  flex: 1 100%; }\n\n.sections {\n  display: flex;\n  justify-content: space-around;\n  flex-flow: row wrap;\n  flex: 1 100%;\n  width: 90%; }\n  .sections .box {\n    flex: 1 200px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-style: solid;\n    border-width: 2px;\n    border-color: #36454f;\n    height: 250px;\n    margin: 20px;\n    border-radius: 5px; }\n", ""]);
+	exports.push([module.id, "html {\n  height: 100%; }\n\nbody {\n  color: #36454f; }\n\n.homepage {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  justify-content: space-around; }\n\n.header {\n  display: flex;\n  height: 400px;\n  align-items: center;\n  flex: 1 100%; }\n\n.boxes {\n  display: flex;\n  justify-content: space-around;\n  flex-flow: row wrap;\n  flex: 1 100%;\n  width: 90%; }\n  .boxes div {\n    flex: 1 200px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-style: solid;\n    border-width: 2px;\n    border-color: #36454f;\n    height: 250px;\n    margin: 20px;\n    border-radius: 5px;\n    transition: flex-grow 0.2s, background 0.3s, color; }\n    .boxes div:hover {\n      flex-grow: 3; }\n    .boxes div:active {\n      background: #faba9d;\n      color: white; }\n", ""]);
 	
 	// exports
 
@@ -20041,13 +20041,36 @@
 	    _classCallCheck(this, Homepage);
 	
 	    _get(Object.getPrototypeOf(Homepage.prototype), "constructor", this).call(this, props);
+	
+	    this.state = {
+	      subject: "alan eng"
+	    };
 	  }
 	
 	  _inherits(Homepage, _React$Component);
 	
 	  _createClass(Homepage, {
+	    handleBoxSelect: {
+	      value: function handleBoxSelect(subject) {
+	        this.setState({ subject: subject });
+	      }
+	    },
 	    render: {
 	      value: function render() {
+	        var _this = this;
+	
+	        var subject = this.state.subject;
+	
+	        var subjects = ["me", "stitch fix", "projects", "blog"];
+	
+	        var boxes = subjects.map(function (subject) {
+	          return React.createElement(
+	            "div",
+	            { key: subject, onClick: _this.handleBoxSelect.bind(_this, subject) },
+	            subject
+	          );
+	        });
+	
 	        return React.createElement(
 	          "div",
 	          { className: "homepage" },
@@ -20057,32 +20080,13 @@
 	            React.createElement(
 	              "h1",
 	              null,
-	              "alan eng"
+	              subject
 	            )
 	          ),
 	          React.createElement(
 	            "section",
-	            { className: "sections" },
-	            React.createElement(
-	              "div",
-	              { className: "box" },
-	              "me"
-	            ),
-	            React.createElement(
-	              "div",
-	              { className: "secondary box" },
-	              "stitch fix"
-	            ),
-	            React.createElement(
-	              "div",
-	              { className: "box" },
-	              "projects"
-	            ),
-	            React.createElement(
-	              "div",
-	              { className: "box" },
-	              "blog"
-	            )
+	            { className: "boxes" },
+	            boxes
 	          )
 	        );
 	      }

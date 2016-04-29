@@ -3,30 +3,31 @@ import React from 'react';
 class Homepage extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      subject: 'alan eng'
+    }
+  };
+
+  handleBoxSelect(subject) {
+    this.setState({subject: subject})
   };
 
   render() {
+    let { subject } = this.state;
+    const subjects = ['me', 'stitch fix', 'projects', 'blog'];
+
+    let boxes = subjects.map(subject =>
+      <div key={subject} onClick={this.handleBoxSelect.bind(this, subject)}>{subject}</div>
+    )
+
     return <div className='homepage'>
-
             <section className='header'>
-                <h1>alan eng</h1>
+                <h1>{ subject }</h1>
             </section>
-
-            <section className='sections'>
-              <div className='box'>
-                me
-              </div>
-              <div className='secondary box'>
-                stitch fix
-              </div>
-              <div className='box'>
-                projects
-              </div>
-              <div className='box'>
-                blog
-              </div>
+            <section className='boxes'>
+              { boxes }
             </section>
-
            </div>
   }
 };
