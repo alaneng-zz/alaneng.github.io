@@ -1,5 +1,10 @@
 $bg-color: #369;
 $text-color: #36454f;
+
+html {
+  height: 100%;
+}
+
 body {
   color: $text-color;
 }
@@ -8,21 +13,22 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .header {
   display: flex;
   height: 400px;
   align-items: center;
-  justify-content: center;
+  flex: 1 100%;
 }
 
 .sections {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
+  justify-content: space-around;
   flex-flow: row wrap;
+  flex: 1 100%;
+  width: 90%;
 
   .box {
     flex: 1 200px;

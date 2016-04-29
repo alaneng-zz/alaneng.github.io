@@ -1,0 +1,102 @@
+body {
+  font-family: tahoma;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
+#site {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 500px;
+  width: 150px; }
+  #site .awesomebutton {
+    background: #369;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    transition: background 0.4s, font-size 0.4s, opacity 0.4s; }
+    #site .awesomebutton:hover {
+      background: tomato; }
+    #site .awesomebutton:active {
+      background: #86c6bd;
+      font-size: 26px; }
+
+.delayedbutton {
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 0.5s 0.5s, background 0.5s 0.0s, box-shadow 0.5s 0.5s;
+  padding: 20px; }
+  .delayedbutton:hover {
+    color: black;
+    background: #ffb9ad;
+    box-shadow: 0 0 0 3px #e02200; }
+  #site:hover .delayedbutton {
+    opacity: 1; }
+
+.btn-icon {
+  position: absolute;
+  opacity: 0;
+  background: #963;
+  color: white;
+  left: 45%;
+  transition: opacity 0.5s ease 1s, left 0.5s ease-out 1s;
+  border-radius: 4px;
+  padding: 5px 10px; }
+  .delayedbutton:hover .btn-icon {
+    opacity: 1;
+    left: 60%; }
+
+#flexcontainer {
+  display: flex;
+  width: 300px;
+  flex-direction: row; }
+  #flexcontainer .foo, #flexcontainer .bar {
+    color: white;
+    flex: 1;
+    transition: flex 0.5s, transform 3s; }
+    #flexcontainer .foo:hover, #flexcontainer .bar:hover {
+      flex: 2;
+      transform: rotate(3turn); }
+  #flexcontainer .foo {
+    background: #361; }
+  #flexcontainer .bar {
+    background: tomato; }
+
+.logo {
+  transition: transform 0.4s;
+  margin-bottom: 40px; }
+  .logo:hover {
+    transform: rotate(-20deg) scale(2); }
+
+#overflowcamera {
+  margin: 40px;
+  overflow: hidden;
+  border: 1px dashed red;
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center; }
+  #overflowcamera .overflowlogo {
+    transform: scale(3);
+    transition: transform 0.5s; }
+    #overflowcamera .overflowlogo:hover {
+      transform: scale(7); }
+
+#bgstuff {
+  border: 1px solid #361;
+  margin: 60px;
+  border-radius: 5px;
+  width: 300px;
+  height: 250px;
+  background: #5fbd20;
+  opacity: 0.25;
+  text-align: center; }
+  #bgstuff:hover .overlay {
+    transform: translateY(150%); }
+  #bgstuff .overlay {
+    opacity: 1;
+    transition: transform 0.5s;
+    background: tomato;
+    padding: 20px; }

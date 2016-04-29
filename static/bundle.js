@@ -19705,7 +19705,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  color: #36454f; }\n\n.homepage {\n  display: flex;\n  align-items: center;\n  flex-direction: column; }\n\n.header {\n  display: flex;\n  height: 400px;\n  align-items: center;\n  justify-content: center; }\n\n.sections {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 90%;\n  flex-flow: row wrap; }\n  .sections .box {\n    flex: 1 200px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-style: solid;\n    border-width: 2px;\n    border-color: #36454f;\n    height: 250px;\n    margin: 20px;\n    border-radius: 5px; }\n", ""]);
+	exports.push([module.id, "html {\n  height: 100%; }\n\nbody {\n  color: #36454f; }\n\n.homepage {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  justify-content: space-around; }\n\n.header {\n  display: flex;\n  height: 400px;\n  align-items: center;\n  flex: 1 100%; }\n\n.sections {\n  display: flex;\n  justify-content: space-around;\n  flex-flow: row wrap;\n  flex: 1 100%;\n  width: 90%; }\n  .sections .box {\n    flex: 1 200px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-style: solid;\n    border-width: 2px;\n    border-color: #36454f;\n    height: 250px;\n    margin: 20px;\n    border-radius: 5px; }\n", ""]);
 	
 	// exports
 
