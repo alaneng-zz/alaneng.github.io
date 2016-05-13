@@ -4,7 +4,6 @@
         <title>Ping</title>
         <script src="https://d3js.org/d3.v3.min.js"></script>
         <style>
-
           body {
             background: #f4f4f4;
             margin: auto;
@@ -18,31 +17,33 @@
     </head>
     <body>
       <div class='root'>
-        <svg width='400' height='300'></svg>
+        <svg width='100%' height='500px'></svg>
       </div>
       <script>
         let svg = d3.select('svg');
+        let cx = '50%';
+        let cy = '50%';
 
         svg.append('circle')
             .attr({
               'fill': '#369',
               'r': 10,
-              'cx': '50%',
-              'cy': '200px'
+              'cx': cx,
+              'cy': cy
             });
 
         function ping() {
           svg.append('circle')
               .attr({
-                'cx': '50%',
-                'cy': '200px',
+                'cx': cx,
+                'cy': cy,
                 'r': 1,
                 'stroke': '#369',
                 'stroke-opacity': 1,
                 'stroke-width': '3px'
               })
               .transition()
-                .duration(2000)
+                .duration(3000)
                 .attr({
                   'fill': 'none',
                   'r': 80,
@@ -53,7 +54,6 @@
         };
 
         setInterval(ping, 500);
-
       </script>
     </body>
 </html>
