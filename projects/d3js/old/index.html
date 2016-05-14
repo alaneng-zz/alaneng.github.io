@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>d3js sandbox</title>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js'></script>
+        <style type="text/css" media="screen">
+          div.container {
+            height: 100%;
+            text-align: center;
+            margin: auto;
+          }
+
+          div.bar {
+            background: #369;
+            width: 20px;
+            margin: 5px;
+            margin-top: 350px;
+            display: inline-block;
+          }
+        </style>
+    </head>
+    <body>
+        <!-- this is all fine and dandy, but we should be using svg instead -->
+        <!-- svg is faster and more consistent across browsers -->
+        <div class='container'></div>
+        <script>
+          var dataset = [];
+          var bars = 20;
+
+          for(var i = 0; i < bars; i++) {
+            dataset.push(Math.random() * 200)
+          }
+
+          d3.select('div.container').selectAll('div')
+              .data(dataset)
+              .enter()
+              .append('div')
+              .attr({
+                'class': 'bar'
+              })
+              .style({
+                'height': function(d) { return d + 'px'},
+                'opacity': function(d, i) { return i / bars }
+              })
+        </script>
+    </body>
+</html>
