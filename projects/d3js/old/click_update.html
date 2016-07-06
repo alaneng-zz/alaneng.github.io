@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>d3js sandbox</title>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js'></script>
+        <style type="text/css" media="screen">
+          body {
+            font-family: verdana;
+          }
+
+          .axis path,
+          .axis line {
+            fill: none;
+            stroke: black;
+            shape-rendering: crispEdges;
+          }
+
+          .axis text {
+            font-family: sans-serif;
+            font-size: 11px;
+          }
+        </style>
+    </head>
+    <body>
+      <script>
+        var w = 1000;
+        var h = 200;
+        var dataset = [];
+
+        for(var i = 5; i < 300; i += 5) {
+          dataset.push(Math.random() * 150)
+        };
+
+        var svg = d3.select('body').append('svg')
+                    .attr({
+                      'width': w,
+                      'height': h,
+                      'class': 'chart'
+                    })
+
+        var xScale = d3.scale.ordinal()
+                       .domain(d3.range(dataset.length))
+                       .rangeRoundBands([0, w], 0.05);
+
+        var yScale = d3.scale.linear()
+                       .domain([0, d3.max(dataset)])
+                       .range([0, h]);
+
+        svg.selectAll('rect')
+           .data(dataset)
+           .enter()
+           .append('rect')
+           .attr({
+             'x': function(d, i) {
+                return xScale(i);
+             },
+             'y': function(d) {
+                return h - yScale(d);
+             },
+             'width': xScale.rangeBand(),
+             'height': function(d) {
+                return yScale(d);
+             },
+             'fill': function(d) { return '#361' },
+             'opacity': function(d) { return d / d3.max(dataset) }
+           })
+
+        d3.select('.chart')
+           .on('click', function() {
+              var dataset = [];
+
+              for(var i = 5; i < 300; i += 5) {
+                dataset.push(Math.random() * 150)
+              };
+
+              yScale.domain([0, d3.max(dataset)])
+
+              svg.selectAll('rect')
+                 .data(dataset)
+                 .transition()
+                 .delay(function(d, i) {
+                   return i * 20;
+                 })
+                 .duration(1000)
+                 .attr({
+                    'y': function(d) {
+                      return h - yScale(d);
+                    },
+                    'height': function(d) {
+                      return yScale(d);
+                    },
+                    'opacity': function(d) { return d / d3.max(dataset) }
+                 })
+
+
+           })
+      </script>
+    </body>
+</html>
