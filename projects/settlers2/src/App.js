@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-// import BarChart from './BarChart';
+import BarChart from './BarChart';
 import _ from 'lodash';
 import './App.css';
 
@@ -37,41 +37,51 @@ class App extends Component {
     super(props);
 
     this.state = {
-      '2': 0,
-      '3': 0,
-      '4': 0,
-      '5': 0,
-      '6': 0,
-      '7': 0,
-      '8': 0,
-      '9': 0,
-      '10': 0,
-      '11': 0,
-      '12': 0,
+      'rollTally': {
+        '2': 0,
+        '3': 0,
+        '4': 0,
+        '5': 0,
+        '6': 0,
+        '7': 0,
+        '8': 0,
+        '9': 0,
+        '10': 0,
+        '11': 0,
+        '12': 0
+      },
       'rollHistory': [],
       'currentRoll': 0
     }
   };
 
   selectRoll(roll) {
+    let {rollTally} = this.state;
+    rollTally[roll] += 1
+
     this.setState({
       currentRoll: roll,
-      [roll]: this.state[roll] + 1,
+      rollTally: rollTally,
       rollHistory: this.state.rollHistory.concat([roll])
     })
   };
 
   undoLastRoll() {
     if (this.state.rollHistory.length) {
-      var lastRoll = this.state.rollHistory.slice(-1)[0];
+      let {rollTally} = this.state;
+      let lastRoll = this.state.rollHistory.slice(-1)[0];
+      rollTally[lastRoll] -= 1;
+
       this.setState({
-        [lastRoll]: this.state[lastRoll] - 1,
+        rollTally: rollTally,
         rollHistory: this.state.rollHistory.slice(0, -1)
       });
     }
   };
 
   render() {
+    const { rollTally } = this.state;
+
     const gridTiles = _.range(2, 13).map(roll => {
       return <RaisedButton style={styles.gridTile} key={roll} onClick={() => this.selectRoll(roll)}>
                {roll}
@@ -80,14 +90,10 @@ class App extends Component {
 
     const undoDisabled = this.state.rollHistory.length ? false : true;
 
-    const rollTally = _.range(2, 13).map(x =>
-      <li key={x}>{x}: {this.state[x]}</li>
-    )
-
     return (
       <div className="App">
         <h1 style={styles.header}>Settlers of Catan Tracker!</h1>
-        {rollTally}
+        <BarChart {...{rollTally}} />
         <div style={styles.gridList}>
           {gridTiles}
         </div>
@@ -100,3 +106,7 @@ class App extends Component {
 }
 
 export default App;
+
+// const rollTally = _.range(2, 13).map(x =>
+//   <li key={x}>{x}: {this.state.rollTally[x]}</li>
+// )

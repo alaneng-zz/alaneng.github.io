@@ -7,6 +7,7 @@ class BarChart extends React.Component {
   };
 
   componentDidUpdate() {
+    console.log('rollTally:', this.props.rollTally)
     let el = ReactDOM.findDOMNode(this);
   };
 
