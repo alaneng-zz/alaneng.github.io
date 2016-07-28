@@ -15,11 +15,11 @@
         </style>
     </head>
     <body>
-      <div style='display: flex; justify-content: center'>
+      <div style='display: flex; justify-content: center; margin-top: 80px'>
         <p class='remove event' style='text-align: center'>mouseover to remove!</p>
         <p class='add event' style='text-align: center'>mouseover to add!</p>
       </div>
-
+      <div class='axis'></div>
       <script>
         var ease = d3.easeCubic;
 
@@ -50,16 +50,14 @@
              .data(dataset)
              .enter()
              .append('circle')
-               .attr('cx', function(d, i) { return i * 20 + 50 })
+               .attr('cx', function(d, i) { return i * 20 })
                .attr('cy', h)
              .transition()
                .attr('cy', h / 2)
-               .attr('r', function(d) { return d * 1.5 })
+               .attr('r', function(d) { return d * 1 })
                .attr('opacity', 0.5)
                .attr('fill', '#369')
         };
-
-        create();
 
         d3.select('.add')
           .on('mouseover', function() {
@@ -76,10 +74,12 @@
                .data(dataset)
                .exit()
                .transition()
-               .attr('cy', 0)
-               .attr('r', '0px')
+                 .attr('cy', 0)
+                 .attr('r', '0px')
                .remove()
           });
+
+        create();
 
       </script>
     </body>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>SF Fires</title>
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <style type="text/css" media="screen">
+          .bg {
+            background: #f4f4f4;
+          }
+        </style>
+    </head>
+    <body>
+      <div class='axis'></div>
+
+      <script>
+
+        var w = 1200;
+        var h = 600;
+
+        var x = d3.scaleLinear()
+                  .domain([10, 130])
+                  .range([0, 960]);
+
+        function hover(color) {
+          return d3.select(this)
+                    .transition()
+                      .duration(300)
+                      .attr('fill', () => '#369')
+        };
+
+        d3.select('.axis')
+          .call(d3.axisBottom(x));
+
+        d3.json('fires.json', function(data) {
+          var data = data.data;
+
+          var groupedData = d3.nest()
+                              .key((d) => d[69]) // 69th position is the neighborhood district
+                              .rollup((d) => d.length)
+                              .entries(data);
+
+          var max = d3.max(groupedData, (d) => d.value)
+
+          var canvas = d3.select('body').append('svg')
+                          .attr('class', 'bg')
+                          .attr('width', w)
+                          .attr('height', h)
+
+          canvas.selectAll('rect')
+                .data(groupedData)
+                .enter()
+                  .append('rect')
+                    .attr('height', (d) => d.value)
+                    .attr('width', 18)
+                    .attr('x', (d, i) => i * 20)
+                    .attr('y', (d) => h - d.value)
+                    .attr('fill', (d) => {
+                      var value = d.value >= (0.30 * max) ? '#963' : '#369'
+                      return value
+                    })
+                .on('mouseover', function() {
+                  d3.select(this)
+                    .transition()
+                      .duration(300)
+                      .attr('fill', () => '#963')
+                })
+                .on('mouseout', function() {
+                  d3.select(this)
+                    .transition()
+                      .duration(300)
+                      .attr('fill', () => '#369')
+                })
+        });
+
+      </script>
+
+    </body>
+</html>
