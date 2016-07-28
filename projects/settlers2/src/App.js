@@ -94,6 +94,8 @@ class App extends Component {
       <div className="App">
         <h1 style={styles.header}>Settlers of Catan Tracker!</h1>
         <BarChart {...{rollTally}} />
+        <br />
+        <br />
         <div style={styles.gridList}>
           {gridTiles}
         </div>

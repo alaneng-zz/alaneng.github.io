@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import drawBar from './d3/drawBar';
 
 class BarChart extends React.Component {
-  constructor(props) {
-    super(props);
+
+  componentDidMount() {
+    drawBar.createCanvas();
   };
 
   componentDidUpdate() {
-    console.log('rollTally:', this.props.rollTally)
-    let el = ReactDOM.findDOMNode(this);
+    drawBar.draw(this.props.rollTally);
   };
 
   render() {
-    return <div></div>
+    return <div className='barchart'></div>
   };
 };
 
