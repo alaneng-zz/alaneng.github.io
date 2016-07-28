@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import BarChart from './BarChart';
+// import BarChart from './BarChart';
 import _ from 'lodash';
 import './App.css';
 
@@ -81,7 +81,7 @@ class App extends Component {
     const undoDisabled = this.state.rollHistory.length ? false : true;
 
     const rollTally = _.range(2, 13).map(x =>
-      <li>{x}: {this.state[x]}</li>
+      <li key={x}>{x}: {this.state[x]}</li>
     )
 
     return (
