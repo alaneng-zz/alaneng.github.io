@@ -5,7 +5,6 @@ import _ from 'lodash';
 import drawBar from './d3/drawBar';
 import './App.css';
 
-
 const tileDim = 150;
 
 const styles = {
