@@ -99,8 +99,8 @@ class App extends Component {
         <div style={styles.gridList}>
           {gridTiles}
         </div>
-        <div style={styles.undoButton}>
-          <RaisedButton label='undo last roll' onClick={() => this.undoLastRoll()} disabled={undoDisabled} />
+        <div>
+          <RaisedButton style={styles.undoButton} label='undo last roll' onClick={() => this.undoLastRoll()} disabled={undoDisabled} />
         </div>
       </div>
     );

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import drawBar from './d3/drawBar';
 
 class BarChart extends React.Component {
