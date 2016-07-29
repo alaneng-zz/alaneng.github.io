@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import BarChart from './BarChart';
 import _ from 'lodash';
+import drawBar from './d3/drawBar';
 import './App.css';
+
 
 const tileDim = 150;
 
@@ -55,6 +57,10 @@ class App extends Component {
     }
   };
 
+  componentDidMount() {
+    drawBar.createCanvas();
+  };
+
   selectRoll(roll) {
     let {rollTally} = this.state;
     rollTally[roll] += 1
@@ -90,12 +96,13 @@ class App extends Component {
 
     const undoDisabled = this.state.rollHistory.length ? false : true;
 
+    const intro = this.state.rollHistory.length ? <BarChart {...{rollTally}} /> : <h1>Begin the first roll!</h1>;
+
     return (
       <div className="App">
-        <h1 style={styles.header}>Settlers of Catan Tracker!</h1>
-        <BarChart {...{rollTally}} />
-        <br />
-        <br />
+        <h1 style={styles.header}>Settlers of Catan Tracker</h1>
+        {intro}
+        <div className='barchart'></div>
         <div style={styles.gridList}>
           {gridTiles}
         </div>
