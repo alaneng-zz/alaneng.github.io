@@ -28,8 +28,12 @@ const styles = {
     fontSize: 20
   },
   undoButton: {
-    padding: 20,
-    margin: 30
+    width: tileDim,
+    height: tileDim
+  },
+  body: {
+    display: 'flex',
+    flex: 1
   }
 };
 
@@ -100,13 +104,20 @@ class App extends Component {
     return (
       <div className="App">
         <h1 style={styles.header}>Settlers of Catan Tracker</h1>
-        {intro}
-        <div className='barchart'></div>
-        <div style={styles.gridList}>
-          {gridTiles}
+        <h1><em>{this.state.currentRoll} was just rolled!</em></h1>
+        <br />
+        <h2>There have been <strong>{this.state.rollHistory.length}</strong> rolls so far</h2>
+        <br />
+        <div style={styles.body}>
+          <div style={styles.gridList}>
+            {gridTiles}
+            <RaisedButton style={styles.undoButton} label='undo last roll' onClick={() => this.undoLastRoll()} disabled={undoDisabled} />
+          </div>
+          <div className='barchart'>
+            {intro}
+          </div>
         </div>
         <div>
-          <RaisedButton style={styles.undoButton} label='undo last roll' onClick={() => this.undoLastRoll()} disabled={undoDisabled} />
         </div>
       </div>
     );
