@@ -1,0 +1,43 @@
+{
+  "name": "alaneng.github.io",
+  "version": "1.0.0",
+  "description": "Repo for small web dev projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alaneng/alaneng.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alaneng/alaneng.github.io/issues"
+  },
+  "homepage": "https://github.com/alaneng/alaneng.github.io#readme",
+  "dependencies": {
+    "babel-core": "^6.7.2",
+    "babel-loader": "^6.2.  4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "d3": "^3.5.17",
+    "express": "^4.13.4",
+    "lodash": "^4.6.1",
+    "moment": "^2.12.0",
+    "node-fetch": "^1.4.1",
+    "react": "^0.14.7",
+    "react-bootstrap": "^0.28.3",
+    "react-dom": "^0.14.7",
+    "webpack": "^1.12.14"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "node-sass": "^3.4.2",
+    "path": "^0.12.7",
+    "react-hot-loader": "^1.3.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.0",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

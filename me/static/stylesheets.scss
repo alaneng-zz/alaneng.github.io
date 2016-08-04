@@ -1,0 +1,67 @@
+$bg-color: #369;
+$text-color: #36454f;
+
+@function random_pastel() {
+  $r: random(255);
+  $g: random(255);
+  $b: random(255);
+
+  // mix white
+  $r: ($r + 255) / 2;
+  $g: ($g + 255) / 2;
+  $b: ($b + 255) / 2;
+  @return rgb($r, $g, $b);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  color: $text-color;
+}
+
+.homepage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.header {
+  display: flex;
+  height: 400px;
+  align-items: center;
+  flex: 1 100%;
+}
+
+.boxes {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  flex: 1 100%;
+  width: 90%;
+
+  div {
+    flex: 1 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: $text-color;
+    height: 250px;
+    margin: 20px;
+    border-radius: 5px;
+    transition: flex-grow 0.2s, background 0.3s, color;
+
+    &:hover {
+      flex-grow: 3;
+    }
+
+    &:active {
+      background: random_pastel();
+      color: white;
+    }
+  }
+}

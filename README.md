@@ -1,2 +1,2 @@
 # alaneng.github.io
-awesome stuff
+Awesome stuff
