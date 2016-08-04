@@ -3,6 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import BarChart from './BarChart';
 import _ from 'lodash';
 import drawBar from './d3/drawBar';
+import Tracker from './Tracker';
 import './App.css';
 
 const tileDim = 150;
@@ -56,7 +57,7 @@ class App extends Component {
         '12': 0
       },
       'rollHistory': [],
-      'currentRoll': 0
+      'currentRoll': ''
     }
   };
 
@@ -101,24 +102,15 @@ class App extends Component {
 
     const intro = this.state.rollHistory.length ? <BarChart {...{rollTally}} /> : <h1>Begin the first roll!</h1>;
 
+    const justRolled = this.state.rollHistory.length ?  `${this.state.rollHistory.slice(-1)} was just rolled ` : <p>No rolls yet</p>
+
+    const pluralOrNot = this.state.rollHistory.length > 1 ? 'rolls': 'roll'
+
+    const rollsSoFar = this.state.rollHistory.length ? <h2>There have been <strong>{this.state.rollHistory.length}</strong> {pluralOrNot} so far</h2> : <span></span>
+
     return (
       <div className="App">
-        <h1 style={styles.header}>Settlers of Catan Tracker</h1>
-        <h1><em>{this.state.currentRoll} was just rolled!</em></h1>
-        <br />
-        <h2>There have been <strong>{this.state.rollHistory.length}</strong> rolls so far</h2>
-        <br />
-        <div style={styles.body}>
-          <div style={styles.gridList}>
-            {gridTiles}
-            <RaisedButton style={styles.undoButton} label='undo last roll' onClick={() => this.undoLastRoll()} disabled={undoDisabled} />
-          </div>
-          <div className='barchart'>
-            {intro}
-          </div>
-        </div>
-        <div>
-        </div>
+        <Tracker {...{styles}} {...{justRolled}} {...{rollsSoFar}} {...{gridTiles}} undoLastRoll={this.undoLastRoll.bind(this)} {...{undoDisabled}} {...{intro}} />
       </div>
     );
   }
