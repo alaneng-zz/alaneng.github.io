@@ -59,14 +59,10 @@ class App extends Component {
       },
       'rollHistory': [],
       'currentRoll': '',
-      'currentPlayername': '',
-      'players': ['zig','zag'],
+      'enteringName': '',
+      'players': [],
       gameStarted: false
     }
-  };
-
-  componentDidMount() {
-    drawBar.createCanvas();
   };
 
   selectRoll(roll) {
@@ -96,15 +92,15 @@ class App extends Component {
   handleInputPlayer(e) {
     if (e.keyCode === 13) {
       this.setState({
-        players: this.state.players.concat(this.state.currentPlayername),
-        currentPlayername: ''
+        players: this.state.players.concat(this.state.enteringName),
+        enteringName: ''
       });
     }
   };
 
   handleEnterPlayerName(e) {
     this.setState({
-      currentPlayername: e.target.value
+      enteringName: e.target.value
     });
   };
 
@@ -137,15 +133,12 @@ class App extends Component {
 
     const app = this.state.gameStarted
                   ? <Tracker {...{intro}} rollHistory={this.state.rollHistory} {...{rollTally}} {...{styles}} {...{justRolled}} {...{rollsSoFar}} {...{gridTiles}} undoLastRoll={() => this.undoLastRoll()} {...{undoDisabled}} />
-                  : <Players players={this.state.players} currentPlayername={this.state.currentPlayername} handleStartGame={this.handleStartGame.bind(this)} handleEnterPlayerName={this.handleEnterPlayerName.bind(this)} handleInputPlayer={this.handleInputPlayer.bind(this)} />
+                  : <Players players={this.state.players} enteringName={this.state.enteringName} handleStartGame={this.handleStartGame.bind(this)} handleEnterPlayerName={this.handleEnterPlayerName.bind(this)} handleInputPlayer={this.handleInputPlayer.bind(this)} />
 
     return (
       <div className="App">
         <h1 style={styles.header}>Settlers of Catan Tracker</h1>
         {app}
-        <div className='barchart'>
-         {intro}
-        </div>
       </div>
     );
   }

@@ -20,7 +20,7 @@ class Players extends React.Component {
             <h2>Welcome!</h2>
             <br />
             <h1>Enter player name</h1>
-            <TextField inputStyle={{'textAlign': 'center'}} id='playerfield' value={this.props.currentPlayername} onChange={this.props.handleEnterPlayerName} onKeyDown={this.props.handleInputPlayer} />
+            <TextField inputStyle={{'textAlign': 'center'}} id='playerfield' value={this.props.enteringName} onChange={this.props.handleEnterPlayerName} onKeyDown={this.props.handleInputPlayer} />
             <br />
             <br />
             <List>{playerList}</List>
