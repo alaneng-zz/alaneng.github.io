@@ -4,6 +4,7 @@ import BarChart from './BarChart';
 import _ from 'lodash';
 import drawBar from './d3/drawBar';
 import Tracker from './Tracker';
+import Players from './Players';
 import './App.css';
 
 const tileDim = 150;
@@ -57,7 +58,10 @@ class App extends Component {
         '12': 0
       },
       'rollHistory': [],
-      'currentRoll': ''
+      'currentRoll': '',
+      'currentPlayername': '',
+      'players': ['zig','zag'],
+      gameStarted: true
     }
   };
 
@@ -89,28 +93,56 @@ class App extends Component {
     }
   };
 
+  handleInputPlayer(e) {
+    if (e.keyCode === 13) {
+      this.setState({
+        players: this.state.players.concat(this.state.currentPlayername),
+        currentPlayername: ''
+      });
+    }
+  };
+
+  handleEnterPlayerName(e) {
+    this.setState({
+      currentPlayername: e.target.value
+    });
+  };
+
+  handleStartGame() {
+    this.setState({
+      gameStarted: true
+    });
+  };
+
   render() {
     const { rollTally } = this.state;
 
+    // player stuff
+
+
+
+
+    // tracker stuff
     const gridTiles = _.range(2, 13).map(roll => {
       return <RaisedButton style={styles.gridTile} key={roll} onClick={() => this.selectRoll(roll)}>
                {roll}
              </RaisedButton>
     });
 
+    const intro = this.state.rollHistory.length ? <BarChart rollTally={this.state.rollTally} /> : <h1>Begin the first roll!</h1>;
     const undoDisabled = this.state.rollHistory.length ? false : true;
-
-    const intro = this.state.rollHistory.length ? <BarChart {...{rollTally}} /> : <h1>Begin the first roll!</h1>;
-
     const justRolled = this.state.rollHistory.length ?  `${this.state.rollHistory.slice(-1)} was just rolled ` : <p>No rolls yet</p>
-
     const pluralOrNot = this.state.rollHistory.length > 1 ? 'rolls': 'roll'
-
     const rollsSoFar = this.state.rollHistory.length ? <h2>There have been <strong>{this.state.rollHistory.length}</strong> {pluralOrNot} so far</h2> : <span></span>
+
+    const app = this.state.gameStarted
+                  ? <Tracker {...{intro}} rollHistory={this.state.rollHistory} {...{rollTally}} {...{styles}} {...{justRolled}} {...{rollsSoFar}} {...{gridTiles}} undoLastRoll={() => this.undoLastRoll()} {...{undoDisabled}} />
+                  : <Players players={this.state.players} currentPlayername={this.state.currentPlayername} handleStartGame={this.handleStartGame.bind(this)} handleEnterPlayerName={this.handleEnterPlayerName.bind(this)} handleInputPlayer={this.handleInputPlayer.bind(this)} />
 
     return (
       <div className="App">
-        <Tracker {...{styles}} {...{justRolled}} {...{rollsSoFar}} {...{gridTiles}} undoLastRoll={this.undoLastRoll.bind(this)} {...{undoDisabled}} {...{intro}} />
+        <h1 style={styles.header}>Settlers of Catan Tracker</h1>
+        {app}
       </div>
     );
   }
