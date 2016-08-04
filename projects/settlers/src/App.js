@@ -61,7 +61,7 @@ class App extends Component {
       'currentRoll': '',
       'currentPlayername': '',
       'players': ['zig','zag'],
-      gameStarted: true
+      gameStarted: false
     }
   };
 
@@ -129,7 +129,7 @@ class App extends Component {
              </RaisedButton>
     });
 
-    const intro = this.state.rollHistory.length ? <BarChart rollTally={this.state.rollTally} /> : <h1>Begin the first roll!</h1>;
+    const intro = this.state.rollHistory.length ? <BarChart rollTally={rollTally} /> : <h1></h1>;
     const undoDisabled = this.state.rollHistory.length ? false : true;
     const justRolled = this.state.rollHistory.length ?  `${this.state.rollHistory.slice(-1)} was just rolled ` : <p>No rolls yet</p>
     const pluralOrNot = this.state.rollHistory.length > 1 ? 'rolls': 'roll'
@@ -143,6 +143,9 @@ class App extends Component {
       <div className="App">
         <h1 style={styles.header}>Settlers of Catan Tracker</h1>
         {app}
+        <div className='barchart'>
+         {intro}
+        </div>
       </div>
     );
   }

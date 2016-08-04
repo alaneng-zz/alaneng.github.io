@@ -3,6 +3,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 import BarChart from './BarChart';
 
 class Tracker extends React.Component {
+  constructor(props) {
+    super(props);
+  };
 
   render() {
 
@@ -18,7 +21,7 @@ class Tracker extends React.Component {
                 {this.props.gridTiles}
                 <RaisedButton style={this.props.styles.undoButton} label='undo last roll' onClick={() => this.props.undoLastRoll()} disabled={this.props.undoDisabled} />
               </div>
-              {this.props.intro}
+
             </div>
           </div>
   }
