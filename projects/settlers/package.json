@@ -46,5 +46,6 @@
   "scripts": {
     "start": "node ./scripts/start.js",
     "build": "node ./scripts/build.js"
-  }
+  },
+  "homepage": "https://alaneng.github.io/projects/settlers"
 }

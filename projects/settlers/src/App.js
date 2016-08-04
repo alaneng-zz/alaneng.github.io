@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import BarChart from './BarChart';
 import _ from 'lodash';
-import drawBar from './d3/drawBar';
 import Tracker from './Tracker';
 import Players from './Players';
 import './App.css';

@@ -1,12 +1,8 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import BarChart from './BarChart';
 import drawBar from './d3/drawBar';
 
 class Tracker extends React.Component {
-  constructor(props) {
-    super(props);
-  };
 
   componentDidMount(){
     drawBar.createCanvas();
