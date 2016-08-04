@@ -134,11 +134,12 @@ class App extends Component {
     const intro = this.state.rollHistory.length ? <BarChart rollTally={rollTally} /> : <h1></h1>;
     const undoDisabled = this.state.rollHistory.length ? false : true;
     const justRolled = this.state.rollHistory.length ?  <h2>{this.state.players[this.state.currentPlayerIndex]}  <span style={{'fontSize': '30px'}}>just rolled a</span>  {this.state.rollHistory.slice(-1)}!</h2> : <p>No rolls yet</p>
+    const nextUp = this.state.rollHistory.length ?  <h2>{this.state.players[this.state.currentPlayerIndex + 1]}  <span style={{'fontSize': '30px'}}>is next!</span></h2> : <p></p>
     const pluralOrNot = this.state.rollHistory.length > 1 ? 'rolls': 'roll'
     const rollsSoFar = this.state.rollHistory.length ? <h2>There have been <strong>{this.state.rollHistory.length}</strong> {pluralOrNot} so far</h2> : <span></span>
 
     const app = this.state.gameStarted
-                  ? <Tracker {...{intro}} rollHistory={this.state.rollHistory} {...{rollTally}} {...{styles}} {...{justRolled}} {...{rollsSoFar}} {...{gridTiles}} undoLastRoll={() => this.undoLastRoll()} {...{undoDisabled}} />
+                  ? <Tracker {...{nextUp}} {...{intro}} rollHistory={this.state.rollHistory} {...{rollTally}} {...{styles}} {...{justRolled}} {...{rollsSoFar}} {...{gridTiles}} undoLastRoll={() => this.undoLastRoll()} {...{undoDisabled}} />
                   : <Players players={this.state.players} enteringName={this.state.enteringName} handleStartGame={this.handleStartGame.bind(this)} handleEnterPlayerName={this.handleEnterPlayerName.bind(this)} handleInputPlayer={this.handleInputPlayer.bind(this)} />
 
     return (
