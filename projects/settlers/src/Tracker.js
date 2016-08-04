@@ -16,7 +16,6 @@ class Tracker extends React.Component {
 
     return <div>
             <h1><em>{this.props.justRolled}</em></h1>
-            <h1><em>{this.props.nextUp}</em></h1>
             <br />
             {this.props.rollsSoFar}
             <br />
@@ -37,3 +36,4 @@ export default Tracker;
 
               // <BarChart rollTally={this.props.rollTally} />
 
+            // <h1><em>{this.props.nextUp}</em></h1>

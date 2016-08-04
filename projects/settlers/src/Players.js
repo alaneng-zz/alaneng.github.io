@@ -13,7 +13,7 @@ class Players extends React.Component {
     );
 
     const letsStartButton = this.props.players.length >= 2
-                              ? <RaisedButton onClick={this.props.handleStartGame} style={{'fontSize': '50px', 'width': '200px', 'height': '80px'}} label="Let's start!" />
+                              ? <RaisedButton primary={true} onClick={this.props.handleStartGame} style={{'fontSize': '50px', 'width': '200px', 'height': '80px'}} label="Let's start!" />
                               : ''
 
     return <div>
