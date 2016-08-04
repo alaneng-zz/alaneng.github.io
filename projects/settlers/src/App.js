@@ -61,7 +61,8 @@ class App extends Component {
       'currentRoll': '',
       'enteringName': '',
       'players': [],
-      gameStarted: false
+      gameStarted: false,
+      currentPlayerIndex: 0
     }
   };
 
@@ -72,7 +73,8 @@ class App extends Component {
     this.setState({
       currentRoll: roll,
       rollTally: rollTally,
-      rollHistory: this.state.rollHistory.concat([roll])
+      rollHistory: this.state.rollHistory.concat([roll]),
+      currentPlayerIndex: (this.state.rollHistory.length) % this.state.players.length
     })
   };
 
@@ -84,7 +86,8 @@ class App extends Component {
 
       this.setState({
         rollTally: rollTally,
-        rollHistory: this.state.rollHistory.slice(0, -1)
+        rollHistory: this.state.rollHistory.slice(0, -1),
+        currentPlayerIndex: (this.state.rollHistory.length) % this.state.players.length
       });
     }
   };
@@ -95,7 +98,7 @@ class App extends Component {
         players: this.state.players.concat(this.state.enteringName),
         enteringName: ''
       });
-    }
+    };
   };
 
   handleEnterPlayerName(e) {
@@ -114,6 +117,9 @@ class App extends Component {
     const { rollTally } = this.state;
 
     // player stuff
+    console.log('this.state.rollHistory.length:', this.state.rollHistory.length);
+    console.log('players:', this.state.players);
+    console.log('currentPlayerIndex:', this.state.currentPlayerIndex);
 
 
 
@@ -127,7 +133,7 @@ class App extends Component {
 
     const intro = this.state.rollHistory.length ? <BarChart rollTally={rollTally} /> : <h1></h1>;
     const undoDisabled = this.state.rollHistory.length ? false : true;
-    const justRolled = this.state.rollHistory.length ?  `${this.state.rollHistory.slice(-1)} was just rolled ` : <p>No rolls yet</p>
+    const justRolled = this.state.rollHistory.length ?  <h2>{this.state.players[this.state.currentPlayerIndex]}  <span style={{'fontSize': '30px'}}>just rolled a</span>  {this.state.rollHistory.slice(-1)}!</h2> : <p>No rolls yet</p>
     const pluralOrNot = this.state.rollHistory.length > 1 ? 'rolls': 'roll'
     const rollsSoFar = this.state.rollHistory.length ? <h2>There have been <strong>{this.state.rollHistory.length}</strong> {pluralOrNot} so far</h2> : <span></span>
 
