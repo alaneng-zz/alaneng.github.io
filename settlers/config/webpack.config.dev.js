@@ -90,8 +90,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: indexHtmlPath,
-      favicon: faviconPath,
+      template: indexHtmlPath
+      // favicon: faviconPath,
     }),
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"development"' }),
     // Note: only CSS is currently hot reloaded
