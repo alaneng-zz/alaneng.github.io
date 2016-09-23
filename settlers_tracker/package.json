@@ -1,6 +1,6 @@
 {
   "name": "settlers_tracker",
-  "homepage": "http://alaneng.github.io/settlers_tracker/docs2",
+  "homepage": "http://alaneng.github.io/settlers_tracker",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
