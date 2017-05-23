@@ -7,7 +7,7 @@ import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    const range = getDateRange(["2016-04-15", "2016-05-30"]);
+    const range = getDateRange(["2016-04-01", "2016-05-15"]);
     range.map(date => this.props.fetchRates(date));
   }
 
