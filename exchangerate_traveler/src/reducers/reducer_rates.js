@@ -7,7 +7,7 @@ export default function(state = [], action) {
         ...state,
         {
           date: action.meta["date"],
-          rate: action.payload.data["rates"]["EUR"]
+          rate: action.payload.data["rates"][action.meta["baseCurrency"]]
         }
       ];
     default:

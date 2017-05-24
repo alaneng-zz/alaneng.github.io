@@ -7,8 +7,13 @@ import "./index.css";
 import promise from "redux-promise";
 import reducers from "./reducers";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import injectTapEventPlugin from "react-tap-event-plugin";
+import reduxThunk from "redux-thunk";
 
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise, reduxThunk)(
+  createStore
+);
+injectTapEventPlugin();
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
