@@ -5,6 +5,6 @@ export default function(state = "", action) {
     case UPDATE_BASE_CURRENCY:
       return action.payload;
     default:
-      return "USD";
+      return state;
   }
 }
