@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import {
   fetchRates,
+  clearRates,
   updateBaseCurrency,
   updateConvertedCurrency,
   fetchDateRange
 } from "./actions";
-import { RateList } from "./components/RateList";
+import { RateChart } from "./components/RateChart";
 import { connect } from "react-redux";
 import "./App.css";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
-import { currencyList } from "./helpers";
+import { currencyList } from "./lib/objects";
 
 const styles = {
   customWidth: {
@@ -21,12 +22,24 @@ const styles = {
 class App extends Component {
   componentDidMount() {
     const range = this.props.dateRange;
-    range.map(date => this.props.fetchRates(date, this.props.baseCurrency));
+    range.map(date =>
+      this.props.fetchRates(
+        date,
+        this.props.baseCurrency,
+        this.props.convertedCurrency
+      )
+    );
   }
 
-  componentDidUpdate() {
-    const range = this.props.dateRange;
-    // range.map(date => this.props.fetchRates(date, this.props.baseCurrency));
+  onCurrencyChange(value) {
+    this.props.updateBaseCurrency(value);
+
+    if (this.props.baseCurrency !== value) {
+      this.props.clearRates();
+
+      const range = this.props.dateRange;
+      range.map(date => this.props.fetchRates(date, value));
+    }
   }
 
   render() {
@@ -44,14 +57,16 @@ class App extends Component {
           <DropDownMenu
             style={styles.customWidth}
             autoWidth={false}
-            onChange={this.props.updateBaseCurrency}
+            onChange={(event, index, value) => this.onCurrencyChange(value)}
             value={this.props.baseCurrency}
           >
             {currencyDropdown}
           </DropDownMenu>
-
         </div>
-        <RateList rates={this.props.rates} />
+        <RateChart
+          rates={this.props.rates}
+          currency={this.props.convertedCurrency}
+        />
       </div>
     );
   }
@@ -68,16 +83,8 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, {
   fetchRates,
+  clearRates,
   updateBaseCurrency,
   updateConvertedCurrency,
   fetchDateRange
 })(App);
-/*
-<DropDownMenu
-            style={styles.customWidth}
-            autoWidth={false}
-            onChange={this.props.updateConvertedCurrency}
-            value={this.props.convertedCurrency}
-          >
-            {currencyDropdown}
-          </DropDownMenu>*/

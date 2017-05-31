@@ -5,6 +5,6 @@ export default function(state = "", action) {
     case UPDATE_CONVERTED_CURRENCY:
       return action.payload;
     default:
-      return "GBP";
+      return state;
   }
 }

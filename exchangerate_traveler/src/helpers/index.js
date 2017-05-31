@@ -15,5 +15,3 @@ export const getDateRange = dateRange => {
     return date.format("YYYY-MM-DD");
   });
 };
-
-export const currencyList = ["USD", "EUR", "GBP"];
