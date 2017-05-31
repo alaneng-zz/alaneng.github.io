@@ -53,14 +53,18 @@ class App extends Component {
 
     const RateCharts = this.props.convertedCurrency.map(convertedCurrency => {
       const convertedCurrencyRates = this.props.rates.filter(
-        rate => rate.convertedCurrency == convertedCurrency
+        rate => rate.convertedCurrency === convertedCurrency
       );
-      return (
-        <RateChart
-          rates={convertedCurrencyRates}
-          currency={convertedCurrency}
-        />
-      );
+      if (this.props.baseCurrency === convertedCurrency) {
+        return;
+      } else {
+        return (
+          <RateChart
+            rates={convertedCurrencyRates}
+            currency={convertedCurrency}
+          />
+        );
+      }
     });
 
     return (
