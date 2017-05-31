@@ -38,7 +38,11 @@ class App extends Component {
       this.props.clearRates();
 
       const range = this.props.dateRange;
-      range.map(date => this.props.fetchRates(date, value));
+      range.map(date => {
+        this.props.convertedCurrency.map(convertedCurrency => {
+          this.props.fetchRates(date, value, convertedCurrency);
+        });
+      });
     }
   }
 

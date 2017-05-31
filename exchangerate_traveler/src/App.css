@@ -24,5 +24,6 @@
 }
 
 .chart {
-  text-align: center
+  text-align: center;
+  margin: 100px
 }

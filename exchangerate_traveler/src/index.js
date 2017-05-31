@@ -18,7 +18,7 @@ import { getDateRange } from "./helpers";
 const initialState = {
   dateRange: getDateRange(["2017-04-01", "2017-04-14"]),
   baseCurrency: "USD",
-  convertedCurrency: ["EUR", "GBP", "DKK", "JPY"]
+  convertedCurrency: ["EUR", "GBP", "DKK", "JPY", "MXN"]
 };
 
 const store = createStore(
