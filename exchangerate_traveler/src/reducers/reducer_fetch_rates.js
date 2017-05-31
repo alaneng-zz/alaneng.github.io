@@ -10,8 +10,8 @@ export default function(state = [], action) {
       return [
         ...state,
         {
-          date: action.meta["date"],
           rate: action.payload.data["rates"][action.meta["convertedCurrency"]],
+          date: action.meta["date"],
           convertedCurrency: action.meta["convertedCurrency"]
         }
       ];

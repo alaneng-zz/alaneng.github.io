@@ -22,13 +22,13 @@ const styles = {
 class App extends Component {
   componentDidMount() {
     const range = this.props.dateRange;
-    range.map(date =>
-      this.props.fetchRates(
-        date,
-        this.props.baseCurrency,
-        this.props.convertedCurrency
-      )
-    );
+    console.log("111:", this.props.convertedCurrency);
+
+    range.map(date => {
+      this.props.convertedCurrency.map(convertedCurrency => {
+        this.props.fetchRates(date, this.props.baseCurrency, convertedCurrency);
+      });
+    });
   }
 
   onCurrencyChange(value) {
@@ -47,6 +47,18 @@ class App extends Component {
       <MenuItem key={currency} value={currency} primaryText={currency} />
     ));
 
+    const RateCharts = this.props.convertedCurrency.map(convertedCurrency => {
+      const convertedCurrencyRates = this.props.rates.filter(
+        rate => rate.convertedCurrency == convertedCurrency
+      );
+      return (
+        <RateChart
+          rates={convertedCurrencyRates}
+          currency={convertedCurrency}
+        />
+      );
+    });
+
     return (
       <div>
         <div className="App">
@@ -63,10 +75,7 @@ class App extends Component {
             {currencyDropdown}
           </DropDownMenu>
         </div>
-        <RateChart
-          rates={this.props.rates}
-          currency={this.props.convertedCurrency}
-        />
+        {RateCharts}
       </div>
     );
   }

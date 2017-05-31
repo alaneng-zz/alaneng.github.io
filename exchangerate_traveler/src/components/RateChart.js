@@ -8,6 +8,8 @@ import _ from "lodash";
 // import { dummyRates as rates } from "../lib/objects";
 
 export const RateChart = props => {
+  console.log("props:", props);
+
   const sorted = _.sortBy(props.rates, ["date"]);
   const rates = sorted.map(ratePair => ratePair.rate);
 
