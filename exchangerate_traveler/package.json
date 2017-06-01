@@ -1,5 +1,6 @@
 {
   "name": "exchangerate_traveler",
+  "homepage": "http://alaneng.github.io/exchangerate_traveler",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
