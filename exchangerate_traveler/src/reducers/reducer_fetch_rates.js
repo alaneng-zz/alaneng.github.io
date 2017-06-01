@@ -5,16 +5,14 @@ export default function(state = [], action) {
     case CLEAR_RATES:
       return [];
     case FETCH_RATES:
-      // debugger;
+      const rateObj = {
+        rate: action.payload.data["rates"][action.meta["convertedCurrency"]],
+        date: action.meta["date"],
+        baseCurrency: action.meta["baseCurrency"],
+        convertedCurrency: action.meta["convertedCurrency"]
+      };
 
-      return [
-        ...state,
-        {
-          rate: action.payload.data["rates"][action.meta["convertedCurrency"]],
-          date: action.meta["date"],
-          convertedCurrency: action.meta["convertedCurrency"]
-        }
-      ];
+      return [...state, rateObj];
     default:
       return state;
   }

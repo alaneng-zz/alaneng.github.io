@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "fs": "0.0.1-security",
     "lodash": "^4.17.4",
     "react-redux": "^5.0.5",
     "react-router-redux": "^4.0.8",

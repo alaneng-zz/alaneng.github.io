@@ -15,7 +15,7 @@ export function fetchRates(date, baseCurrency, convertedCurrency) {
       dispatch({
         type: FETCH_RATES,
         payload: request,
-        meta: { date, convertedCurrency } // https://github.com/acdlite/redux-promise/issues/28
+        meta: { date, baseCurrency, convertedCurrency } // https://github.com/acdlite/redux-promise/issues/28
       });
     });
   };
