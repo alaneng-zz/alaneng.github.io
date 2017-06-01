@@ -70,7 +70,7 @@ class App extends Component {
     return (
       <div>
         <div className="App">
-          {/*<h2>Welcome to the exchange rate traveler</h2>*/}
+          <h2>Welcome to the exchange rate traveler</h2>
         </div>
         <div style={{ textAlign: "center" }}>
           <h3>Choose your base currency</h3>
