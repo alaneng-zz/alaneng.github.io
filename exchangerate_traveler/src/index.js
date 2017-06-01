@@ -18,7 +18,7 @@ import { getDateRange } from "./helpers";
 const initialState = {
   dateRange: getDateRange(["2017-05-01", "2017-05-30"]),
   baseCurrency: "USD",
-  convertedCurrency: ["AUD", "CAD", "EUR", "GBP", "DKK", "JPY", "MXN"]
+  convertedCurrency: ["AUD", "CAD"] //, "EUR", "GBP", "DKK", "JPY", "MXN"]
 };
 
 const store = createStore(

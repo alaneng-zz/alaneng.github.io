@@ -60,6 +60,7 @@ class App extends Component {
       } else {
         return (
           <RateChart
+            key={convertedCurrency}
             rates={convertedCurrencyRates}
             currency={convertedCurrency}
           />
