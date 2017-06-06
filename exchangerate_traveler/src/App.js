@@ -22,10 +22,9 @@ const styles = {
 class App extends Component {
   componentDidMount() {
     const range = this.props.dateRange;
-    console.log("111:", this.props.convertedCurrency);
 
-    range.map(date => {
-      this.props.convertedCurrency.map(convertedCurrency => {
+    range.forEach(date => {
+      this.props.convertedCurrency.forEach(convertedCurrency => {
         this.props.fetchRates(date, this.props.baseCurrency, convertedCurrency);
       });
     });
@@ -38,8 +37,8 @@ class App extends Component {
       this.props.clearRates();
 
       const range = this.props.dateRange;
-      range.map(date => {
-        this.props.convertedCurrency.map(convertedCurrency => {
+      range.forEach(date => {
+        this.props.convertedCurrency.forEach(convertedCurrency => {
           this.props.fetchRates(date, value, convertedCurrency);
         });
       });
@@ -56,7 +55,7 @@ class App extends Component {
         rate => rate.convertedCurrency === convertedCurrency
       );
       if (this.props.baseCurrency === convertedCurrency) {
-        return;
+        return <div key={convertedCurrency} />;
       } else {
         return (
           <RateChart
