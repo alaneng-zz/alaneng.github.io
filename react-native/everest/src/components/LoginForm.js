@@ -1,9 +1,10 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { View, TouchableHighlight } from "react-native"
-import { Text, Button } from "./common"
-
 import Icon from "react-native-vector-icons/FontAwesome"
+import { LinearGradient } from "expo"
+
+import { Text, Button } from "./common"
 import { logInUser } from "../actions"
 
 class LoginForm extends Component {
@@ -11,14 +12,16 @@ class LoginForm extends Component {
     const leafIcon = <Icon name="leaf" size={160} color="#917C21" />
 
     return (
-      <TouchableHighlight onPress={() => this.props.logInUser()}>
-        <View style={styles.loginStyles}>
-          <Text>
-            {leafIcon}
-          </Text>
-          <Text style={{ fontSize: 48 }}>Log In</Text>
-        </View>
-      </TouchableHighlight>
+      <LinearGradient colors={["#D4C99C", "#C6B566", "#BFAB4B"]}>
+        <TouchableHighlight onPress={() => this.props.logInUser()}>
+          <View style={styles.loginStyles}>
+            <Text>
+              {leafIcon}
+            </Text>
+            <Text style={{ fontSize: 48 }}>Log In</Text>
+          </View>
+        </TouchableHighlight>
+      </LinearGradient>
     )
   }
 }
@@ -29,7 +32,6 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
-    backgroundColor: "#D4C99C",
   },
 }
 
