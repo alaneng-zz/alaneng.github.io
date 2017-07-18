@@ -8,6 +8,8 @@ import {
 } from "react-native"
 import _ from "lodash"
 import { LinearGradient } from "expo"
+import Icon from "react-native-vector-icons/FontAwesome"
+import IconMaterial from "react-native-vector-icons/MaterialCommunityIcons"
 
 import { Text } from "./common"
 import { loadRecipeDetail } from "../actions"
@@ -25,11 +27,30 @@ class RecipeItem extends Component {
 
     const { recipe, name, details } = this.props
 
+    const iconSize = 22
+    const iconColor = "white"
+
+    const detailMap = {
+      hours: {
+        icon: <IconMaterial name="timer" color={iconColor} size={iconSize} />,
+        suffix: "hours",
+      },
+      times_made: {
+        icon: <Icon name="users" color={iconColor} size={iconSize} />,
+        suffix: "times cooked",
+      },
+      rating: {
+        icon: <Icon name="star-o" color={iconColor} size={iconSize} />,
+        suffix: "rating",
+      },
+    }
+
     const detailList = _.keys(details).map(detail => {
-      if (["minutes", "times_made", "rating"].includes(detail)) {
+      if (["hours", "times_made", "rating"].includes(detail)) {
         return (
           <Text key={detail} style={recipeText}>
-            {detail}: {details[detail]}
+            {detailMap[detail].icon} {details[detail]}{" "}
+            {detailMap[detail].suffix}
           </Text>
         )
       }
@@ -82,12 +103,12 @@ const height = 350
 const styles = {
   recipeContainer: {},
   recipeTitle: {
-    fontSize: 45,
+    fontSize: 36,
     color: "white",
     padding: 10,
   },
   recipeText: {
-    fontSize: 45,
+    fontSize: 30,
     color: "white",
   },
   recipeImage: {
