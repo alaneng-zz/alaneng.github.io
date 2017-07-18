@@ -49,9 +49,6 @@ class RecipeItem extends Component {
           />
           {recipe.name === details.name
             ? <View style={recipeDetails}>
-                {/*<Text style={{ fontSize: "44" }}>
-                  {recipe.name}
-                </Text>*/}
                 {detailList}
               </View>
             : <View style={recipeInfo}>
