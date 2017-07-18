@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { ScrollView, View, Text, StyleSheet } from "react-native";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
-import RecipeList from "./src/components/RecipeList";
-import reducers from "./src/reducers";
+import React, { Component } from "react"
+import { ScrollView, View, Text, StyleSheet } from "react-native"
+import { Provider } from "react-redux"
+import { createStore } from "redux"
+import RecipeList from "./src/components/RecipeList"
+import reducers from "./src/reducers"
 
-import { Header } from "./src/components/common";
+import { Header } from "./src/components/common"
 
 class App extends React.Component {
   render() {
@@ -16,15 +16,15 @@ class App extends React.Component {
           <RecipeList />
         </ScrollView>
       </Provider>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f4f4f4"
-  }
-});
+    backgroundColor: "#f4f4f4",
+  },
+})
 
-export default App;
+export default App
