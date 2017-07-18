@@ -7,6 +7,7 @@ import {
   LayoutAnimation,
 } from "react-native"
 import _ from "lodash"
+import { LinearGradient } from "expo"
 
 import { Text } from "./common"
 import { loadRecipeDetail } from "../actions"
@@ -27,7 +28,7 @@ class RecipeItem extends Component {
     const detailList = _.keys(details).map(detail => {
       if (["minutes", "times_made", "rating"].includes(detail)) {
         return (
-          <Text key={detail} style={recipeDetail}>
+          <Text key={detail} style={recipeText}>
             {detail}: {details[detail]}
           </Text>
         )
@@ -37,7 +38,6 @@ class RecipeItem extends Component {
     return (
       <TouchableWithoutFeedback
         onPress={() => this.props.loadRecipeDetail(recipe.name)}
-        underlayColor="black"
       >
         <View style={recipeContainer}>
           <Image
@@ -45,16 +45,32 @@ class RecipeItem extends Component {
             source={{ uri: recipe.image_source }}
             style={recipeImage}
           />
+          <LinearGradient
+            colors={["transparent", "rgba(0,0,0,0.6)"]}
+            style={{
+              position: "absolute",
+              left: 0,
+              top: 0,
+              right: 0,
+              bottom: 0,
+            }}
+          />
           {recipe.name === details.name
             ? <View style={recipeDetails}>
                 {detailList}
               </View>
             : <View style={recipeInfo}>
-                <Text style={styles.recipeText}>
+                <Text style={styles.recipeTitle}>
                   {recipe.name}
                 </Text>
               </View>}
-          <View style={{ height: 5, backgroundColor: "white" }} />
+          <View
+            style={{
+              height: 5,
+              backgroundColor: "white",
+              position: "relative",
+            }}
+          />
         </View>
       </TouchableWithoutFeedback>
     )
@@ -65,15 +81,19 @@ const height = 350
 
 const styles = {
   recipeContainer: {},
+  recipeTitle: {
+    fontSize: 45,
+    color: "white",
+    padding: 10,
+  },
   recipeText: {
     fontSize: 45,
-    textAlign: "center",
+    color: "white",
   },
   recipeImage: {
     height,
     borderBottomWidth: 1,
     borderColor: "#ddd",
-    opacity: 0.7,
   },
   recipeInfo: {
     position: "absolute",
@@ -81,7 +101,6 @@ const styles = {
     height,
     width: "100%",
     justifyContent: "flex-end",
-    paddingBottom: 10,
   },
   recipeDetails: {
     height,
@@ -90,9 +109,6 @@ const styles = {
     backgroundColor: "transparent",
     justifyContent: "center",
     alignItems: "center",
-  },
-  recipeDetail: {
-    fontSize: 38,
   },
 }
 

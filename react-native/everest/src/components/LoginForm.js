@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { View, TouchableHighlight } from "react-native"
+import { View, TouchableWithoutFeedback } from "react-native"
 import Icon from "react-native-vector-icons/FontAwesome"
 import { LinearGradient } from "expo"
 
@@ -13,14 +13,14 @@ class LoginForm extends Component {
 
     return (
       <LinearGradient colors={["#D4C99C", "#C6B566", "#BFAB4B"]}>
-        <TouchableHighlight onPress={() => this.props.logInUser()}>
+        <TouchableWithoutFeedback onPress={() => this.props.logInUser()}>
           <View style={styles.loginStyles}>
             <Text>
               {leafIcon}
             </Text>
             <Text style={{ fontSize: 48 }}>Log In</Text>
           </View>
-        </TouchableHighlight>
+        </TouchableWithoutFeedback>
       </LinearGradient>
     )
   }
@@ -32,6 +32,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
+    backgroundColor: "transparent",
   },
 }
 
