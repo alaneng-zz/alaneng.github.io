@@ -1,36 +1,25 @@
 import React, { Component } from "react"
 import { ScrollView, View, Text, StyleSheet } from "react-native"
 import { Provider } from "react-redux"
-import { createStore } from "redux"
-import Icon from "react-native-vector-icons/FontAwesome"
+import { createStore, applyMiddleware } from "redux"
+import ReduxThunk from "redux-thunk"
 
 import RecipeList from "./src/components/RecipeList"
 import reducers from "./src/reducers"
 
 import { Header } from "./src/components/common"
+import Router from "./Router"
 
 class App extends React.Component {
   render() {
-    const leafIcon = <Icon name="leaf" size={25} color="black" />
+    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk)) // {} is initial state
 
     return (
-      <Provider store={createStore(reducers)}>
-        <ScrollView style={styles.container}>
-          <Header>
-            {leafIcon} This Week's Recipes
-          </Header>
-          <RecipeList />
-        </ScrollView>
+      <Provider store={store}>
+        <Router />
       </Provider>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f4f4f4",
-  },
-})
 
 export default App

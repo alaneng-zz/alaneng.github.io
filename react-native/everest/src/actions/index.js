@@ -1,4 +1,6 @@
 import _ from "lodash"
+import { Actions } from "react-native-router-flux"
+
 import recipes from "../../model/recipes.json"
 
 export const LOAD_RECIPES = "LOAD_RECIPES"
@@ -17,5 +19,11 @@ export const loadRecipeDetail = name => {
   return {
     type: LOAD_RECIPE_DETAIL,
     payload: { ...details, name },
+  }
+}
+
+export const logInUser = () => {
+  return dispatch => {
+    Actions.recipelist()
   }
 }
