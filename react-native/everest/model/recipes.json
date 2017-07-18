@@ -4,43 +4,50 @@
       "minutes": 400,
       "times_made": 7132,
       "rating": 4.5,
-      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/3706561.jpg"
+      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/3706561.jpg",
+      "id": 1
     },
     "German Potato Salad": {
       "minutes": 315,
       "times_made": 56,
       "rating": 4,
-      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/1055116.jpg"
+      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/1055116.jpg",
+      "id": 2
     },
     "Pumpkin Turkey Chili": {
       "minutes": 215,
       "times_made": 1342,
       "rating": 4.2,
-      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/958327.jpg"
+      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/958327.jpg",
+      "id": 3
     },
     "Belgian Chicken Booyah": {
       "minutes": 385,
       "times_made": 406,
       "rating": 4.1,
-      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/2186700.jpg"
+      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/2186700.jpg",
+      "id": 4
     },
     "Bangladeshi Beef Curry": {
       "minutes": 135,
       "times_made": 99,
       "rating": 4.3,
-      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/259951.jpg"
+      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/259951.jpg",
+      "id": 5
     },
     "Colleen's Jambalaya": {
       "minutes": 500,
       "times_made": 3241,
       "rating": 4.8,
-      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/258513.jpg"
+      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/258513.jpg",
+      "id": 6
     },
     "Lentil and Ham Soup": {
       "minutes": 680,
       "times_made": 2493,
       "rating": 4.7,
-      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/553355.jpg"
+      "image_source": "http://images.media-allrecipes.com/userphotos/560x315/553355.jpg",
+      "id": 7
     }
   }
 ]

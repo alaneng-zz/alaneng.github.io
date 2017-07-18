@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { View, TouchableHighlight } from "react-native"
-import { Text } from "./common"
+import { Text, Button } from "./common"
 
 import Icon from "react-native-vector-icons/FontAwesome"
 import { logInUser } from "../actions"
@@ -29,6 +29,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
+    backgroundColor: "#D4C99C",
   },
 }
 

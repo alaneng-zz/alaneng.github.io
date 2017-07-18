@@ -13,8 +13,6 @@ import { loadRecipeDetail } from "../actions"
 
 class RecipeItem extends Component {
   render() {
-    console.log(this.props.recipeDetails)
-
     const {
       recipeContainer,
       recipeText,
@@ -29,7 +27,7 @@ class RecipeItem extends Component {
     const detailList = _.keys(details).map(detail => {
       if (["minutes", "times_made", "rating"].includes(detail)) {
         return (
-          <Text key={detail.image_source} style={recipeDetail}>
+          <Text key={detail} style={recipeDetail}>
             {detail}: {details[detail]}
           </Text>
         )
@@ -56,11 +54,14 @@ class RecipeItem extends Component {
                   {recipe.name}
                 </Text>
               </View>}
+          <View style={{ height: 5, backgroundColor: "white" }} />
         </View>
       </TouchableWithoutFeedback>
     )
   }
 }
+
+const height = 350
 
 const styles = {
   recipeContainer: {},
@@ -69,7 +70,7 @@ const styles = {
     textAlign: "center",
   },
   recipeImage: {
-    height: 250,
+    height,
     borderBottomWidth: 1,
     borderColor: "#ddd",
     opacity: 0.7,
@@ -77,12 +78,13 @@ const styles = {
   recipeInfo: {
     position: "absolute",
     backgroundColor: "transparent",
-    height: 250,
+    height,
     width: "100%",
-    justifyContent: "center",
+    justifyContent: "flex-end",
+    paddingBottom: 10,
   },
   recipeDetails: {
-    height: 250,
+    height,
     width: "100%",
     position: "absolute",
     backgroundColor: "transparent",

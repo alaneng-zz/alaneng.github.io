@@ -9,7 +9,7 @@ import { Text } from "./src/components/common"
 class RouterComponent extends Component {
   render() {
     const leafIcon = <Icon name="leaf" size={22} color="black" />
-
+    const userIcon = <Icon name="user-circle" size={22} color="black" />
     return (
       <Router>
         <Scene key="root">
