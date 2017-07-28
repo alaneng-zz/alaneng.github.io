@@ -6,30 +6,45 @@ import Doggie from "./Doggie"
 import "./App.css"
 
 class App extends Component {
-  state = { loadingFlag: false }
+  state = { loadingFlag: false, breeds: [] }
 
-  fetchAnimals() {
-    this.setState({ loadingFlag: true })
+  async fetchAnimals() {
+    const response = await fetch("https://dog.ceo/api/breeds/list/all")
+    const breeds = await response.json()
 
-    fetch("https://dog.ceo/api/breeds/list/all")
-      .then(res => res.json())
-      .then(breeds =>
-        _.keys(breeds.message).forEach(breed => {
-          fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
-            .then(res => res.json())
-            .then(img => this.setState({ [breed]: img.message }))
-        })
+    this.setState({ breeds: _.keys(breeds.message) })
+
+    return breeds
+  }
+
+  async fetchAnimalPics() {
+    const { breeds } = this.state
+
+    for (let breed of breeds) {
+      const response = await fetch(
+        `https://dog.ceo/api/breed/${breed}/images/random`
       )
-      .then(() => this.setState({ loadingFlag: false }))
+      const images = await response.json()
+
+      this.setState({ [breed]: images.message })
+    }
+
+    this.setState({ loadingFlag: false })
   }
 
   componentDidMount() {
-    this.fetchAnimals()
+    this.setState({ loadingFlag: true })
+    this.fetchAnimals().then(() => this.fetchAnimalList())
+  }
+
+  fetchAnimalList() {
+    this.setState({ loadingFlag: true })
+    this.fetchAnimalPics()
   }
 
   render() {
     const doggies = _.keys(this.state).map(doggie => {
-      if (doggie !== "loadingFlag") {
+      if (!["loadingFlag", "breeds"].includes(doggie)) {
         return <Doggie key={doggie} doggie={doggie} img={this.state[doggie]} />
       } else {
         return false
@@ -46,7 +61,7 @@ class App extends Component {
                   name="paw"
                   className="icon-cursor"
                   circular
-                  onClick={() => this.fetchAnimals()}
+                  onClick={() => this.fetchAnimalList()}
                 />}
             <Header.Content>Doggies!</Header.Content>
           </Header>
