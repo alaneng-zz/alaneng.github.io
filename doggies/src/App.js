@@ -9,27 +9,23 @@ class App extends Component {
   state = { loadingFlag: false, breeds: [] }
 
   async fetchAnimals() {
-    const response = await fetch("https://dog.ceo/api/breeds/list/all")
-    const breeds = await response.json()
+    await fetch("https://dog.ceo/api/breeds/list/all")
+      .then(res => res.json())
+      .then(breeds => this.setState({ breeds: _.keys(breeds.message) }))
 
-    this.setState({ breeds: _.keys(breeds.message) })
-
-    return breeds
+    return
   }
 
   async fetchAnimalPics() {
     const { breeds } = this.state
 
     for (let breed of breeds) {
-      const response = await fetch(
-        `https://dog.ceo/api/breed/${breed}/images/random`
-      )
-      const images = await response.json()
-
-      this.setState({ [breed]: images.message })
+      await fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
+        .then(response => response.json())
+        .then(images => this.setState({ [breed]: images.message }))
     }
 
-    this.setState({ loadingFlag: false })
+    return
   }
 
   componentDidMount() {
@@ -39,10 +35,12 @@ class App extends Component {
 
   fetchAnimalList() {
     this.setState({ loadingFlag: true })
-    this.fetchAnimalPics()
+    this.fetchAnimalPics().then(() => this.setState({ loadingFlag: false }))
   }
 
   render() {
+    console.log(this.state.loadingFlag)
+
     const doggies = _.keys(this.state).map(doggie => {
       if (!["loadingFlag", "breeds"].includes(doggie)) {
         return <Doggie key={doggie} doggie={doggie} img={this.state[doggie]} />
