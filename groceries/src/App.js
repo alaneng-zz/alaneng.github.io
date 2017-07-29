@@ -22,11 +22,13 @@ class App extends Component {
   }
 
   render() {
-    const groceryList = this.props.groceryList.map(item =>
-      <ListItem key={item}>
-        {item}
-      </ListItem>
-    )
+    console.log(this.props.groceryList)
+
+    // const groceryList = this.props.groceryList.map(item =>
+    //   <ListItem key={item}>
+    //     {item}
+    //   </ListItem>
+    // )
 
     const meat = "meat"
     const vegetables = "vegetables"
@@ -59,7 +61,7 @@ class App extends Component {
         <Button circular basic onClick={() => this.props.addNewItem()}>
           Add new item
         </Button>
-        <List items={groceryList} />
+        {/*<List items={groceryList} />*/}
       </div>
     )
   }
