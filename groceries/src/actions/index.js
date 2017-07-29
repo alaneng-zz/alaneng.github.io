@@ -5,6 +5,7 @@ export const ENTER_GROCERY_ITEM = "ENTER_GROCERY_ITEM"
 export const ADD_NEW_ITEM = "ADD_NEW_ITEM"
 export const CLEAR_INPUT_ITEM = "CLEAR_INPUT_ITEM"
 export const GROCERIES_FETCH_SUCCESS = "GROCERIES_FETCH_SUCCESS"
+export const ENTER_FOOD_TYPE = "ENTER_FOOD_TYPE"
 
 export const fetchGroceryList = () => {
   return dispatch => {
@@ -32,5 +33,12 @@ export const addNewItem = () => {
     dispatch({ type: CLEAR_INPUT_ITEM })
 
     firebase.database().ref("/inventory").push(inputGroceryItem)
+  }
+}
+
+export const addNewItemType = inputFoodType => {
+  return {
+    type: ENTER_FOOD_TYPE,
+    payload: inputFoodType,
   }
 }
