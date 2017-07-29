@@ -1,5 +1,4 @@
 import firebase from "firebase"
-import _ from "lodash"
 
 export const ENTER_GROCERY_ITEM = "ENTER_GROCERY_ITEM"
 export const ENTER_GROCERY_ITEM_TYPE = "ENTER_GROCERY_ITEM_TYPE"
