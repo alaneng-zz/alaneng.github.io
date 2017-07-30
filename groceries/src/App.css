@@ -1,28 +1,37 @@
+.item-input {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.grocery-container {
+  max-width: 50%;
+  margin: auto;
+  padding-bottom: 50px;
+}
+
 .grocery-cards {
-  min-height: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
-  padding: 50px;
 }
 
-#root > div > div.grocery-cards > div:nth-child(1) {
-  flex: 0 0 auto;
-  /*width: 50px;*/
-  margin-top: 0px;
-}
-
-#root > div > div.grocery-cards > div:nth-child(4) {
-  flex: 0 0 auto;
-  /*width: 50px;*/
-  margin-top: 0px;
-}
-
-.App {
+.grocery-card {
   text-align: center;
-  padding-top: 50px;
+  display: flex;
 }
+
+/*.grocery-item {
+  background-color: green;
+  margin: 2px;
+  padding: 2px;
+  transition: background-color 2s;
+}
+
+.grocery-item:hover {
+  background-color: red;
+}*/
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
