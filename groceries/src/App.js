@@ -1,15 +1,15 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { Button, Input, List, Dropdown, Card } from "semantic-ui-react"
+import { List, Card } from "semantic-ui-react"
 import _ from "lodash"
 
+import GroceryInput from "./components/grocery-input"
 import {
   onEnterGroceryItem,
   addNewItem,
   fetchGroceryList,
   addNewItemType,
 } from "./actions"
-import { foodTypeOptions } from "./utils"
 import "./App.css"
 
 class App extends Component {
@@ -21,14 +21,15 @@ class App extends Component {
     this.props.fetchGroceryList()
   }
 
-  handleKeyPress(e) {
-    if (e.key === "Enter") {
-      this.props.addNewItem()
-    }
-  }
-
   render() {
-    const { groceryList } = this.props
+    const {
+      groceryList,
+      inputGroceryItem,
+      inputGroceryItemType,
+      addNewItem,
+      addNewItemType,
+      onEnterGroceryItem,
+    } = this.props
 
     const groceryCards = _.keys(groceryList).map(itemType => {
       const groceryItems = _.values(groceryList[itemType])
@@ -61,35 +62,16 @@ class App extends Component {
       !this.props.inputGroceryItem || !this.props.inputGroceryItemType
 
     return (
-      <div>
-        <div className="item-input">
-          <Input
-            style={{ userSelect: "none" }}
-            label={
-              <Dropdown
-                //                open={this.state.dropdownOpen}
-                text={this.props.inputGroceryItemType || "select type..."}
-                options={foodTypeOptions}
-                onChange={(e, data) => this.props.addNewItemType(data.value)}
-                //                onMouseDown={() => this.setState({ dropdownOpen: true })}
-                //                onMouseUp={() => this.setState({ dropdownOpen: false })}
-              />
-            }
-            labelPosition="right"
-            placeholder="enter grocery item..."
-            value={this.props.inputGroceryItem}
-            onChange={(event, data) => this.props.onEnterGroceryItem(data)}
-            onKeyPress={e => this.handleKeyPress(e)}
-          />
-          <Button
-            circular
-            basic
-            onClick={() => this.props.addNewItem()}
-            disabled={addNewItemIsDisabled}
-          >
-            Add new item
-          </Button>
-        </div>
+      <div style={{ textAlign: "center" }}>
+        <h3 style={{ fontSize: "48px", padding: "20px" }}>Groceries!</h3>
+        <GroceryInput
+          inputGroceryItem={inputGroceryItem}
+          inputGroceryItemType={inputGroceryItemType}
+          addNewItem={addNewItem}
+          addNewItemType={addNewItemType}
+          onEnterGroceryItem={onEnterGroceryItem}
+          addNewItemIsDisabled={addNewItemIsDisabled}
+        />
         <div className="grocery-container">
           <div className="grocery-cards">
             {groceryCards}
