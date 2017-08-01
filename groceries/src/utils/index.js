@@ -5,6 +5,12 @@ const fruit = "fruit"
 const snacks = "snacks"
 const condiments = "condiments"
 const pastries = "pastries"
+const frozen = "frozen"
+const sauces = "sauces"
+const broths = "broths"
+const essentials = "essentials"
+const cheeses = "cheeses"
+const soups = "soups"
 
 export const foodTypeOptions = [
   { key: meat, text: meat, value: meat },
@@ -14,4 +20,10 @@ export const foodTypeOptions = [
   { key: snacks, text: snacks, value: snacks },
   { key: condiments, text: condiments, value: condiments },
   { key: pastries, text: pastries, value: pastries },
+  { key: frozen, text: frozen, value: frozen },
+  { key: sauces, text: sauces, value: sauces },
+  { key: broths, text: broths, value: broths },
+  { key: essentials, text: essentials, value: essentials },
+  { key: cheeses, text: cheeses, value: cheeses },
+  { key: soups, text: soups, value: soups },
 ]

@@ -41,6 +41,8 @@ class App extends Component {
 
       const groceryListItems = groceryItems.map(item => {
         const groceryKey = `${item.expirationDate}_${item.item}`
+        // var moment = require("moment")
+        // debugger
 
         return (
           <Table.Row key={groceryKey}>
@@ -48,7 +50,9 @@ class App extends Component {
               {item.item}
             </Table.Cell>
             <Table.Cell>
-              {moment(item.expirationDate).format("M/D/YY")}
+              {moment(item.expirationDate).format("M/D/YY") === "Invalid date"
+                ? <span style={{ opacity: "0.2" }}>none</span>
+                : moment(item.expirationDate).format("M/D/YY")}
             </Table.Cell>
           </Table.Row>
         )
@@ -88,9 +92,7 @@ class App extends Component {
     })
 
     const addNewItemIsDisabled =
-      !this.props.inputGroceryItem ||
-      !this.props.inputGroceryItemType ||
-      !this.props.inputGroceryExpirationDate
+      !this.props.inputGroceryItem || !this.props.inputGroceryItemType
 
     return (
       <div style={{ textAlign: "center" }}>
