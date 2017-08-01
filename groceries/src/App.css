@@ -5,7 +5,7 @@
 }
 
 .grocery-container {
-  max-width: 50%;
+  max-width: 75%;
   margin: auto;
   padding-bottom: 50px;
 }
@@ -22,6 +22,11 @@
   display: flex;
 }
 
+.grocery-item-type-buttons {
+  padding: 20px;
+  width: 40%;
+  margin: auto;
+}
 /*.grocery-item {
   background-color: green;
   margin: 2px;
@@ -33,18 +38,27 @@
   background-color: red;
 }*/
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.app-content {
+  display: flex;
+  flex-direction: column;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+@media only screen and (min-width: 1050px) {
+  .app-content {
+    display: flex;
+    flex-direction: row;
+  }
 
-.App-intro {
-  font-size: large;
+  .grocery-item-type-buttons {
+    /*padding: 20px;*/
+    width: 85%;
+    margin: auto;
+  }
+
+  .grocery-input {
+    padding-top: 5vh;
+    background-color: #f4f4f4;
+    margin: 5px;
+    /*height: 80%;*/
+  }
 }
