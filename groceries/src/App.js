@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { Card, Table } from "semantic-ui-react"
+import { Card, Table, Icon } from "semantic-ui-react"
 import _ from "lodash"
 import moment from "moment"
 import classnames from "classnames"
@@ -67,6 +67,11 @@ class App extends Component {
                 ? <span style={{ opacity: "0.2" }}>none</span>
                 : moment(item.expirationDate).format("M/D/YY")}
             </Table.Cell>
+            <Table.Cell>
+              <span className="delete-item-btn">
+                <Icon name="trash outline" />
+              </span>
+            </Table.Cell>
           </Table.Row>
         )
       })
@@ -92,6 +97,11 @@ class App extends Component {
                   </Table.HeaderCell>
                   <Table.HeaderCell sorted="ascending">
                     <span style={{ opacity: "0.2" }}>expiration date</span>
+                  </Table.HeaderCell>
+                  <Table.HeaderCell sorted="ascending">
+                    <span style={{ opacity: "0.2" }}>
+                      <Icon name="setting" />
+                    </span>
                   </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>

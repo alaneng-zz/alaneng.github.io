@@ -71,3 +71,13 @@
 .expiring-soon {
   background-color: #21ba45;
 }
+
+.delete-item-btn {
+  opacity: 0.2;
+  transition: color 0.5s, opacity 0.5s;
+}
+
+.delete-item-btn:hover {
+  opacity: 1;
+  color: #db2828;
+}
