@@ -63,3 +63,11 @@
     /*height: 80%;*/
   }
 }
+
+.expired-already {
+  background-color: #db2828;
+}
+
+.expiring-soon {
+  background-color: #21ba45;
+}

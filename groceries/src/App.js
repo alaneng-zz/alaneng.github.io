@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { Card, Table } from "semantic-ui-react"
 import _ from "lodash"
 import moment from "moment"
+import classnames from "classnames"
 
 import GroceryInput from "./components/grocery-input"
 import {
@@ -41,11 +42,19 @@ class App extends Component {
 
       const groceryListItems = groceryItems.map(item => {
         const groceryKey = `${item.expirationDate}_${item.item}`
-        // var moment = require("moment")
-        // debugger
+        var moment = require("moment")
+
+        const momentExpirationDate = moment(item.expirationDate)
+        const momentToday = moment().format("YYYY-MM-DD")
+        const daysBetween = momentExpirationDate.diff(momentToday, "days")
+
+        const cellClassnames = classnames({
+          "expired-already": daysBetween < 0,
+          "expiring-soon": daysBetween >= 0 && daysBetween <= 31,
+        })
 
         return (
-          <Table.Row key={groceryKey}>
+          <Table.Row key={groceryKey} className={cellClassnames}>
             <Table.Cell>
               {item.item}
             </Table.Cell>
