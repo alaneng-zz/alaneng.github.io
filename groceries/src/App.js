@@ -12,6 +12,7 @@ import {
   addNewItem,
   addNewExpirationDate,
   addNewItemType,
+  toggleShowCallouts,
 } from "./actions"
 import "./App.css"
 
@@ -34,6 +35,8 @@ class App extends Component {
       addNewExpirationDate,
       addNewItemType,
       onEnterGroceryItem,
+      toggleShowCallouts,
+      isShowingCallout,
     } = this.props
 
     const groceryCards = _.keys(groceryList).map(itemType => {
@@ -46,10 +49,13 @@ class App extends Component {
         const momentToday = moment().format("YYYY-MM-DD")
         const daysBetween = momentExpirationDate.diff(momentToday, "days")
 
-        const cellClassnames = classnames({
-          "expired-already": daysBetween < 0,
-          "expiring-soon": daysBetween >= 0 && daysBetween <= 31,
-        })
+        let cellClassnames
+        if (isShowingCallout) {
+          cellClassnames = classnames({
+            "expired-already": daysBetween < 0,
+            "expiring-soon": daysBetween >= 0 && daysBetween <= 31,
+          })
+        }
 
         return (
           <Table.Row key={groceryKey} className={cellClassnames}>
@@ -115,6 +121,7 @@ class App extends Component {
               addNewItemType={addNewItemType}
               onEnterGroceryItem={onEnterGroceryItem}
               addNewItemIsDisabled={addNewItemIsDisabled}
+              toggleShowCallouts={toggleShowCallouts}
             />
           </div>
           <div className="grocery-container">
@@ -134,6 +141,7 @@ const mapStateToProps = state => {
     inputGroceryExpirationDate: state.inputGroceryExpirationDate,
     inputGroceryItemType: state.inputGroceryItemType,
     groceryList: state.groceryList,
+    isShowingCallout: state.isShowingCallout,
   }
 }
 
@@ -143,4 +151,5 @@ export default connect(mapStateToProps, {
   addNewItem,
   addNewExpirationDate,
   addNewItemType,
+  toggleShowCallouts,
 })(App)

@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Input } from "semantic-ui-react"
+import { Button, Input, Checkbox } from "semantic-ui-react"
 import moment from "moment"
 
 import { foodTypeOptions } from "../utils"
@@ -75,6 +75,11 @@ class GroceryInput extends React.Component {
             Add new item
           </Button>
         </div>
+        <Checkbox
+          toggle
+          label="show callouts"
+          onChange={() => this.props.toggleShowCallouts()}
+        />
       </div>
     )
   }

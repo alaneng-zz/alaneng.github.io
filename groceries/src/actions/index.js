@@ -9,6 +9,7 @@ export const CLEAR_INPUT_GROCERY_EXPIRATION_DATE =
 export const CLEAR_INPUT_ITEM_TYPE = "CLEAR_INPUT_ITEM_TYPE"
 export const GROCERIES_FETCH_SUCCESS = "GROCERIES_FETCH_SUCCESS"
 export const ENTER_GROCERY_EXPIRATION_DATE = "ENTER_GROCERY_EXPIRATION_DATE"
+export const TOGGLE_SHOW_CALLOUTS = "TOGGLE_SHOW_CALLOUTS"
 
 export const fetchGroceryList = () => {
   return dispatch => {
@@ -57,5 +58,11 @@ export const addNewExpirationDate = expirationDate => {
   return {
     type: ENTER_GROCERY_EXPIRATION_DATE,
     payload: expirationDate.value,
+  }
+}
+
+export const toggleShowCallouts = () => {
+  return {
+    type: TOGGLE_SHOW_CALLOUTS,
   }
 }
