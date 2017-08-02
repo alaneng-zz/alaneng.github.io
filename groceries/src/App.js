@@ -42,8 +42,6 @@ class App extends Component {
 
       const groceryListItems = groceryItems.map(item => {
         const groceryKey = `${item.expirationDate}_${item.item}`
-        var moment = require("moment")
-
         const momentExpirationDate = moment(item.expirationDate)
         const momentToday = moment().format("YYYY-MM-DD")
         const daysBetween = momentExpirationDate.diff(momentToday, "days")

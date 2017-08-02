@@ -1,3 +1,5 @@
+import _ from "lodash"
+
 const meat = "meat"
 const vegetables = "vegetables"
 const drink = "drink"
@@ -27,3 +29,17 @@ export const foodTypeOptions = [
   { key: cheeses, text: cheeses, value: cheeses },
   { key: soups, text: soups, value: soups },
 ]
+
+export const groceryClassnames = obj => {
+  let finalStr = ""
+
+  const classnames = _.keys(obj)
+
+  classnames.forEach(name => {
+    if (obj[name]) {
+      finalStr = finalStr + name + " "
+    }
+  })
+
+  return finalStr.slice(0, -1)
+}
