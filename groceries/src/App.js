@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { Card, Table, Icon } from "semantic-ui-react"
+import { Card, Table, Icon, Tab } from "semantic-ui-react"
 import _ from "lodash"
 import moment from "moment"
 import classnames from "classnames"
@@ -136,6 +136,31 @@ class App extends Component {
     const addNewItemIsDisabled =
       !this.props.inputGroceryItem || !this.props.inputGroceryItemType
 
+    const inventoryTab = (
+      <div className="grocery-container">
+        <div className="grocery-cards">
+          {groceryCards}
+        </div>
+      </div>
+    )
+
+    const panes = [
+      {
+        menuItem: "inventory",
+        render: () =>
+          <Tab.Pane>
+            {inventoryTab}
+          </Tab.Pane>,
+      },
+      {
+        menuItem: "shopping list",
+        render: () =>
+          <Tab.Pane>
+            <p>new shopping list!</p>
+          </Tab.Pane>,
+      },
+    ]
+
     return (
       <div style={{ textAlign: "center" }}>
         <h3 style={{ fontSize: "48px", padding: "20px" }}>Groceries!</h3>
@@ -154,11 +179,7 @@ class App extends Component {
               toggleEditMode={toggleEditMode}
             />
           </div>
-          <div className="grocery-container">
-            <div className="grocery-cards">
-              {groceryCards}
-            </div>
-          </div>
+          <Tab panes={panes} />
         </div>
       </div>
     )
