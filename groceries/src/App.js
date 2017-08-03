@@ -14,6 +14,7 @@ import {
   addNewItemType,
   toggleShowCallouts,
   toggleEditMode,
+  deleteGroceryItem,
 } from "./actions"
 import "./App.css"
 
@@ -40,6 +41,7 @@ class App extends Component {
       toggleEditMode,
       isShowingCallout,
       isEditMode,
+      deleteGroceryItem,
     } = this.props
 
     const groceryCards = _.keys(groceryList).map(itemType => {
@@ -51,6 +53,11 @@ class App extends Component {
         const momentExpirationDate = moment(item.expirationDate)
         const momentToday = moment().format("YYYY-MM-DD")
         const daysBetween = momentExpirationDate.diff(momentToday, "days")
+
+        if (itemType === "meat") {
+          debugger
+        }
+        const groceryItemFirebaseKey = _.keys(groceryList[itemType])[0]
 
         let cellClassnames
         if (isShowingCallout) {
@@ -73,7 +80,11 @@ class App extends Component {
             {isEditMode &&
               <Table.Cell>
                 <span className="delete-item-btn">
-                  <Icon name="trash outline" />
+                  <Icon
+                    name="trash outline"
+                    onClick={() =>
+                      deleteGroceryItem(itemType, groceryItemFirebaseKey)}
+                  />
                 </span>
               </Table.Cell>}
           </Table.Row>
@@ -170,4 +181,5 @@ export default connect(mapStateToProps, {
   addNewItemType,
   toggleShowCallouts,
   toggleEditMode,
+  deleteGroceryItem,
 })(App)

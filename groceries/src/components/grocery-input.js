@@ -72,7 +72,7 @@ class GroceryInput extends React.Component {
             disabled={this.props.addNewItemIsDisabled}
             size="huge"
           >
-            Add new item
+            add new item
           </Button>
         </div>
         <div>
