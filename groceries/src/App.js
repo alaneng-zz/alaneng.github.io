@@ -45,19 +45,22 @@ class App extends Component {
     } = this.props
 
     const groceryCards = _.keys(groceryList).map(itemType => {
-      let groceryItems = _.values(groceryList[itemType])
-      groceryItems = _.sortBy(groceryItems, "expirationDate")
+      let groceryItems = groceryList[itemType]
 
-      const groceryListItems = groceryItems.map(item => {
+      let flattenedGroceryItems = _.map(
+        groceryItems,
+        (item, firebaseItemKey) => {
+          return { ...item, firebaseItemKey }
+        }
+      )
+
+      flattenedGroceryItems = _.sortBy(flattenedGroceryItems, "expirationDate")
+
+      const groceryListItems = flattenedGroceryItems.map(item => {
         const groceryKey = `${item.expirationDate}_${item.item}`
         const momentExpirationDate = moment(item.expirationDate)
         const momentToday = moment().format("YYYY-MM-DD")
         const daysBetween = momentExpirationDate.diff(momentToday, "days")
-
-        if (itemType === "meat") {
-          debugger
-        }
-        const groceryItemFirebaseKey = _.keys(groceryList[itemType])[0]
 
         let cellClassnames
         if (isShowingCallout) {
@@ -81,9 +84,9 @@ class App extends Component {
               <Table.Cell>
                 <span className="delete-item-btn">
                   <Icon
-                    name="trash outline"
+                    name="delete"
                     onClick={() =>
-                      deleteGroceryItem(itemType, groceryItemFirebaseKey)}
+                      deleteGroceryItem(itemType, item.firebaseItemKey)}
                   />
                 </span>
               </Table.Cell>}

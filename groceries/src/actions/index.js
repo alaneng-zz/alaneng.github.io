@@ -74,11 +74,8 @@ export const toggleEditMode = () => {
   }
 }
 
-export const deleteGroceryItem = (itemType, groceryItemFirebaseKey) => {
+export const deleteGroceryItem = (itemType, itemKey) => {
   return () => {
-    firebase
-      .database()
-      .ref(`/inventory/${itemType}/${groceryItemFirebaseKey}`)
-      .remove()
+    firebase.database().ref(`/inventory/${itemType}/${itemKey}`).remove()
   }
 }
