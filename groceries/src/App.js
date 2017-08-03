@@ -13,6 +13,7 @@ import {
   addNewExpirationDate,
   addNewItemType,
   toggleShowCallouts,
+  toggleEditMode,
 } from "./actions"
 import "./App.css"
 
@@ -36,7 +37,9 @@ class App extends Component {
       addNewItemType,
       onEnterGroceryItem,
       toggleShowCallouts,
+      toggleEditMode,
       isShowingCallout,
+      isEditMode,
     } = this.props
 
     const groceryCards = _.keys(groceryList).map(itemType => {
@@ -67,11 +70,12 @@ class App extends Component {
                 ? <span style={{ opacity: "0.2" }}>none</span>
                 : moment(item.expirationDate).format("M/D/YY")}
             </Table.Cell>
-            <Table.Cell>
-              <span className="delete-item-btn">
-                <Icon name="trash outline" />
-              </span>
-            </Table.Cell>
+            {isEditMode &&
+              <Table.Cell>
+                <span className="delete-item-btn">
+                  <Icon name="trash outline" />
+                </span>
+              </Table.Cell>}
           </Table.Row>
         )
       })
@@ -98,11 +102,12 @@ class App extends Component {
                   <Table.HeaderCell sorted="ascending">
                     <span style={{ opacity: "0.2" }}>expiration date</span>
                   </Table.HeaderCell>
-                  <Table.HeaderCell sorted="ascending">
-                    <span style={{ opacity: "0.2" }}>
-                      <Icon name="setting" />
-                    </span>
-                  </Table.HeaderCell>
+                  {isEditMode &&
+                    <Table.HeaderCell sorted="ascending">
+                      <span style={{ opacity: "0.2" }}>
+                        <Icon name="setting" />
+                      </span>
+                    </Table.HeaderCell>}
                 </Table.Row>
               </Table.Header>
               <Table.Body>
@@ -132,6 +137,7 @@ class App extends Component {
               onEnterGroceryItem={onEnterGroceryItem}
               addNewItemIsDisabled={addNewItemIsDisabled}
               toggleShowCallouts={toggleShowCallouts}
+              toggleEditMode={toggleEditMode}
             />
           </div>
           <div className="grocery-container">
@@ -152,6 +158,7 @@ const mapStateToProps = state => {
     inputGroceryItemType: state.inputGroceryItemType,
     groceryList: state.groceryList,
     isShowingCallout: state.isShowingCallout,
+    isEditMode: state.isEditMode,
   }
 }
 
@@ -162,4 +169,5 @@ export default connect(mapStateToProps, {
   addNewExpirationDate,
   addNewItemType,
   toggleShowCallouts,
+  toggleEditMode,
 })(App)

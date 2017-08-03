@@ -75,11 +75,21 @@ class GroceryInput extends React.Component {
             Add new item
           </Button>
         </div>
-        <Checkbox
-          toggle
-          label="show callouts"
-          onChange={() => this.props.toggleShowCallouts()}
-        />
+        <div>
+          <Checkbox
+            toggle
+            label="show callouts"
+            onChange={() => this.props.toggleShowCallouts()}
+          />
+        </div>
+        <br />
+        <div>
+          <Checkbox
+            toggle
+            label="edit mode"
+            onChange={() => this.props.toggleEditMode()}
+          />
+        </div>
       </div>
     )
   }
