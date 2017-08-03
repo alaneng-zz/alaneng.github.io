@@ -13,6 +13,7 @@ const broths = "broths"
 const essentials = "essentials"
 const cheeses = "cheeses"
 const soups = "soups"
+const pastas = "pastas"
 
 export const foodTypeOptions = [
   { key: meat, text: meat, value: meat },
@@ -28,6 +29,7 @@ export const foodTypeOptions = [
   { key: essentials, text: essentials, value: essentials },
   { key: cheeses, text: cheeses, value: cheeses },
   { key: soups, text: soups, value: soups },
+  { key: pastas, text: pastas, value: pastas },
 ]
 
 export const groceryClassnames = obj => {
