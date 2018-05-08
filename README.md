@@ -1,2 +1,2 @@
 # alaneng.github.io
-Awesome stuff
+These projects showcase my attempt at creating some personal web apps.
